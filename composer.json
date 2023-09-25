@@ -1,0 +1,12 @@
+{
+    "name":"vothanhtrung/shopthoitrang",
+    "description": "xây dựng trang website bán hàng - thầy lợi",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "application/"
+        }
+    },
+    "require": {
+        "illuminate/database": "^10.24"
+    }
+}
