@@ -1,6 +1,4 @@
 <?php
-require_once 'vendor/autoload.php';
-use Src\Route; // gọi class 
-
+require_once './vendor/autoload.php';
 Route::route_site();
- ?>
+?>

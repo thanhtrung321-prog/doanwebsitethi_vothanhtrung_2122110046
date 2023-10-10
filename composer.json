@@ -1,12 +1,21 @@
 {
     "name":"vothanhtrung/shopthoitrang",
-    "description": "xây dựng trang website bán hàng - thầy lợi",
+    "description": "xây dựng trang website bán hàng - thầy lợi-năm học 2023-2024",
+    "authors": [{
+        "name":"Võ Thành Trung",
+        "email":"tvo30879@gmail.com"
+    }],
     "autoload": {
         "psr-4": {
-            "Src\\": "application/"
-        }
+            "App\\": "app/"
+        },
+        "files": [
+            "./app/Route.php",
+            "./config/database.php"
+        ]
     },
     "require": {
-        "illuminate/database": "^10.24"
+        "illuminate/database": "^10.26",
+        "illuminate/events": "^10.27"
     }
 }

@@ -34,13 +34,13 @@
                     <div class="call-login--register border-bottom">
                         <ul class="nav nav-fills py-0 my-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="login.phpindex.php">
+                                <a class="nav-link" href="login.php">
                                     <i class="fa fa-phone-square" aria-hidden="true"></i>
                                     0987654321
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Đăng nhập</a>
+                                <a class="nav-link" href="../frontend/login.php">Đăng nhập</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="register.php">Đăng ký</a>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-1 text-end py-4 py-md-2">
-                    <a href="cart.phpindex.php">
+                    <a href="cart.php">
                         <div class="box-cart float-end">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                             <span>1</span>
@@ -112,8 +112,7 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a class="dropdown-item text-main"
-                                                    href="product_category.phpindex.php">Quần
+                                                <a class="dropdown-item text-main" href="product_category.php">Quần
                                                     jean nam</a>
                                             </li>
                                             <li>
@@ -204,7 +203,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -213,7 +212,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 1</a>
+                                        <a href="product_detail.php">Thời trang nam 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -224,7 +223,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -233,7 +232,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail.php">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -244,7 +243,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -253,7 +252,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail.php">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -264,7 +263,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -273,7 +272,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail.php">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -284,7 +283,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -293,7 +292,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -304,7 +303,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -313,7 +312,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -324,7 +323,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -333,7 +332,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -344,7 +343,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nam-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -353,7 +352,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nam 2</a>
+                                        <a href="product_detail">Thời trang nam 2</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -381,7 +380,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -390,7 +389,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -401,7 +400,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -410,7 +409,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -421,7 +420,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -430,7 +429,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -441,7 +440,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -450,7 +449,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -461,7 +460,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -470,7 +469,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -481,7 +480,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -490,7 +489,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -501,7 +500,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -510,7 +509,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -521,7 +520,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-nu-1.jpg"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -530,7 +529,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang nữ 1</a>
+                                        <a href="product_detail">Thời trang nữ 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -558,7 +557,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -567,7 +566,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -578,7 +577,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -587,7 +586,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -598,7 +597,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -607,7 +606,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -618,7 +617,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -627,7 +626,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -638,7 +637,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -647,7 +646,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -658,7 +657,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -667,7 +666,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -678,7 +677,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -687,7 +686,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -698,7 +697,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-tre-em-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -707,7 +706,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php"> Thời trang trẻ em 1 </a>
+                                        <a href="product_detail.php"> Thời trang trẻ em 1 </a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -735,7 +734,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -744,7 +743,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -755,7 +754,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -764,7 +763,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -775,7 +774,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -784,7 +783,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -795,7 +794,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -804,7 +803,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -815,7 +814,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -824,7 +823,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -835,7 +834,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -844,7 +843,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -855,7 +854,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -864,7 +863,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -875,7 +874,7 @@
                             <div class="col-6 col-md-3 mb-4">
                                 <div class="product-item border">
                                     <div class="product-item-image">
-                                        <a href="product_detail.phpindex.php">
+                                        <a href="product_detail.php">
                                             <img src="/VOTHANHTRUNG_2122110046/public/images/product/thoi-trang-the-thao-1.webp"
                                                 class="img-fluid" alt="" id="img1" />
                                             <img class="img-fluid"
@@ -884,7 +883,7 @@
                                         </a>
                                     </div>
                                     <h2 class="product-item-name text-main text-center fs-5 py-1">
-                                        <a href="product_detail.phpindex.php">Thời trang thể thao 1</a>
+                                        <a href="product_detail.php">Thời trang thể thao 1</a>
                                     </h2>
                                     <h3 class="product-item-price fs-6 p-2 d-flex">
                                         <div class="flex-fill"><del>200.000đ</del></div>
@@ -905,11 +904,11 @@
                     <h3>BÀI VIẾT MỚI</h3>
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="post_detail.phpindex.php">
+                            <a href="post_detail.php">
                                 <img class="img-fluid" src="/VOTHANHTRUNG_2122110046/public/images/post/post-4.webp" />
                             </a>
                             <h3 class="post-title fs-4 py-2">
-                                <a href="post_detail.phpindex.php"> Tieu đề bài viết mói nhất 1 </a>
+                                <a href="post_detail.php"> Tieu đề bài viết mói nhất 1 </a>
                             </h3>
                             <p>
                                 Tieu đề bài viết mói nhất 1Tieu đề bài viết mói nhất 1Tieu đề
@@ -922,14 +921,14 @@
                         <div class="col-md-6">
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <a href="post_detail.phpindex.php">
+                                    <a href="post_detail.php">
                                         <img class="img-fluid"
                                             src="/VOTHANHTRUNG_2122110046/public/images/post/post-1.jpg" />
                                     </a>
                                 </div>
                                 <div class="col-md-8">
                                     <h3 class="post-title fs-5">
-                                        <a href="post_detail.phpindex.php">
+                                        <a href="post_detail.php">
                                             Tieu đề bài viết mói nhất 2
                                         </a>
                                     </h3>
@@ -941,14 +940,14 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <a href="post_detail.phpindex.php">
+                                    <a href="post_detail.php">
                                         <img class="img-fluid"
                                             src="/VOTHANHTRUNG_2122110046/public/images/post/post-2.jpg" />
                                     </a>
                                 </div>
                                 <div class="col-md-8">
                                     <h3 class="post-title fs-5">
-                                        <a href="post_detail.phpindex.php">
+                                        <a href="post_detail.php">
                                             Tieu đề bài viết mói nhất 3
                                         </a>
                                     </h3>
@@ -960,14 +959,14 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <a href="post_detail.phpindex.php">
+                                    <a href="post_detail.php">
                                         <img class="img-fluid"
                                             src="/VOTHANHTRUNG_2122110046/public/images/post/post-3.jpg" />
                                     </a>
                                 </div>
                                 <div class="col-md-8">
                                     <h3 class="post-title fs-5">
-                                        <a href="post_detail.phpindex.php">
+                                        <a href="post_detail.php">
                                             Tieu đề bài viết mói nhất 4
                                         </a>
                                     </h3>
