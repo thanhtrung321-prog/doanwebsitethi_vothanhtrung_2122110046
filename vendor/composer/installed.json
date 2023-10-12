@@ -154,8 +154,8 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -210,8 +210,8 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -268,8 +268,8 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -317,8 +317,8 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -371,8 +371,8 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -422,17 +422,17 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "f3be980302c06dcc7ed941d4b0079ae849c6c28a"
+                "reference": "ef935c937c8aef88e2de8d9067727b7250104c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/f3be980302c06dcc7ed941d4b0079ae849c6c28a",
-                "reference": "f3be980302c06dcc7ed941d4b0079ae849c6c28a",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/ef935c937c8aef88e2de8d9067727b7250104c6e",
+                "reference": "ef935c937c8aef88e2de8d9067727b7250104c6e",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
                 "illuminate/pagination": "Required to paginate the result set (^10.0).",
                 "symfony/finder": "Required to use Eloquent model factories (^6.2)."
             },
-            "time": "2023-10-02T18:33:10+00:00",
+            "time": "2023-10-09T14:49:26+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -552,8 +552,8 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -601,8 +601,8 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -652,17 +652,17 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v10.26.2",
-            "version_normalized": "10.26.2.0",
+            "version": "v10.27.0",
+            "version_normalized": "10.27.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "c7cf96f64ae6766a85fcd17f46afcae5a6a88744"
+                "reference": "dd3b3275a9dbd30736363f232e6bc2970d7681e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/c7cf96f64ae6766a85fcd17f46afcae5a6a88744",
-                "reference": "c7cf96f64ae6766a85fcd17f46afcae5a6a88744",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/dd3b3275a9dbd30736363f232e6bc2970d7681e9",
+                "reference": "dd3b3275a9dbd30736363f232e6bc2970d7681e9",
                 "shasum": ""
             },
             "require": {
@@ -690,7 +690,7 @@
                 "symfony/var-dumper": "Required to use the dd function (^6.2).",
                 "vlucas/phpdotenv": "Required to use the Env class and env helper (^5.4.1)."
             },
-            "time": "2023-09-21T20:37:39+00:00",
+            "time": "2023-10-06T13:41:04+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {

@@ -10,7 +10,7 @@ class Route
             $pathview .= $option;
 
             if (isset($_REQUEST["slug"])) {
-                $pathview .= "-detal.php";
+                $pathview .= "-detail.php";
             } else {
                 if (isset($_REQUEST["cat"])) {
                     $pathview .= "-category.php";
@@ -27,9 +27,11 @@ class Route
     {
         $pathview = "../views/backend/";
         if (isset($_REQUEST['option'])) {
-            $pathview .= $_REQUEST(['option']) . "/";
-            if (isset($_REQUEST['cat'])) {
-                $pathview .= $_REQUEST['cat'] . "/" . ".php";
+            $option = $_REQUEST['option'];
+            $pathview .= $option . "/";
+            if (isset($_REQUEST['category'])) {
+                $category = $_REQUEST['category'];
+                $pathview .= $category . ".php";
             } else {
                 $pathview .= "index.php";
             }
@@ -39,3 +41,4 @@ class Route
         require_once $pathview;
     }
 }
+?>

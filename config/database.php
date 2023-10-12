@@ -11,7 +11,7 @@ $capsule->addConnection([
     'password' => '',
     'charset' => 'utf8',
     'collation' => 'utf8_unicode_ci',
-    'prefix' => '', 
+    'prefix' => '0046_', 
 ]);
 
 // Set the event dispatcher used by Eloquent models... (optional)
@@ -24,4 +24,3 @@ $capsule->setAsGlobal();
 
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
-?>
