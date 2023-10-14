@@ -41,4 +41,3 @@ class Route
         require_once $pathview;
     }
 }
-?>
