@@ -1,4 +1,4 @@
-<?php require_once "../views/backend/header.php";?>
+<?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="d-inline">Tất cả thành viên</h1>
-                    <a href="user_create.php" class="btn btn-sm btn-primary">Thêm thành viên</a>
+                    <a href="index.php?option=user_create" class="btn btn-sm btn-primary">Thêm thành viên</a>
                 </div>
             </div>
         </div>
@@ -59,4 +59,4 @@
     </section>
 </div>
 <!-- END CONTENT-->
-<?php require_once "../views/backend/footer.php";?>
+<?php require_once "../views/backend/footer.php"; ?>

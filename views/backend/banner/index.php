@@ -1,4 +1,10 @@
 <?php require_once "../views/backend/header.php"; ?>
+<?php
+
+use App\models\Banner;
+
+$list = Banner::where('status', '!=', 0)->select('status', 'id', 'name', 'image', 'link')->orderBy('created_at', 'DESC')->get();
+?>
 <!-- CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
@@ -30,26 +36,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="datarow">
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>
-                                <img src="../public/images/banner.jpg" alt="banner.jpg">
-                            </td>
-                            <td>
-                                <div class="name">
-                                    Tên danh mục
-                                </div>
-                                <div class="function_style">
-                                    <a href="#">Hiện</a> |
-                                    <a href="#">Chỉnh sửa</a> |
-                                    <a href="banner_show.php">Chi tiết</a> |
-                                    <a href="#">Xoá</a>
-                                </div>
-                            </td>
-                            <td>lien-ket</td>
-                        </tr>
+                        <?php if (count($list) > 0) : ?>
+                            <?php foreach ($list as $item) : ?>
+                                <tr class="datarow">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>
+                                        <img src="../public/images/<?= $item->image ?>" alt="banner.jpg">
+                                    </td>
+                                    <td>
+                                        <div class="name">
+                                            <?= $item->name; ?>
+                                        </div>
+                                        <div class="function_style">
+                                            <a href="#">Hiện</a> |
+                                            <a href="#">Chỉnh sửa</a> |
+                                            <a href="banner_show.php">Chi tiết</a> |
+                                            <a href="#">Xoá</a>
+                                        </div>
+                                    </td>
+                                    <td><?= $item->link ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php endif ?>
+                        <?php ?>
                     </tbody>
                 </table>
             </div>
