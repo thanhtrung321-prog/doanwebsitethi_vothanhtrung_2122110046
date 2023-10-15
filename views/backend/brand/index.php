@@ -70,32 +70,32 @@ require_once "../views/backend/header.php";
                                     <?php
                                     if (count($list) > 0) :
                                     ?>
-                                    <?php
+                                        <?php
                                         foreach ($list as $item) :
                                         ?>
-                                    <tr class="datarow">
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>
-                                            <img src="<?= $item->image ?>" alt="brand.jpg">
-                                        </td>
-                                        <td>
-                                            <div class="name">
-                                                <?= $item->name; ?>
-                                            </div>
-                                            <div class="function_style">
-                                                <a href="#">Hiện</a> |
-                                                <a href="#">Chỉnh sửa</a> |
-                                                <a href="../backend/brand_show.php">Chi tiết</a> |
-                                                <a href="#">Xoá</a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <?= $item->slug ?>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach ?>
+                                            <tr class="datarow">
+                                                <td>
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td>
+                                                    <img src="<?= $item->image ?>" alt="brand.jpg">
+                                                </td>
+                                                <td>
+                                                    <div class="name">
+                                                        <?= $item->name; ?>
+                                                    </div>
+                                                    <div class="function_style">
+                                                        <a href="#">Hiện</a> |
+                                                        <a href="#">Chỉnh sửa</a> |
+                                                        <a href="../backend/brand_show.php">Chi tiết</a> |
+                                                        <a href="#">Xoá</a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <?= $item->slug ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
                                     <?php endif ?>
                                 </tbody>
                             </table>

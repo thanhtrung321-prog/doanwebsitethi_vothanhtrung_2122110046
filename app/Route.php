@@ -1,43 +1,69 @@
 <?php
+
 class Route
 {
     public static function route_site()
     {
-        $pathview = "views/frontend/";
+        $path = "views/fontend/";
 
         if (isset($_REQUEST["option"])) {
             $option = $_REQUEST["option"];
-            $pathview .= $option;
+            $path .= $option;
 
             if (isset($_REQUEST["slug"])) {
-                $pathview .= "-detail.php";
+                $path .= "-detail.php";
             } else {
                 if (isset($_REQUEST["cat"])) {
-                    $pathview .= "-category.php";
+                    $path .= "-category.php";
                 } else {
-                    $pathview .= ".php";
+                    $path .= ".php";
                 }
             }
         } else {
-            require_once "views/frontend/home.php";
+            $path = "views/fontend/home.php";
+        }
+
+        if (file_exists($path)) {
+            require_once $path;
+        } else {
+            echo "Trang không tồn tại";
         }
     }
 
     public static function route_admin()
     {
-        $pathview = "../views/backend/";
+        $path = "../views/backend/";
+
         if (isset($_REQUEST['option'])) {
-            $option = $_REQUEST['option'];
-            $pathview .= $option . "/";
-            if (isset($_REQUEST['category'])) {
-                $category = $_REQUEST['category'];
-                $pathview .= $category . ".php";
+            if ($_REQUEST['option'] === 'product_create') {
+                $path .= 'product/product_create.php';
+            } else if ($_REQUEST['option'] === 'product_show') {
+                $path .= 'product/product_show.php';
+            } else if ($_REQUEST['option'] === 'post_create') {
+                $path .= 'post/post_create.php';
+            } else if ($_REQUEST['option'] === 'user_create') {
+                $path .= 'user/user_create.php';
+            } else if ($_REQUEST['option'] === 'customer_create') {
+                $path .= 'customer/customer_create.php';
+            } else if ($_REQUEST['option'] === 'page_create') {
+                $path .= 'page/page_create.php';
+            } else if ($_REQUEST['option'] === 'banner_create') {
+                $path .= 'banner/banner_create.php';
+            } else if ($_REQUEST['option'] === 'contact_create') {
+                $path .= 'contact/contact_create.php';
+            } else if ($_REQUEST['option'] === 'page_create') {
+                $path .= 'page/page_create.php';
             } else {
-                $pathview .= "index.php";
+                $path .= $_REQUEST['option'] . '/';
+                if (isset($_REQUEST['cat'])) {
+                    $path .= $_REQUEST['cat'] . ".php";
+                } else {
+                    $path .= "index.php";
+                }
             }
         } else {
-            $pathview .= "dashboard/index.php";
+            $path .= "dashboard/index.php";
         }
-        require_once $pathview;
+        require_once $path;
     }
 }

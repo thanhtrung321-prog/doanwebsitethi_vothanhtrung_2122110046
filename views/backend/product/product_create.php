@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thêm mới sản phẩm</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/datatables/css/dataTables.min.css">
@@ -35,8 +34,7 @@
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -58,8 +56,7 @@
         </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a href="../backend/index.php" class="brand-link">
-                <img src="../public/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="../public/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">QUẢN TRỊ</span>
             </a>
             <div class="sidebar">
@@ -72,8 +69,7 @@
                     </div>
                 </div>
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -90,7 +86,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="category_index.php" class="nav-link">
+                                    <a href="category_index.php?option=category" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh mục</p>
                                     </a>
@@ -278,8 +274,7 @@
                                 <div class="col-md-9">
                                     <div class="mb-3">
                                         <label>Tên sản phẩm (*)</label>
-                                        <input type="text" placeholder="Nhập tên sản phẩm" name="name"
-                                            class="form-control">
+                                        <input type="text" placeholder="Nhập tên sản phẩm" name="name" class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label>Slug</label>
@@ -307,15 +302,13 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Chi tiết (*)</label>
-                                        <textarea name="detail" placeholder="Nhập chi tiết sản phẩm" rows="5"
-                                            class="form-control"></textarea>
+                                        <textarea name="detail" placeholder="Nhập chi tiết sản phẩm" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Giá bán (*)</label>
-                                        <input type="number" value="10000" min="10000" name="price"
-                                            class="form-control">
+                                        <input type="number" value="10000" min="10000" name="price" class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label>Hình đại diện</label>
@@ -344,14 +337,14 @@
             reserved.
         </footer>
     </div>
-    <script src="../public/jquery/jquery-3.7.0.min.js"></script>
-    <script src="../public/datatables/js/dataTables.min.js"></script>
-    <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../public/dist/js/adminlte.min.js"></script>
+    <script src="/VOTHANHTRUNG_2122110046/public/jquery/jquery-3.7.0.min.js"></script>
+    <script src="/VOTHANHTRUNG_2122110046/public/datatables/js/dataTables.min.js"></script>
+    <script src="/VOTHANHTRUNG_2122110046/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/VOTHANHTRUNG_2122110046/public/dist/js/adminlte.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#mytable').DataTable();
-    });
+        $(document).ready(function() {
+            $('#mytable').DataTable();
+        });
     </script>
 </body>
 

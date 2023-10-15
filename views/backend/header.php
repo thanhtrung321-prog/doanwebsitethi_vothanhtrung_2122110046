@@ -21,7 +21,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.php" class="nav-link">Home</a>
+                    <a href="index.php?option=contact" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -85,7 +85,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/VoThanhTrung_2122110046/views/backend/product" class="nav-link">
+                                    <a href="index.php?option=product" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tất cả sản phẩm</p>
                                     </a>
