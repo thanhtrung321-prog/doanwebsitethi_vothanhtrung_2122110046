@@ -73,29 +73,30 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        // Tạo điều kiện truy vấn ban đầu
         $args = [
             ['roles', '=', 1],
             ['status', '=', 1],
         ];
 
         if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-            // Nếu người dùng nhập email, thêm điều kiện cho email
             $args[] = ['email', '=', $username];
         } else {
-            // Nếu người dùng nhập tên người dùng, thêm điều kiện cho tên người dùng
+
             $args[] = ['username', '=', $username];
         }
 
-        // Thực hiện truy vấn
+
         $user = User::where($args)->first();
 
         if ($user !== null && $user->password === $password) {
-            // Đăng nhập thành công
+
+            $_SESSION['useradmin'] = $username;
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['name'] = $user->name;
+            $_SESSION['image'] = $user->image;
             session_start();
             header('location:index.php');
             $_SESSION['useradmin'] = $username;
-            // Các thông tin khác bạn muốn lưu trữ trong session có thể thêm tại đây
         } else {
             $error = "Đăng nhập thất bại. Vui lòng kiểm tra tên người dùng hoặc mật khẩu.";
         }
@@ -130,7 +131,7 @@
                     </div>
                     <div class="text-content text-right">
                         <p><i>Chú ý: (*) Bắt buộc phải điền tài khoản và mật khẩu</i></p>
-                        <?php if ($error != "") : ?>
+                        <?php if (isset($error) != "") : ?>
                             <p class="text-red-500"><?= $error ?></p>
                         <?php endif ?>
                     </div>
