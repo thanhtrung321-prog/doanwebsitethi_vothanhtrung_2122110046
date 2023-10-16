@@ -53,6 +53,10 @@ class Route
                 $path .= 'contact/contact_create.php';
             } else if ($_REQUEST['option'] === 'page_create') {
                 $path .= 'page/page_create.php';
+            } else if ($_REQUEST['option'] === 'order_details') {
+                $path .= 'order/order_details.php';
+            } else if ($_REQUEST['option'] === 'addorder') { //! dòng mới thêm
+                $path .= 'order/addorder.php';
             } else {
                 $path .= $_REQUEST['option'] . '/';
                 if (isset($_REQUEST['cat'])) {

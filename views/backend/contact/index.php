@@ -1,6 +1,10 @@
 <?php require_once "../views/backend/header.php"; ?>
+<?php
 
+use App\Models\Contact;
 
+$list = Contact::where('status', '!=', 0)->select('status', 'name', 'email', 'title', 'phone')->orderBy('created_at', 'DESC')->get();
+?>
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -31,25 +35,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="datarow">
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>
-                                <div class="name">
-                                    Hồ Diên Lơij
-                                </div>
-                                <div class="function_style">
-                                    <a href="#">Hiện</a> |
-                                    <a href="#">Trả lời</a> |
-                                    <a href="../backend/brand_show.php">Chi tiết</a> |
-                                    <a href="#">Xoá</a>
-                                </div>
-                            </td>
-                            <td>098765432</td>
-                            <td>dienloisoft@gmail.com</td>
-                            <td>Tieu đề</td>
-                        </tr>
+                        <?php if (count($list) > 0) : ?>
+                            <?php foreach ($list as $item) : ?>
+                                <tr class="datarow">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>
+                                        <div class="name">
+                                            <?= $item->name ?>
+                                        </div>
+                                        <div class="function_style">
+                                            <a href="#">Hiện</a> |
+                                            <a href="#">Trả lời</a> |
+                                            <a href="../backend/brand_show.php">Chi tiết</a> |
+                                            <a href="#">Xoá</a>
+                                        </div>
+                                    </td>
+                                    <td><?= $item->phone ?></td>
+                                    <td><?= $item->email ?></td>
+                                    <td>
+                                        <? $item->title ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div>

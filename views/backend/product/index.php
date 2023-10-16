@@ -1,4 +1,10 @@
 <?php require_once "../views/backend/header.php"; ?>
+<?php
+
+use App\Models\Product;
+
+$list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+?>
 <!-- CONTENT -->
 <form action="" method="post">
     <div class="content-wrapper">
@@ -36,27 +42,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="datarow">
-                                <td>
-                                    <input type="checkbox">
-                                </td>
-                                <td>
-                                    <img src="../public/images/product.jpg" alt="product.jpg">
-                                </td>
-                                <td>
-                                    <div class="name">
-                                        Tên sản phẩm
-                                    </div>
-                                    <div class="function_style">
-                                        <a href="#">Hiện</a> |
-                                        <a href="#">Chỉnh sửa</a> |
-                                        <a href="product_show.php?option=product">Chi tiết</a> |
-                                        <a href="#">Xoá</a>
-                                    </div>
-                                </td>
-                                <td>Tên danh mục</td>
-                                <td>Tên Thuong hiệu</td>
-                            </tr>
+                            <?php if (count($list) > 0) : ?>
+                                <?php foreach ($list as $item) : ?>
+                                    <tr class="datarow">
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>
+                                            <img src="../public/images/product.jpg" alt="product.jpg">
+                                        </td>
+                                        <td>
+                                            <div class="name">
+                                                <?= $item->name ?>
+                                            </div>
+                                            <div class="function_style">
+                                                <a href="#">Hiện</a> |
+                                                <a href="#">Chỉnh sửa</a> |
+                                                <a href="product_show.php?option=product">Chi tiết</a> |
+                                                <a href="#">Xoá</a>
+                                            </div>
+                                        </td>
+                                        <td><?= $item->brand_id ?></td>
+                                        <td> <?= $item->category_id ?></td>
+                                    </tr>
+                                <?php endforeach ?>
+                            <?php endif ?>
                         </tbody>
                     </table>
                 </div>

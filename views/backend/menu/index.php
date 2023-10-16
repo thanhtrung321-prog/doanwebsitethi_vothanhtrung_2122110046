@@ -1,5 +1,11 @@
 <!-- CONTENT -->
 <?php require_once "../views/backend/header.php"; ?>
+<?php
+
+use App\Models\Menu;
+
+$list = Menu::where('status', '!=', 0)->select('name', 'table_id', 'parent_id')->orderBy('created_at', 'DESC')->get();
+?>
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -162,13 +168,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php if (count($list) > 0) : ?>
+                                <?php foreach ($list as $item) : ?>
                                 <tr class="datarow">
                                     <td>
                                         <input type="checkbox">
                                     </td>
                                     <td>
                                         <div class="name">
-                                            Trang chủ
+                                            <?= $item->name; ?>
                                         </div>
                                         <div class="function_style">
                                             <a href="#">Hiện</a> |
@@ -177,9 +185,11 @@
                                             <a href="#">Xoá</a>
                                         </div>
                                     </td>
-                                    <td>index.php</td>
-                                    <td>mainmenu</td>
+                                    <td><?= $item->table_id ?></td>
+                                    <td><?= $item->parent_id ?></td>
                                 </tr>
+                                <?php endforeach ?>
+                                <?php endif ?>
                             </tbody>
                         </table>
                     </div>
