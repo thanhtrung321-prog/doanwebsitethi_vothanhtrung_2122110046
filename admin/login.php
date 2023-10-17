@@ -8,58 +8,58 @@
     <title>Đăng nhập</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <style>
-    .loader {
-        position: absolute;
-        width: 106px;
-        height: 56px;
-        display: block;
-        margin: 30px auto;
-        background-image: linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), radial-gradient(circle 14px, #FFF 100%, transparent 0);
-        background-size: 48px 15px, 15px 35px, 15px 35px, 25px 15px, 28px 28px;
-        background-position: 25px 5px, 58px 20px, 25px 17px, 2px 37px, 76px 0px;
-        background-repeat: no-repeat;
-        position: relative;
-        transform: rotate(-45deg);
-        box-sizing: border-box;
-    }
-
-    .loader::after,
-    .loader::before {
-        content: '';
-        position: absolute;
-        width: 56px;
-        height: 56px;
-        border: 6px solid #FFF;
-        border-radius: 50%;
-        left: -45px;
-        top: -10px;
-        background-repeat: no-repeat;
-        background-image: linear-gradient(#FFF 64px, transparent 0), linear-gradient(#FFF 66px, transparent 0), radial-gradient(circle 4px, #FFF 100%, transparent 0);
-        background-size: 40px 1px, 1px 40px, 8px 8px;
-        background-position: center center;
-        box-sizing: border-box;
-        animation: rotation 0.3s linear infinite;
-    }
-
-    .loader::before {
-        left: 25px;
-        top: 60px;
-    }
-
-    #dieuchinh {
-        display: none;
-        position: absolute;
-    }
-
-    @keyframes rotation {
-        0% {
-            transform: rotate(0deg);
+        .loader {
+            position: absolute;
+            width: 106px;
+            height: 56px;
+            display: block;
+            margin: 30px auto;
+            background-image: linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), linear-gradient(#FFF 50px, transparent 0), radial-gradient(circle 14px, #FFF 100%, transparent 0);
+            background-size: 48px 15px, 15px 35px, 15px 35px, 25px 15px, 28px 28px;
+            background-position: 25px 5px, 58px 20px, 25px 17px, 2px 37px, 76px 0px;
+            background-repeat: no-repeat;
+            position: relative;
+            transform: rotate(-45deg);
+            box-sizing: border-box;
         }
 
-        100% {
-            transform: rotate(360deg);
+        .loader::after,
+        .loader::before {
+            content: '';
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            border: 6px solid #FFF;
+            border-radius: 50%;
+            left: -45px;
+            top: -10px;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(#FFF 64px, transparent 0), linear-gradient(#FFF 66px, transparent 0), radial-gradient(circle 4px, #FFF 100%, transparent 0);
+            background-size: 40px 1px, 1px 40px, 8px 8px;
+            background-position: center center;
+            box-sizing: border-box;
+            animation: rotation 0.3s linear infinite;
         }
-    }
+
+        .loader::before {
+            left: 25px;
+            top: 60px;
+        }
+
+        #dieuchinh {
+            display: none;
+            position: absolute;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -71,7 +71,7 @@
 
     if (isset($_POST['dangnhap'])) {
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = sha1($_POST['password']);
 
         $args = [
             ['roles', '=', 1],
@@ -113,24 +113,18 @@
                     <div class="mb-4">
                         <label for="username" class="block text-sm font-medium text-gray-700 mb-2">Tên người
                             dùng</label>
-                        <input type="text" id="username" name="username"
-                            class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
-                            required>
+                        <input type="text" id="username" name="username" class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Mật khẩu</label>
-                        <input type="password" id="password" name="password"
-                            class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500"
-                            required>
+                        <input type="password" id="password" name="password" class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500" required>
                     </div>
                     <div class="mb-4">
-                        <button type="submit" name="dangnhap"
-                            class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 ">Đăng
+                        <button type="submit" name="dangnhap" class="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 ">Đăng
                             nhập</button>
                     </div>
                     <div class="text-content text-right mb-2 lg:flex justify-between mr-4">
-                        <p><i class="underline decoration-1 mr-4">Bạn đã có tài khoản ? <a class="ml-4 text-red-300"
-                                    href="#">tạo
+                        <p><i class="underline decoration-1 mr-4">Bạn đã có tài khoản ? <a class="ml-4 text-red-300" href="#">tạo
                                     tài
                                     khoản</a></i></p>
                         <p><a class="underline text-blue-500" href="#">quên mật khẩu ?</a></p>
@@ -138,7 +132,7 @@
                     <div class="text-content text-right">
                         <p><i>Chú ý: (*) Bắt buộc phải điền tài khoản và mật khẩu</i></p>
                         <?php if (isset($error) != "") : ?>
-                        <p class="text-red-500"><?= $error ?></p>
+                            <p class="text-red-500"><?= $error ?></p>
                         <?php endif ?>
                     </div>
                 </form>
@@ -147,16 +141,16 @@
     </form>
 </body>
 <script>
-<?php if (isset($_REQUEST['dangnhap'])) : ?>
-document.addEventListener("DOMContentLoaded", function() {
-    var dieuchinh = document.getElementById('dieuchinh');
-    dieuchinh.style.display = 'block';
+    <?php if (isset($_REQUEST['dangnhap'])) : ?>
+        document.addEventListener("DOMContentLoaded", function() {
+            var dieuchinh = document.getElementById('dieuchinh');
+            dieuchinh.style.display = 'block';
 
-    setTimeout(function() {
-        dieuchinh.style.display = 'none';
-    }, 1000);
-});
-<?php endif ?>
+            setTimeout(function() {
+                dieuchinh.style.display = 'none';
+            }, 1000);
+        });
+    <?php endif ?>
 </script>
 
 

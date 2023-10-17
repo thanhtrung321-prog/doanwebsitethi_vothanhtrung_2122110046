@@ -1,8 +1,9 @@
 <?php require_once "../views/backend/header.php"; ?>
 <?php
-if ($kiemtra == false) {
-    echo "thành công";
-}
+
+use App\Models\Order;
+
+$list = Order::where('status', '!=', 0)->get();
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -36,27 +37,31 @@ if ($kiemtra == false) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="datarow">
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>
-                                tên người giao hàng
-                            </td>
-                            <td>
-                                <div class="gender">giới tính</div>
-                                <div class="function_style">
-                                    <a href="#">Hiện</a> |
-                                    <a href="#">Chỉnh sửa</a> |
-                                    <a href="../backend/brand_show.php">Chi tiết</a> |
-                                    <a href="#">Xoá</a>
-                                </div>
-                            </td>
-                            <td>số điện thoại</td>
-                            <td>email</td>
-                            <td>địa chỉ</td>
-                            <td>ghi chú</td>
-                        </tr>
+                        <?php if (count($list) > 0) : ?>
+                            <?php foreach ($list as $item) : ?>
+                                <tr class="datarow">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>
+                                        <?= $item->deliveryname ?>
+                                    </td>
+                                    <td>
+                                        <div class="gender"> <?= $item->delivery_gender ?></div>
+                                        <div class="function_style">
+                                            <a href="#">Hiện</a> |
+                                            <a href="#">Chỉnh sửa</a> |
+                                            <a href="../backend/brand_show.php">Chi tiết</a> |
+                                            <a href="#">Xoá</a>
+                                        </div>
+                                    </td>
+                                    <td><?= $item->deliveryphone ?></td>
+                                    <td><?= $item->deliveryemail ?></td>
+                                    <td><?= $item->deliveryaddress ?></td>
+                                    <td><?= $item->note ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div>
@@ -65,5 +70,4 @@ if ($kiemtra == false) {
 </div>
 
 </div>
-<!-- END CONTENT-->
-<?php require_once "../views/backend/footer.php"; ?>
+<?php require_once '../views/backend/footer.php'; ?>

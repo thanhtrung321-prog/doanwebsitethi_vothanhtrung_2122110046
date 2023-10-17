@@ -57,6 +57,8 @@ class Route
                 $path .= 'order/order_details.php';
             } else if ($_REQUEST['option'] === 'addorder') { //! dòng mới thêm
                 $path .= 'order/addorder.php';
+            } else if ($_REQUEST['option'] === 'addcategory') { //!* dòng mới thêm !
+                $path .= 'category/addcategory.php';
             } else {
                 $path .= $_REQUEST['option'] . '/';
                 if (isset($_REQUEST['cat'])) {

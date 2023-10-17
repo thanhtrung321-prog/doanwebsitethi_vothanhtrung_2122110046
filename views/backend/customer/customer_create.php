@@ -1,4 +1,4 @@
-<?php require_once "../views/backend/header.php";?>
+<?php require_once "../views/backend/header.php"; ?>
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
     <section class="content">
         <div class="card">
             <div class="card-header text-right">
-                <a href="../backend/product_index.php?option=customer" class="btn btn-sm btn-info">
+                <a href="index.php?option=customer" class="btn btn-sm btn-info">
                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                     Về danh sách
                 </a>
@@ -85,9 +85,9 @@
 <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../public/dist/js/adminlte.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('#mytable').DataTable();
-});
+    $(document).ready(function() {
+        $('#mytable').DataTable();
+    });
 </script>
 </body>
 

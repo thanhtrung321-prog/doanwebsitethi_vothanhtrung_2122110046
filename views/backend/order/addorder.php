@@ -12,11 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $order->deliveryemail = $_POST['deliveryemail'];
     $order->deliveryaddress = $_POST['deliveryaddress'];
     $order->note = $_POST['note'];
-    $_REQUEST['kiemtra']=false;
     if ($order->save()) {
-        $kiemtra == true;
         header('location:index.php?option=order');
-        return $kiemtra;
         exit;
     } else {
         echo "Lỗi khi thêm dữ liệu";
