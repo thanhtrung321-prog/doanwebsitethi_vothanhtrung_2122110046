@@ -13,7 +13,7 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h1 class="d-inline">Tất cả sản phẩm</h1>
-                        <a href="product_create.php?option=product" class="btn btn-sm btn-primary">Thêm sản
+                        <a href="index.php?option=product_create" class="btn btn-sm btn-primary">Thêm sản
                             phẩm</a>
                     </div>
                 </div>
@@ -43,29 +43,29 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                         </thead>
                         <tbody>
                             <?php if (count($list) > 0) : ?>
-                                <?php foreach ($list as $item) : ?>
-                                    <tr class="datarow">
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>
-                                            <img src="../public/images/product.jpg" alt="product.jpg">
-                                        </td>
-                                        <td>
-                                            <div class="name">
-                                                <?= $item->name ?>
-                                            </div>
-                                            <div class="function_style">
-                                                <a href="#">Hiện</a> |
-                                                <a href="#">Chỉnh sửa</a> |
-                                                <a href="product_show.php?option=product">Chi tiết</a> |
-                                                <a href="#">Xoá</a>
-                                            </div>
-                                        </td>
-                                        <td><?= $item->brand_id ?></td>
-                                        <td> <?= $item->category_id ?></td>
-                                    </tr>
-                                <?php endforeach ?>
+                            <?php foreach ($list as $item) : ?>
+                            <tr class="datarow">
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    <img src="../public/images/product.jpg" alt="product.jpg">
+                                </td>
+                                <td>
+                                    <div class="name">
+                                        <?= $item->name ?>
+                                    </div>
+                                    <div class="function_style">
+                                        <a href="#">Hiện</a> |
+                                        <a href="#">Chỉnh sửa</a> |
+                                        <a href="product_show.php?option=product">Chi tiết</a> |
+                                        <a href="#">Xoá</a>
+                                    </div>
+                                </td>
+                                <td><?= $item->brand_id ?></td>
+                                <td> <?= $item->category_id ?></td>
+                            </tr>
+                            <?php endforeach ?>
                             <?php endif ?>
                         </tbody>
                     </table>

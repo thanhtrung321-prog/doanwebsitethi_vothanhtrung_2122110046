@@ -33,7 +33,8 @@ require_once "../views/backend/header.php";
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label>Tên danh mục (*)</label>
-                                <input type="text" name="name" id="name" placeholder="Nhập tên danh mục" class="form-control" onkeydown="handle_slug(this.value);">
+                                <input type="text" name="name" id="name" placeholder="Nhập tên danh mục"
+                                    class="form-control" onkeydown="handle_slug(this.value);">
                             </div>
                             <div class="mb-3">
                                 <label>Slug</label>
@@ -73,34 +74,34 @@ require_once "../views/backend/header.php";
                 </thead>
                 <tbody>
                     <?php if (count($list) > 0) : ?>
-                        <?php foreach ($list as $item) : ?>
-                            <tr class="datarow">
-                                <td>
-                                    <input type="checkbox">
-                                </td>
-                                <td>
-                                    <img src="<?= $item->image ?>" alt="brand.jpg">
-                                </td>
-                                <td>
-                                    <div class="name">
-                                        <?= $item->name; ?>
-                                    </div>
-                                    <div class="function_style">
-                                        <?php if ($item->status == 1) : ?>
-                                            <a href="#">Hiện</a>
-                                        <?php else : ?>
-                                            <a href="#">ẩn</a>
-                                        <?php endif; ?>
-                                        <a href="#">Chỉnh sửa</a>
-                                        <a href="../backend/brand_show.php">Chi tiết</a>
-                                        <a href="#">Xoá</a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <?= $item->slug ?>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
+                    <?php foreach ($list as $item) : ?>
+                    <tr class="datarow">
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <img src="<?= $item->image ?>" alt="brand.jpg">
+                        </td>
+                        <td>
+                            <div class="name">
+                                <?= $item->name; ?>
+                            </div>
+                            <div class="function_style">
+                                <?php if ($item->status == 1) : ?>
+                                <a href="#">Hiện</a>
+                                <?php else : ?>
+                                <a href="#">ẩn</a>
+                                <?php endif; ?>
+                                <a href="#">Chỉnh sửa</a>
+                                <a href="../backend/brand_show.php">Chi tiết</a>
+                                <a href="#">Xoá</a>
+                            </div>
+                        </td>
+                        <td>
+                            <?= $item->slug ?>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
                     <?php endif ?>
                 </tbody>
 

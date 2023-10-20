@@ -7,7 +7,6 @@ use App\Models\Order;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $order = new Order();
     $order->deliveryname = $_POST['deliveryname'];
-    $order->delivery_gender = $_POST['delivery_gender'];
     $order->deliveryphone = $_POST['deliveryphone'];
     $order->deliveryemail = $_POST['deliveryemail'];
     $order->deliveryaddress = $_POST['deliveryaddress'];

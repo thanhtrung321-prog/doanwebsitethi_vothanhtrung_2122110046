@@ -29,7 +29,6 @@ $list = Order::where('status', '!=', 0)->get();
                                 <input type="checkbox">
                             </th>
                             <th class="text-center" style="width:130px;">tên người giao hàng</th>
-                            <th>giới tính</th>
                             <th>số điện thoại</th>
                             <th>email</th>
                             <th>địa chỉ</th>
@@ -38,29 +37,28 @@ $list = Order::where('status', '!=', 0)->get();
                     </thead>
                     <tbody>
                         <?php if (count($list) > 0) : ?>
-                            <?php foreach ($list as $item) : ?>
-                                <tr class="datarow">
-                                    <td>
-                                        <input type="checkbox">
-                                    </td>
-                                    <td>
-                                        <?= $item->deliveryname ?>
-                                    </td>
-                                    <td>
-                                        <div class="gender"> <?= $item->delivery_gender ?></div>
-                                        <div class="function_style">
-                                            <a href="#">Hiện</a> |
-                                            <a href="#">Chỉnh sửa</a> |
-                                            <a href="../backend/brand_show.php">Chi tiết</a> |
-                                            <a href="#">Xoá</a>
-                                        </div>
-                                    </td>
-                                    <td><?= $item->deliveryphone ?></td>
-                                    <td><?= $item->deliveryemail ?></td>
-                                    <td><?= $item->deliveryaddress ?></td>
-                                    <td><?= $item->note ?></td>
-                                </tr>
-                            <?php endforeach ?>
+                        <?php foreach ($list as $item) : ?>
+                        <tr class="datarow">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>
+                                <?= $item->deliveryname ?>
+                            </td>
+                            <td>
+                                <div class="function_style">
+                                    <a href="#">Hiện</a> |
+                                    <a href="#">Chỉnh sửa</a> |
+                                    <a href="../backend/brand_show.php">Chi tiết</a> |
+                                    <a href="#">Xoá</a>
+                                </div>
+                            </td>
+                            <td><?= $item->deliveryphone ?></td>
+                            <td><?= $item->deliveryemail ?></td>
+                            <td><?= $item->deliveryaddress ?></td>
+                            <td><?= $item->note ?></td>
+                        </tr>
+                        <?php endforeach ?>
                         <?php endif ?>
                     </tbody>
                 </table>

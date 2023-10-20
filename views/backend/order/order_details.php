@@ -10,12 +10,6 @@
                 <label for="deliveryname">Tên Người Giao Hàng:</label>
                 <input type="text" name="deliveryname" id="deliveryname" class="form-control" required>
             </div>
-
-            <div class="form-group">
-                <label for="delivery_gender">Giới Tính:</label>
-                <input type="text" name="delivery_gender" id="delivery_gender" class="form-control" required>
-            </div>
-
             <div class="form-group">
                 <label for="deliveryphone">Số Điện Thoại:</label>
                 <input type="tel" name="deliveryphone" id="deliveryphone" class="form-control" required>
