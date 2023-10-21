@@ -5,7 +5,7 @@ use App\Models\Brand;
 // ?    ['status','!=',0],
 // ?   ['id','=',1]
 //* ];
-$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get(); // truy vấngit
 ?>
 <?php
 require_once "../views/backend/header.php";
@@ -70,32 +70,32 @@ require_once "../views/backend/header.php";
                                     <?php
                                     if (count($list) > 0) :
                                     ?>
-                                        <?php
+                                    <?php
                                         foreach ($list as $item) :
                                         ?>
-                                            <tr class="datarow">
-                                                <td>
-                                                    <input type="checkbox">
-                                                </td>
-                                                <td>
-                                                    <img src="<?= $item->image ?>" alt="brand.jpg">
-                                                </td>
-                                                <td>
-                                                    <div class="name">
-                                                        <?= $item->name; ?>
-                                                    </div>
-                                                    <div class="function_style">
-                                                        <a href="#">Hiện</a> |
-                                                        <a href="#">Chỉnh sửa</a> |
-                                                        <a href="../backend/brand_show.php">Chi tiết</a> |
-                                                        <a href="#">Xoá</a>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <?= $item->slug ?>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach ?>
+                                    <tr class="datarow">
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>
+                                            <img src="<?= $item->image ?>" alt="brand.jpg">
+                                        </td>
+                                        <td>
+                                            <div class="name">
+                                                <?= $item->name; ?>
+                                            </div>
+                                            <div class="function_style">
+                                                <a name='show' href="index.php?option=brand_show">Hiện</a> |
+                                                <a href="index.php?option=brand_edit">Chỉnh sửa</a> |
+                                                <a href="index.php?option=brand_destroy">Chi tiết</a> |
+                                                <a href="index.php?option=brand_delete">Xoá</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <?= $item->slug ?>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach ?>
                                     <?php endif ?>
                                 </tbody>
                             </table>

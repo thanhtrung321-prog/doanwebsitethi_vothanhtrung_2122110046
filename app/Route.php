@@ -59,6 +59,14 @@ class Route
                 $path .= 'order/addorder.php';
             } else if ($_REQUEST['option'] === 'addcategory') { //!* dòng mới thêm !
                 $path .= 'category/addcategory.php';
+            } else if ($_REQUEST['option'] === 'brand_show') {
+                $path .= 'brand/brand_show.php';
+            } else if ($_REQUEST['option'] === 'brand_edit') {
+                $path .= 'brand/brand_edit.php';
+            } else if ($_REQUEST['option'] === 'brand_destroy') {
+                $path .= 'brand/brand_edit.php';
+            } else if ($_REQUEST['option'] === 'brand_delete') {
+                $path .= 'brand/brand_edit.php';
             } else {
                 $path .= $_REQUEST['option'] . '/';
                 if (isset($_REQUEST['cat'])) {
