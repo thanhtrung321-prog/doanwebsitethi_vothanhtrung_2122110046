@@ -4,12 +4,12 @@ class Route
 {
     public static function route_site()
     {
-        $path = "views/fontend/";
+        $path = "views/frontend/";
 
-        if (isset($_REQUEST["option"])) {
-            $option = $_REQUEST["option"];
-            $path .= $option;
-
+        if (!isset($_REQUEST["option"])) {
+            $path .= "home.php";
+        } else {
+            $path .= $_REQUEST["option"];
             if (isset($_REQUEST["slug"])) {
                 $path .= "-detail.php";
             } else {
@@ -19,17 +19,9 @@ class Route
                     $path .= ".php";
                 }
             }
-        } else {
-            $path = "views/fontend/home.php";
         }
-
-        if (file_exists($path)) {
-            require_once $path;
-        } else {
-            echo "Trang không tồn tại";
-        }
+        require_once $path;
     }
-
     public static function route_admin()
     {
         $path = "../views/backend/";

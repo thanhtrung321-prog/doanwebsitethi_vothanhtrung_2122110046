@@ -5,7 +5,7 @@ use App\Models\Brand;
 // ?    ['status','!=',0],
 // ?   ['id','=',1]
 //* ];
-$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get(); // truy vấngit
+$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
 ?>
 <?php
 require_once "../views/backend/header.php";
@@ -85,10 +85,23 @@ require_once "../views/backend/header.php";
                                                 <?= $item->name; ?>
                                             </div>
                                             <div class="function_style">
-                                                <a name='show' href="index.php?option=brand_show">Hiện</a> |
-                                                <a href="index.php?option=brand_edit">Chỉnh sửa</a> |
-                                                <a href="index.php?option=brand_destroy">Chi tiết</a> |
-                                                <a href="index.php?option=brand_delete">Xoá</a>
+                                                <a class="btn btn-success btn-xs" name='show'
+                                                    href="index.php?option=brand_show">
+                                                    Hiện
+                                                    <i class="fa-solid fa-toggle-on"></i>
+                                                </a>
+                                                <a href="index.php?option=brand_edit">
+                                                    Chỉnh sửa
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </a>
+                                                <a href="index.php?option=brand_destroy">
+                                                    Chi tiết
+                                                    <i class="fa-solid fa-circle-info"></i>
+                                                </a>
+                                                <a href="index.php?option=brand_delete">
+                                                    Xoá
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
                                             </div>
                                         </td>
                                         <td>

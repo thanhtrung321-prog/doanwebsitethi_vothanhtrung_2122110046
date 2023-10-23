@@ -1,3 +1,9 @@
+<?php
+
+use App\Models\User;
+
+$list = User::where('status', '!=', 0)->get();
+?>
 <?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
 <div class="content-wrapper">
@@ -31,16 +37,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if (count($list) > 0) : ?>
+                        <?php foreach ($list as $item) : ?>
                         <tr class="datarow">
                             <td>
                                 <input type="checkbox">
                             </td>
                             <td>
-                                <img src="../public/images/user.jpg" alt="user.jpg">
+                                <img src="../public/images/<?= $item->image ?>" alt="user.jpg">
                             </td>
                             <td>
                                 <div class="name">
-                                    Hồ Diên Lợi
+                                    <?= $item->name ?>
                                 </div>
                                 <div class="function_style">
                                     <a href="#">Hiện</a> |
@@ -49,9 +57,11 @@
                                     <a href="#">Xoá</a>
                                 </div>
                             </td>
-                            <td>0987654331</td>
-                            <td>dienloisoft@gmail.com</td>
+                            <td> <?= $item->phone ?></td>
+                            <td> <?= $item->email ?></td>
                         </tr>
+                        <?php endforeach ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div>

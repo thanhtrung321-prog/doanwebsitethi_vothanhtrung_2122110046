@@ -7,8 +7,8 @@ $dk = [
     ['status', '!=', 0]
 ];
 $id = $_REQUEST['id'];
-$brand = Brand::all();
-if ($brand == null) {
+$list = Brand::find($id);
+if ($list === null) {
     header("location:index.php?option=brand");
 }
 ?>
@@ -46,46 +46,50 @@ if ($brand == null) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td><?= $brand->id; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>NAME</td>
-                                    <td><?= $brand->name; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>SLUG</td>
-                                    <td><?= $brand->slug; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>IMAGE</td>
-                                    <td><img src="../public/images/brand/<?= $brand->image; ?>" alt="<?= $brand->image; ?>"></td>
-                                </tr>
-                                <tr>
-                                    <td>SORT_ORDER</td>
-                                    <td><?= $brand->sort_order; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>DESCRIPTION</td>
-                                    <td><?= $brand->description; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>CREATED_BY</td>
-                                    <td><?= $brand->created_by; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>UPDATED_AT</td>
-                                    <td><?= $brand->updated_at; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>UPDATED_BY</td>
-                                    <td><?= $brand->updated_by; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>STATUS</td>
-                                    <td><?= $brand->status; ?></td>
-                                </tr>
+                                <?php if (count($brand) > 0) : ?>
+                                    <?php foreach ($brand as $item) : ?>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td><?= $item->id; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>NAME</td>
+                                            <td><?= $item->name; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SLUG</td>
+                                            <td><?= $item->slug; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IMAGE</td>
+                                            <td><img src="../public/images/brand/<?= $item->image; ?>" alt="<?= $brand->image; ?>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SORT_ORDER</td>
+                                            <td><?= $item->sort_order; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DESCRIPTION</td>
+                                            <td><?= $item->description; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CREATED_BY</td>
+                                            <td><?= $item->created_by; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>UPDATED_AT</td>
+                                            <td><?= $item->updated_at; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>UPDATED_BY</td>
+                                            <td><?= $item->updated_by; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>STATUS</td>
+                                            <td><?= $item->status; ?></td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                <?php endif ?>
                             </tbody>
                         </table>
                     </div>
@@ -95,4 +99,4 @@ if ($brand == null) {
     </section>
 </div>
 <!-- END CONTENT-->
-<?php require_once "../views/backend/footer.php"; ?>
+<?php require_once './views/backend/footer.php' ?>
