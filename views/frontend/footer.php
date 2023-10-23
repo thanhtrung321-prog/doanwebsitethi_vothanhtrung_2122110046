@@ -41,16 +41,7 @@
                 </div>
             </div>
             <div class="col-md-4 pt-4">
-                <h3 class="widgettilte">
-                    <strong>Liên hệ</strong>
-                </h3>
-                <ul class="footer-menu">
-                    <li><a href="index.php">Trang chủ</a></li>
-                    <li><a href="post_page.php">Giới thiệu</a></li>
-                    <li><a href="product.php">Sản phẩm</a></li>
-                    <li><a href="post_topic.php">Bài viết</a></li>
-                    <li><a href="contact.php">Liên hệ</a></li>
-                </ul>
+                <?php require_once 'views/frontend/mod-menufooter.php' ?>
             </div>
             <div class="col-md-4 pt-4 text-end">
                 <h3 class="fs-5 text-end">
@@ -68,4 +59,5 @@
 </section>
 </body>
 <script src="/vothanhtrung2122110046/javascript/fromtb.js"></script>
+
 </html>
