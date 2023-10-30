@@ -59,6 +59,8 @@ class Route
                 $path .= 'brand/brand_edit.php';
             } else if ($_REQUEST['option'] === 'brand_delete') {
                 $path .= 'brand/brand_edit.php';
+            } else if ($_REQUEST['option'] === 'brand&cat=process') {
+                $path .= 'brand/process.php';
             } else {
                 $path .= $_REQUEST['option'] . '/';
                 if (isset($_REQUEST['cat'])) {

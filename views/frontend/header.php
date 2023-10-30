@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trang chủ</title>
+    <title><?= $title ?? "no title" ?></title>
     <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/css/frontend.css" />
@@ -18,13 +18,12 @@
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-2 py-1">
                     <a href="index.php">
-                        <img src="/VOTHANHTRUNG_2122110046/public/images/logo.png" class="img-fluid" alt="Logo" />
+                        <img src="/vothanhtrung_2122110046/public/images/logo.png" class="img-fluid" alt="Logo" />
                     </a>
                 </div>
                 <div class="col-12 col-sm-9 d-none d-md-block col-md-5 py-3">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm"
-                            aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                        <input type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                         <span class="input-group-text bg-main" id="basic-addon2">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </span>

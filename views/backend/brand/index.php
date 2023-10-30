@@ -5,7 +5,7 @@ use App\Models\Brand;
 // ?    ['status','!=',0],
 // ?   ['id','=',1]
 //* ];
-$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+$list = Brand::where('status', '!=', 0)->orderBy('created_at', 'ASC')->get();
 ?>
 <?php
 require_once "../views/backend/header.php";
@@ -26,7 +26,7 @@ require_once "../views/backend/header.php";
         <section class="content">
             <div class="card">
                 <div class="card-header text-right">
-                    <button class="btn btn-sm btn-success" type="submit">
+                    <button class="btn btn-sm btn-success" type="submit" name="gui">
                         <i class="fa fa-save" aria-hidden="true"></i>
                         Lưu
                     </button>
@@ -70,45 +70,44 @@ require_once "../views/backend/header.php";
                                     <?php
                                     if (count($list) > 0) :
                                     ?>
-                                    <?php
+                                        <?php
                                         foreach ($list as $item) :
                                         ?>
-                                    <tr class="datarow">
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>
-                                            <img src="<?= $item->image ?>" alt="brand.jpg">
-                                        </td>
-                                        <td>
-                                            <div class="name">
-                                                <?= $item->name; ?>
-                                            </div>
-                                            <div class="function_style">
-                                                <a class="btn btn-success btn-xs" name='show'
-                                                    href="index.php?option=brand_show">
-                                                    Hiện
-                                                    <i class="fa-solid fa-toggle-on"></i>
-                                                </a>
-                                                <a href="index.php?option=brand_edit">
-                                                    Chỉnh sửa
-                                                    <i class="fa-solid fa-pen"></i>
-                                                </a>
-                                                <a href="index.php?option=brand_destroy">
-                                                    Chi tiết
-                                                    <i class="fa-solid fa-circle-info"></i>
-                                                </a>
-                                                <a href="index.php?option=brand_delete">
-                                                    Xoá
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <?= $item->slug ?>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach ?>
+                                            <tr class="datarow">
+                                                <td>
+                                                    <input type="checkbox">
+                                                </td>
+                                                <td>
+                                                    <img src="<?= $item->image ?>" alt="brand.jpg">
+                                                </td>
+                                                <td>
+                                                    <div class="name">
+                                                        <?= $item->name; ?>
+                                                    </div>
+                                                    <div class="function_style">
+                                                        <a class="btn btn-success btn-xs" name='show' href="index.php?option=brand_show">
+                                                            Hiện
+                                                            <i class="fa-solid fa-toggle-on"></i>
+                                                        </a>
+                                                        <a href="index.php?option=brand_edit">
+                                                            Chỉnh sửa
+                                                            <i class="fa-solid fa-pen"></i>
+                                                        </a>
+                                                        <a href="index.php?option=brand_destroy">
+                                                            Chi tiết
+                                                            <i class="fa-solid fa-circle-info"></i>
+                                                        </a>
+                                                        <a href="index.php?option=brand_delete">
+                                                            Xoá
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <?= $item->slug ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
                                     <?php endif ?>
                                 </tbody>
                             </table>

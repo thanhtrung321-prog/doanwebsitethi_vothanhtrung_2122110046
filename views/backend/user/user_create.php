@@ -54,7 +54,6 @@ function kiemtra($image, $name, $phone, $email, $username, $password)
 
 
 ?>
-
 <!-- CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
@@ -68,7 +67,7 @@ function kiemtra($image, $name, $phone, $email, $username, $password)
     </section>
     <section class="content">
         <div class="card">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST">
                 <div class="card-header text-right">
                     <a href="index.php?option=user" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
