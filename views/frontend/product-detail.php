@@ -59,28 +59,33 @@ $list_orther = Product::where([['status', '=', 1], ['id', '!=', $pro->id]])
         <div class="row">
             <div class="col-md-6">
                 <div class="image">
-                    <img id="productimage" class="img-fluid w-100" src="public/images/product/<?= $pro->image; ?>" alt="<?= $pro->image; ?>">
+                    <img id="productimage" class="img-fluid w-100" src="public/images/product/<?= $pro->image; ?>.jpg"
+                        alt="<?= $pro->image; ?>">
                 </div>
                 <div class="list-image mt-3">
                     <div class="row">
                         <div class="col-3">
-                            <img class="img-fluid w-100" src="public/images/product/<?= $pro->image; ?>" alt="<?= $pro->image; ?>" onclick="changeimage(src)">
+                            <img class="img-fluid w-100" src="public/images/product/<?= $pro->image; ?>.jpg"
+                                alt="<?= $pro->image; ?>" onclick="changeimage(src)">
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt="<?= $pro->image; ?>" onclick="changeimage(src)">
+                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>.jpg"
+                                alt="<?= $pro->image; ?>" onclick="changeimage(src)">
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt="<?= $pro->image; ?>" onclick="changeimage(src)">
+                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>.jpg"
+                                alt="<?= $pro->image; ?>" onclick="changeimage(src)">
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt="<?= $pro->image; ?>" onclick="changeimage(src)">
+                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>.jpg"
+                                alt="<?= $pro->image; ?>" onclick="changeimage(src)">
                         </div>
                     </div>
                 </div>
                 <script>
-                    function changeimage(src) {
-                        document.getElementById("productimage").src = src;
-                    }
+                function changeimage(src) {
+                    document.getElementById("productimage").src = src;
+                }
                 </script>
             </div>
             <div class="col-md-6">
@@ -118,16 +123,16 @@ $list_orther = Product::where([['status', '=', 1], ['id', '!=', $pro->id]])
             </p>
         </div>
         <?php if (count($list_orther) > 0) : ?>
-            <div class="row">
-                <h2 class="text-main fs-4 pt-4">Sản phẩm khác</h2>
-                <div class="product-category mt-3">
-                    <div class="row product-list">
-                        <?php foreach ($list_orther as $product) : ?>
-                            <?php require "views/fontend/product-item.php"; ?>
-                        <?php endforeach; ?>
-                    </div>
+        <div class="row">
+            <h2 class="text-main fs-4 pt-4">Sản phẩm khác</h2>
+            <div class="product-category mt-3">
+                <div class="row product-list">
+                    <?php foreach ($list_orther as $product) : ?>
+                    <?php require "./views/frontend/product-item.php"; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
+        </div>
         <?php endif; ?>
     </div>
     </div>

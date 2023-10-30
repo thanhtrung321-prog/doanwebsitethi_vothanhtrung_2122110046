@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-1 text-end py-4 py-md-2">
-                    <a href="cart.phpindex.php">
+                    <a href="cart.php">
                         <div class="box-cart float-end">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                             <span>1</span>
