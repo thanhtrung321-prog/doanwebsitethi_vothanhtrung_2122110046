@@ -128,7 +128,7 @@ $list_orther = Product::where([['status', '=', 1], ['id', '!=', $pro->id]])
             <div class="product-category mt-3">
                 <div class="row product-list">
                     <?php foreach ($list_orther as $product) : ?>
-                    <?php require "./views/frontend/product-item.php"; ?>
+                    <?php require "./views/frontend/product_item.php"; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
