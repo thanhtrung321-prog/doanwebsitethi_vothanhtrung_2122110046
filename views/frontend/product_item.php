@@ -2,11 +2,8 @@
     <div class="product-item border">
         <div class="product-item-image">
             <a href="index.php?option=product&slug=<?= $product->slug ?>">
-                <img style="height:16rem;width:20rem;"
-                    src="/VOTHANHTRUNG_2122110046/public/images/product/<?= $product->image ?>.jpg" class="img-fluid"
-                    alt="loi" id="img1" />
-                <img class="img-fluid" src="/VOTHANHTRUNG_2122110046/public/images/product/<?= $product->image ?>.jpg"
-                    alt="loi" id="img2" />
+                <img style="height:16rem;width:20rem;" src="/VOTHANHTRUNG_2122110046/public/images/product/<?= $product->image ?>.jpg" class="img-fluid" alt="loi" id="img1" />
+                <img class="img-fluid" src="/VOTHANHTRUNG_2122110046/public/images/product/<?= $product->image ?>.jpg" alt="loi" id="img2" />
             </a>
         </div>
         <h2 class="product-item-name text-main text-center fs-5 py-1">

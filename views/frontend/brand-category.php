@@ -1,42 +1,11 @@
 <?php
 
-use App\Models\Category;
+use App\Models\Brand;
 use App\Models\Product;
 
 $slug = $_REQUEST['cat'];
-$cat = Category::where([['status', '=', 1], ['slug', '=', $slug]])->select('id', 'name')->first();
-$list_id = array();
-array_push($list_id, $cat->id);
-
-// Lấy danh sách các danh mục con của $cat
-$list_category1 = Category::where([['parent_id', $cat->id], ['status', '=', 1]])
-    ->orderBy('sort_order', 'ASC')
-    ->select('id')
-    ->get();
-
-if (count($list_category1) > 0) {
-    foreach ($list_category1 as $cat1) {
-        array_push($list_id, $cat1->id);
-
-        // Lấy danh sách các danh mục con của $cat1
-        $list_category2 = Category::where([['parent_id', $cat1->id], ['status', '=', 1]])
-            ->orderBy('sort_order', 'ASC')
-            ->select('id')
-            ->get();
-
-        if (count($list_category2) > 0) {
-            foreach ($list_category2 as $cat2) {
-                array_push($list_id, $cat2->id);
-            }
-        }
-    }
-}
-
-// Lấy danh sách sản phẩm dựa trên danh mục
-$list_product = Product::where('status', '=', 1)
-    ->whereIn('category_id', $list_id)
-    ->orderBy('created_at', 'DESC')
-    ->limit(8)
+$brand = Brand::where([['status', '=', 1], ['slug', '=', $slug]])->select('id', 'name')->first();
+$list_product = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->orderBy('created_at', 'DESC')
     ->get();
 ?>
 <?php require 'views/frontend/header.php' ?>
@@ -48,7 +17,7 @@ $list_product = Product::where('status', '=', 1)
                     <a class="text-main" href="index.php">Trang chủ</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <?= $cat->name ?>
+                    <?= $brand->name ?>
                 </li>
             </ol>
         </nav>
@@ -64,7 +33,7 @@ $list_product = Product::where('status', '=', 1)
             </div>
             <div class="col-md-9 order-1 order-md-2">
                 <div class="category-title bg-main">
-                    <h3 class="fs-5 py-3 text-center"><?= $cat->name ?></h3>
+                    <h3 class="fs-5 py-3 text-center"><?= $brand->name ?></h3>
                 </div>
                 <div class="product-category mt-3">
                     <div class="row product-list">
