@@ -1,13 +1,12 @@
+<?php require_once "views/frontend/header.php" ?>
+
 <?php
 
 use App\Models\Post;
 
 $slug = $_REQUEST['cat'];
-// chưa fix dc
-$page = Post::where([['slug', '=', $slug], ['type', '=', 'page'], ['status', '=', 1]])->first();
+$page = Post::where([['slug', $slug], ['type', 'page'], ['status', 1]])->first();
 ?>
-
-<?php require 'views/frontend/header.php' ?>
 <section class="bg-light">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
@@ -29,26 +28,27 @@ $page = Post::where([['slug', '=', $slug], ['type', '=', 'page'], ['status', '='
                 <ul class="list-group mb-3 list-page">
                     <li class="list-group-item bg-main py-3">Các trang khác</li>
                     <li class="list-group-item">
-                        <a href="post_page.php">Chính sách mua hàng</a>
+                        <a href="post_page.html">Chính sách mua hàng</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="post_page.php">Chính sách vận chuyển</a>
+                        <a href="post_page.html">Chính sách vận chuyển</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="post_page.php">Chính sách đổi trả</a>
+                        <a href="post_page.html">Chính sách đổi trả</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="post_page.php">Chính sách bảo hành</a>
+                        <a href="post_page.html">Chính sách bảo hành</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-9 order-1 order-md-2">
-                <h1 class="fs-2 text-main"><?= $page->title; ?></h1>
+                <h1 class="fs-2 text-main"><?= (!isset($page)) ? 'chưa có dữ liệu' : $page->title; ?>
+                </h1>
                 <p>
-                    <?= $page->detail ?>
+                    <?= (!isset($page)) ? 'chưa có dữ liệu' : $page->detail; ?>
                 </p>
             </div>
         </div>
     </div>
 </section>
-<?php require 'views/frontend/footer.php' ?>
+<?php require_once "views/frontend/footer.php" ?>

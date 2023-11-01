@@ -4,29 +4,58 @@ namespace App\Libraries;
 
 class Cart
 {
-    public static function cart_exists($carts, $id)
+    public static function checkCart($id)
     {
-        foreach ($carts as $cart) {
-            if ($cart['id'] == $id) {
-                return true;
+        $carts = $_SESSION['cart'] ?? [];
+        if (count($carts) > 0) {
+            foreach ($carts as $item) {
+                if ($item['id'] == $id) {
+                    return true;
+                }
             }
         }
         return false;
     }
-
-    public static function cart_update($carts, $id, $number, $type)
+    public static function posCart($id)
     {
-        foreach ($carts as $key => $cart) {
-            if ($cart['id'] == $id) {
-                if ($type == "add") {
-                    $cart['qty'] += $number;
-                } else {
-                    $cart['qty'] -= $number;
+        $carts = $_SESSION['cart'] ?? [];
+        if (count($carts) > 0) {
+            foreach ($carts as $pos => $item) {
+                if ($item['id'] == $id) {
+                    return true;
                 }
-                $carts[$key] = $cart;
-                break;
             }
         }
-        return $carts;
+        return -1;
+    }
+    public static function addCart($cart_item)
+    {
+        $carts = $_SESSION['cart'] ?? [];
+        if (count($carts) > 0) {
+            if (self::checkCart($cart_item['id']) == true) {
+                $pos = self::posCart($cart_item['id']);
+                $carts[$pos]['qty'] += $cart_item['qty'];
+            } else {
+                $carts[] = $cart_item;
+            }
+        } else {
+            $carts[] = $cart_item;
+        }
+        $_SESSION['cart'] = $carts;
+    }
+    public static function cartContent()
+    {
+        return $_SESSION['cart'] ?? [];
+    }
+    public static function cartTotal()
+    {
+        $total = 0;
+        $carts = $_SESSION['cart'] ?? [];
+        if (count($carts) > 0) {
+            foreach ($carts as $pos => $item) {
+                $total += $item['qty'] * $item['price'];
+            }
+        }
+        return $total;
     }
 }

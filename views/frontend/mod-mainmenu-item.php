@@ -1,11 +1,8 @@
-<!-- <li class="nav-item">
-    <a class="nav-link text-white" href="post_page.php">Giới thiệu</a>
-</li> -->
 <?php
 
 use App\Models\Menu;
 
-$mod_mainmenu1 = Menu::where([['parent_id', '=', $rowmenu->id], ['position', 'mainmenu'], ['status', 1]])
+$mod_mainmenu1 = Menu::where([['parent_id', '=', $rowmenu->id], ['position', '=', 'mainmenu'], ['status', '=', 1]])
     ->orderBy('sort_order', 'ASC')
     ->get();
 ?>
@@ -16,12 +13,15 @@ $mod_mainmenu1 = Menu::where([['parent_id', '=', $rowmenu->id], ['position', 'ma
         </a>
         <ul class="dropdown-menu">
             <?php foreach ($mod_mainmenu1 as $rowmenu1) : ?>
-                <li> <a class="dropdown-item text-main" href="<?= $rowmenu1->link; ?>"><?= $rowmenu1->name; ?></a></li>
+                <li><a class="dropdown-item text-main" href="<?= $rowmenu1->link; ?>"><?= $rowmenu1->name; ?></a>
+                </li>
             <?php endforeach; ?>
         </ul>
     </li>
 <?php else : ?>
     <li class="nav-item">
-        <a class="nav-link text-white" href="<?= $rowmenu->link; ?>"><?= $rowmenu->name; ?></a>
+        <a class="nav-link text-white" href="<?= $rowmenu->link; ?>">
+            <?= $rowmenu->name; ?>
+        </a>
     </li>
 <?php endif; ?>

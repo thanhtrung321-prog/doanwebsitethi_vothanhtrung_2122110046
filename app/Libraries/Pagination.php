@@ -18,8 +18,8 @@ class Pagination
             return $html;
 
         if ($current > 1) {
-            $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=1">Trang đầu</a></li>';
-            $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=' . ($current - 1) . '">Trang trước</a></li>';
+            $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=1">Trang đầu</a></li>';
+            $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=' . ($current - 1) . '">Trang trước</a></li>';
         }
 
         if ($current <= 3) {
@@ -27,7 +27,7 @@ class Pagination
                 if ($i == $current) {
                     $html .= '<li class="page-item"><a class="page-link">' . $i . '</a></li>';
                 } else {
-                    $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=' . $i . '">' . $i . '</a></li>';
+                    $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=' . $i . '">' . $i . '</a></li>';
                 }
             }
         } else if ($numPage - $current <= 2) {
@@ -35,7 +35,7 @@ class Pagination
                 if ($i == $current) {
                     $html .= '<li class="page-item"><a class="page-link">' . $i . '</a></li>';
                 } else {
-                    $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=' . $i . '">' . $i . '</a></li>';
+                    $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=' . $i . '">' . $i . '</a></li>';
                 }
             }
         } else {
@@ -43,14 +43,14 @@ class Pagination
                 if ($i == $current) {
                     $html .= '<li class="page-item"><a class="page-link">' . $i . '</a></li>';
                 } else {
-                    $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=' . $i . '">' . $i . '</a></li>';
+                    $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=' . $i . '">' . $i . '</a></li>';
                 }
             }
         }
 
         if ($current < $numPage) {
-            $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=' . ($current + 1) . '">Trang sau</a></li>';
-            $html .= '<li class="page-item"><a class="page-link" href="' . $url . 'page=' . $numPage . '">Trang cuối</a></li>';
+            $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=' . ($current + 1) . '">Trang sau</a></li>';
+            $html .= '<li class="page-item"><a class="page-link" href="' . $url . '&page=' . $numPage . '">Trang cuối</a></li>';
         }
 
         $html .= '</ul>';
