@@ -49,7 +49,7 @@ $total = Product::where('status', '=', 1)->count();
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <?= Pagination::pageLinks($total, $current, $limit, 'index.php?option=product'); ?>
+                <?= Pagination::pageLink($total, $current, $limit, 'index.php?option=product'); ?>
             </div>
         </div>
     </div>

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Models;
+
 namespace App\Libraries;
 
 ?>
@@ -9,14 +11,14 @@ namespace App\Libraries;
             <div class="col-md-4 pt-4">
                 <h3 class="widgettilte">CHÚNG TÔI LÀ AI ?</h3>
                 <p class="pt-1">
-                    Copyright@ 2024 Duy Media là hệ thống bán sĩ và lẽ thời trang nam, nữ, trẻ em và quần áo thể thao,
+                    Copyright@ 2024 thành trung là hệ thống bán sĩ và lẽ thời trang nam, nữ, trẻ em và quần áo thể thao,
                     mong muốn đem đến chất lượng tốt nhất cho khách hàng.
                 </p>
                 <p class="pt-1">
-                    Địa chỉ: Gò Công Tây, Tiền Giang
+                    Địa chỉ: long an
                 </p>
                 <p class="pt-1">
-                    Điện thoại: 0334713016(call, zalo) - Email: duybuntv@gmail.com
+                    Điện thoại: 0379263053(call, zalo) - Email: tvo30879@gmail.com
                 </p>
                 <h3 class="widgettilte">MẠNG XÃ HỘI</h3>
                 <div class="social my-3">
@@ -58,7 +60,7 @@ namespace App\Libraries;
 
 <section class="dhl-copyright bg-dark py-3">
     <div class="container text-center text-white">
-        Thiết kế bởi: Phạm Quốc Duy - Phone: 0334713016
+        Thiết kế bởi: Thành Trung
     </div>
 </section>
 
@@ -74,15 +76,15 @@ namespace App\Libraries;
 
 <!-- JavaScript để hiển thị modal -->
 <script>
-$(document).ready(function() {
-    // Kiểm tra session có chứa thông báo đăng nhập không
-    <?php if (isset($_SESSION['login_message'])): ?>
-    $('#showLoginModal').click(); // Hiển thị modal nếu có thông báo
-    <?php endif; ?>
+    $(document).ready(function() {
+        // Kiểm tra session có chứa thông báo đăng nhập không
+        <?php if (isset($_SESSION['login_message'])) : ?>
+            $('#showLoginModal').click(); // Hiển thị modal nếu có thông báo
+        <?php endif; ?>
 
-    // Xóa session để không hiển thị lại thông báo
-    <?php unset($_SESSION['login_message']); ?>
-});
+        // Xóa session để không hiển thị lại thông báo
+        <?php unset($_SESSION['login_message']); ?>
+    });
 </script>
 
 </body>

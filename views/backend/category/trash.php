@@ -1,16 +1,15 @@
 <?php
 
-use App\Models\Brand;
+use App\Models\Category;
 
 $dk = [
     ['status', '!=', 0],
     ['status', '!=', 0]
 ];
-$list = Brand::where('status', '=', 0)
+$list = Category::where('status', '=', 0)
     ->orderBy('created_at', 'DESC')
     ->get()
 ?>
-<?php require_once "../views/backend/header.php"; ?>
 <?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
 <div class="content-wrapper">

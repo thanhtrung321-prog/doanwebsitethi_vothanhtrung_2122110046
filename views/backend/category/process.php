@@ -1,20 +1,13 @@
 <?php
 
-use App\Models\Brand;
-
-function addtb($eroor)
-{
-    $eroor = "thêm ko thành công!";
-    return $eroor;
-}
+use App\Models\Category;
 
 if (isset($_POST['gui'])) {
     // Kiểm tra xem tên sản phẩm đã được nhập
     if (empty($_POST['name'])) {
-        addtb($eroor);
         header("location:index.php?option=brand");
     } else {
-        $brand = new Brand();
+        $brand = new Category();
 
         $brand->name = $_POST['name'];
         $brand->slug = (strlen($_POST['slug']) > 0) ? $_POST['slug'] : "xlsau";

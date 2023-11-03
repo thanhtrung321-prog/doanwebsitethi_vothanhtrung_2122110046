@@ -43,29 +43,48 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                         </thead>
                         <tbody>
                             <?php if (count($list) > 0) : ?>
-                            <?php foreach ($list as $item) : ?>
-                            <tr class="datarow">
-                                <td>
-                                    <input type="checkbox">
-                                </td>
-                                <td>
-                                    <img src="../public/images/product.jpg" alt="product.jpg">
-                                </td>
-                                <td>
-                                    <div class="name">
-                                        <?= $item->name ?>
-                                    </div>
-                                    <div class="function_style">
-                                        <a href="#">Hiện</a> |
-                                        <a href="#">Chỉnh sửa</a> |
-                                        <a href="product_show.php?option=product">Chi tiết</a> |
-                                        <a href="#">Xoá</a>
-                                    </div>
-                                </td>
-                                <td><?= $item->brand_id ?></td>
-                                <td> <?= $item->category_id ?></td>
-                            </tr>
-                            <?php endforeach ?>
+                                <?php foreach ($list as $item) : ?>
+                                    <tr class="datarow">
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>
+                                            <img style="width: 5rem;height:5rem;object-fit:cover;" src="../public/images/product/<?= $item->image ?>" alt="product.jpg">
+                                        </td>
+                                        <td>
+                                            <div class="name">
+                                                <?= $item->name ?>
+                                            </div>
+                                            <div class="function_style">
+                                                <?php if ($item->status == 1) : ?>
+                                                    <a class="btn btn-success btn-xs" name='show' href="index.php?option=product&cat=status&id=<?= $item->id ?>">
+                                                        Hiện
+                                                        <i class="fa-solid fa-toggle-on"></i>
+                                                    </a>
+                                                <?php else : ?>
+                                                    <a class="btn btn-danger btn-xs" name='show' href="index.php?option=product&cat=status&id=<?= $item->id ?>">
+                                                        ẨN
+                                                        <i class="fa-solid fa-toggle-off"></i>
+                                                    </a>
+                                                <?php endif; ?>
+                                                <a href="index.php?option=product&cat=edit&id=<?= $item->id ?>">
+                                                    Chỉnh sửa
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </a>
+                                                <a href="index.php?option=product&cat=show&id=<?= $item->id ?>">
+                                                    Chi tiết
+                                                    <i class="fa-solid fa-circle-info"></i>
+                                                </a>
+                                                <a href="index.php?option=product&cat=delete&id=<?= $item->id ?>">
+                                                    Xoá
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td><?= $item->slug ?></td>
+                                        <td> <?= $item->description ?></td>
+                                    </tr>
+                                <?php endforeach ?>
                             <?php endif ?>
                         </tbody>
                     </table>

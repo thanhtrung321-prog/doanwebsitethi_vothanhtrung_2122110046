@@ -1,351 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thêm mới sản phẩm</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/datatables/css/dataTables.min.css">
-    <link rel="stylesheet" href="/VOTHANHTRUNG_2122110046/public/css/backend.css">
-</head>
+use App\Models\Product;
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.php" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" role="button">
-                        <i class="fas fa-power-off"></i> Đăng xuất
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="../backend/index.php" class="brand-link">
-                <img src="../public/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">QUẢN TRỊ</span>
-            </a>
-            <div class="sidebar">
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Hồ Diên Lợi</a>
-                    </div>
+$eroor = ""; // Khai báo biến lưu thông báo lỗi (ban đầu rỗng)
+$thongbao = false;
+if (isset($_POST['CHANGEADD'])) {
+    // Lấy dữ liệu từ biểu mẫu
+    $name = $_POST['name'];
+    $slug = $_POST['slug'];
+    $category_id = $_POST['category_id'];
+    $brand_id = $_POST['brand_id'];
+    $detail = $_POST['detail'];
+    $price = $_POST['price'];
+    $status = $_POST['status'];
+
+    // Kiểm tra xem các trường dữ liệu đã được cung cấp
+    if (!empty($name) && !empty($category_id) && !empty($brand_id) && !empty($detail) && !empty($price)) {
+        // Kiểm tra và xử lý hình ảnh
+        if (isset($_FILES['image']) && $_FILES['image']['name'] !== '') {
+            $image = $_FILES['image']['name'];
+            $target_dir = "đường dẫn đến thư mục lưu trữ hình ảnh"; // Thay đổi đường dẫn này
+
+            // Tiếp tục xử lý và lưu dữ liệu sản phẩm vào cơ sở dữ liệu
+            $product = new Product();
+            $product->name = $name;
+            $product->slug = $slug;
+            $product->category_id = $category_id;
+            $product->brand_id = $brand_id;
+            $product->detail = $detail;
+            $product->price = $price;
+            $product->image = $image;
+            $product->status = $status;
+
+            // Lưu sản phẩm vào cơ sở dữ liệu
+            $product->save();
+            $eroor = "Thêm sản phẩm thành công !!!(chuyển trang sau 2s)->>>>";
+            echo '<script>setTimeout(function() { window.location.href = "index.php?option=product"; }, 2000);</script>';
+            $thongbao = true; // Gán thông báo thành công
+            // Chuyển hướng người dùng hoặc hiển thị thông báo thành công ở đây
+        } else {
+            $eroor = "Vui lòng chọn một tệp hình ảnh.";
+            $thongbao = false;
+        }
+    } else {
+        $eroor = "Vui lòng cung cấp đầy đủ thông tin sản phẩm.";
+        $thongbao = false;
+    }
+}
+
+?>
+
+<?php require_once "../views/backend/header.php"; ?>
+<!-- CONTENT -->
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <h1 class="d-inline">Thêm mới sản phẩm</h1>
                 </div>
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Sản phẩm
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="product_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tất cả sản phẩm</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="category_index.php?option=category" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh mục</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="brand_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thương hiệu</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Bài viết
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="post_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tất cả bài viết</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="topic_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Chủ đề</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="page_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Trang đơn</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Quản lý bán hàng
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="order_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tất cả đơn hàng</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="import_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Nhập hàng</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="export_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Xuất hàng</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="customer_index.php" class="nav-link">
-                                <i class="nav-icon far fa-circle text-danger"></i>
-                                <p class="text">Khách hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contact_index.php" class="nav-link">
-                                <i class="nav-icon far fa-circle text-danger"></i>
-                                <p class="text">Liên hệ</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Giao diện
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="menu_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Menu</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="banner_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Banner</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Hệ thống
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="user_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thành viên</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="config_index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Cấu hình</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-header">LABELS</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-danger"></i>
-                                <p class="text">Important</p>
-                            </a>
-                        </li>
-                        <li class="nav-header">LABELS</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-danger"></i>
-                                <p class="text">Important</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-warning"></i>
-                                <p>Warning</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-info"></i>
-                                <p>Informational</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
-        </aside>
-        <!-- CONTENT -->
-        <form action="" method="post">
-            <div class="content-wrapper">
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-12">
-                                <h1 class="d-inline">Thêm mới sản phẩm</h1>
+        </div>
+    </section>
+    <section class="content">
+        <form action="index.php?option=product_create" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div style="color: blue; font-size:1.2rem;" id="thongbao"></div>
+                <div class="card-header text-right">
+                    <a href="#" class="btn btn-sm btn-info" id="vedanhsach">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        Về danh sách
+                    </a>
+                    <button type="submit" class="btn btn-sm btn-success" name="CHANGEADD">
+                        <i class="fa fa-save" aria-hidden="true"></i>
+                        Thêm sản phẩm
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <label>Tên sản phẩm (*)</label>
+                                <input type="text" placeholder="Nhập tên sản phẩm" name="name" class="form-control">
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="content">
-                    <div class="card">
-                        <div class="card-header text-right">
-                            <a href="product_index.php" class="btn btn-sm btn-info">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                Về danh sách
-                            </a>
-                            <button type="submit" class="btn btn-sm btn-success" name="CHANGEADD">
-                                <i class="fa fa-save" aria-hidden="true"></i>
-                                Thêm sản phẩm
-                            </button>
-                        </div>
-                        <div class="card-body">
+                            <div class="mb-3">
+                                <label>Slug</label>
+                                <input type="text" placeholder="Nhập slug" name="slug" class="form-control">
+                            </div>
                             <div class="row">
-                                <div class="col-md-9">
+                                <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label>Tên sản phẩm (*)</label>
-                                        <input type="text" placeholder="Nhập tên sản phẩm" name="name" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label>Slug</label>
-                                        <input type="text" placeholder="Nhập slug" name="slug" class="form-control">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label>Danh mục (*)</label>
-                                                <select name="category_id" class="form-control">
-                                                    <option value="">Chọn danh mục</option>
-                                                    <option value="1">Tên danh mục</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label>Thương hiệu (*)</label>
-                                                <select name="brand_id" class="form-control">
-                                                    <option value="">Chọn thương hiệu</option>
-                                                    <option value="1">Tên thương hiệu</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label>Chi tiết (*)</label>
-                                        <textarea name="detail" placeholder="Nhập chi tiết sản phẩm" rows="5" class="form-control"></textarea>
+                                        <label>Danh mục (*)</label>
+                                        <select name="category_id" class="form-control">
+                                            <option value="">Chọn danh mục</option>
+                                            <option value="1">Tên danh mục</option>
+                                            <option value="2">danh mục áo</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label>Giá bán (*)</label>
-                                        <input type="number" value="10000" min="10000" name="price" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label>Hình đại diện</label>
-                                        <input type="file" name="image" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label>Trạng thái</label>
-                                        <select name="status" class="form-control">
-                                            <option value="1">Xuất bản</option>
-                                            <option value="2">Chưa xuất bản</option>
+                                        <label>Thương hiệu (*)</label>
+                                        <select name="brand_id" class="form-control">
+                                            <option value="">Chọn thương hiệu</option>
+                                            <option value="1">Tên thương hiệu</option>
+                                            <option value="2">áo</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <label>Chi tiết (*)</label>
+                                <textarea name="detail" placeholder="Nhập chi tiết sản phẩm" rows="5" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label>Giá bán (*)</label>
+                                <input type="number" value="10000" min="10000" name="price" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Hình đại diện</label>
+                                <input type="file" name="image" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Trạng thái</label>
+                                <select name="status" class="form-control">
+                                    <option value="1">Xuất bản</option>
+                                    <option value="2">Chưa xuất bản</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                    <div class="mb-3">
+                        <?php if ($thongbao == true) : ?>
+                            <p style="color:green; font-size:2em;"><?php echo $eroor; ?></p>
+                        <?php else : ?>
+                            <p style="color:red;font-size:2em"><?php echo $eroor; ?></p>
+                        <?php endif ?> <!-- Hiển thị thông báo lỗi hoặc thành công -->
+                    </div>
         </form>
-        <!-- END CONTENT-->
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
-        </footer>
-    </div>
-    <script src="/VOTHANHTRUNG_2122110046/public/jquery/jquery-3.7.0.min.js"></script>
-    <script src="/VOTHANHTRUNG_2122110046/public/datatables/js/dataTables.min.js"></script>
-    <script src="/VOTHANHTRUNG_2122110046/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/VOTHANHTRUNG_2122110046/public/dist/js/adminlte.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#mytable').DataTable();
-        });
-    </script>
-</body>
-
-</html>
+</div>
+</div>
+</section>
+</div>
+<script>
+    const thongbao = 'chờ 1s trở về danh sách sản phẩm ->';
+    document.getElementById('vedanhsach').addEventListener('click', function(event) {
+        // Ngăn chặn hành động mặc định của liên kết (để chuyển hướng sau khi thêm sản phẩm)
+        event.preventDefault();
+        document.getElementById('thongbao').innerHTML = thongbao;
+        // Sau khi ngăn chặn hành động mặc định, bạn có thể thực hiện chuyển hướng
+        setTimeout(function() {
+            window.location.href = "index.php?option=product";
+        }, 1000);
+    });
+</script>
+<!-- END CONTENT -->
+<?php require_once "../views/backend/footer.php"; ?>

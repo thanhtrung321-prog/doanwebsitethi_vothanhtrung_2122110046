@@ -12,33 +12,32 @@ $cat = Category::where([['status', '=', 1], ['slug', '=', $slug]])->select('id',
 $list_id = array();
 array_push($list_id, $cat->id);
 $list_category1 = Category::where([['parent_id', '=', $cat->id], ['status', '=', '1']])
-   ->orderBy('sort_order', 'ASC')
-   ->select('id')
-   ->get();
+    ->orderBy('sort_order', 'ASC')
+    ->select('id')
+    ->get();
 if (count($list_category1) > 0) {
-   foreach ($list_category1 as $cat1) {
-      array_push($list_id, $cat1->id);
-      $list_category2 = Category::where([['parent_id', '=', $cat1->id], ['status', '=', '1']])
-         ->orderBy('sort_order', 'ASC')
-         ->select('id')
-         ->get();
-      if (count($list_category2) > 0) {
-         foreach ($list_category2 as $cat2) {
-            array_push($list_id, $cat2->id);
-         }
-      }
-   }
+    foreach ($list_category1 as $cat1) {
+        array_push($list_id, $cat1->id);
+        $list_category2 = Category::where([['parent_id', '=', $cat1->id], ['status', '=', '1']])
+            ->orderBy('sort_order', 'ASC')
+            ->select('id')
+            ->get();
+        if (count($list_category2) > 0) {
+            foreach ($list_category2 as $cat2) {
+                array_push($list_id, $cat2->id);
+            }
+        }
+    }
 }
-
 $list_product = Product::where('status', '=', 1)
-   ->whereIn('category_id', $list_id)
-   ->orderBy('created_at', 'DESC')
-   ->skip($offset)
-   ->limit($limit)
-   ->get();
+    ->whereIn('category_id', $list_id)
+    ->orderBy('created_at', 'DESC')
+    ->skip($offset)
+    ->limit($limit)
+    ->get();
 $total = Product::where('status', '=', 1)
-   ->whereIn('category_id', $list_id)
-   ->count();
+    ->whereIn('category_id', $list_id)
+    ->count();
 ?>
 <?php require_once "views/frontend/header.php"; ?>
 <section class="bg-light">
@@ -70,13 +69,11 @@ $total = Product::where('status', '=', 1)
                 <div class="product-category mt-3">
                     <div class="row product-list">
                         <?php foreach ($list_product as $product) : ?>
-
-                        <?php require 'views\frontend\product-item.php'; ?>
-
+                            <?php require 'views\frontend\product-item.php'; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <?= Pagination::pageLinks($total, $current, $limit, 'index.php?option=product&cat=' . $slug); ?>
+                <?= Pagination::pageLink($total, $current, $limit, 'index.php?option=product&cat=' . $slug); ?>
             </div>
         </div>
     </div>

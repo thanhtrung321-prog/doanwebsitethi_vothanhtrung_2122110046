@@ -87,37 +87,37 @@ class MyClass
         $slug = preg_replace("/(!|\"|#|$|%|'|̣)/", '', $slug);
         $slug = preg_replace("/(̀|́|̉|$|>)/", '', $slug);
         $slug = preg_replace("'<[\/\!]*?[^<>]*?>'si", "", $slug);
-        $slug = str_replace("----", " ", $slug);
-        $slug = str_replace("---", " ", $slug);
-        $slug = str_replace("--", " ", $slug);
-        $slug = preg_replace('/(\W+)/i', '-', $slug);
-        $slug = str_replace(array(
-            '-8220-', '-8221-', '-7776-'
-        ), '-', $slug);
-        //$slug = preg_replace( '/[^a-zA-Z0-9\-]+/e', '', $slug );
-        $slug = str_replace(array(
-            'dAg', 'DAg', 'uA', 'iA', 'yA', 'dA', '--', '-8230'
-        ), array(
-            'dong', 'Dong', 'uon', 'ien', 'yen', 'don', '-', ''
-        ), $slug);
-        $slug = preg_replace('/(\-)$/', '', $slug);
-        $slug = preg_replace('/^(\-)/', '', $slug);
-        return strtolower($slug);
-    }
-    public static function word_limit($str, $limit = 10)
-    {
-        // Loại bỏ các thẻ HTML và các khoảng trắng không cần thiết
-        $str = preg_replace('/\s+/', ' ', strip_tags($str));
+$slug = str_replace("----", " ", $slug);
+$slug = str_replace("---", " ", $slug);
+$slug = str_replace("--", " ", $slug);
+$slug = preg_replace('/(\W+)/i', '-', $slug);
+$slug = str_replace(array(
+'-8220-', '-8221-', '-7776-'
+), '-', $slug);
+//$slug = preg_replace( '/[^a-zA-Z0-9\-]+/e', '', $slug );
+$slug = str_replace(array(
+'dAg', 'DAg', 'uA', 'iA', 'yA', 'dA', '--', '-8230'
+), array(
+'dong', 'Dong', 'uon', 'ien', 'yen', 'don', '-', ''
+), $slug);
+$slug = preg_replace('/(\-)$/', '', $slug);
+$slug = preg_replace('/^(\-)/', '', $slug);
+return strtolower($slug);
+}
+public static function word_limit($str, $limit = 10)
+{
+// Loại bỏ các thẻ HTML và các khoảng trắng không cần thiết
+$str = preg_replace('/\s+/', ' ', strip_tags($str));
 
-        // Chia chuỗi thành mảng từ dựa trên khoảng trắng
-        $words = explode(' ', $str);
+// Chia chuỗi thành mảng từ dựa trên khoảng trắng
+$words = explode(' ', $str);
 
-        // Giới hạn số từ
-        $limitedWords = array_slice($words, 0, $limit);
+// Giới hạn số từ
+$limitedWords = array_slice($words, 0, $limit);
 
-        // Kết hợp lại các từ thành chuỗi mới
-        $result = implode(' ', $limitedWords);
+// Kết hợp lại các từ thành chuỗi mới
+$result = implode(' ', $limitedWords);
 
-        return $result;
-    }
+return $result;
+}
 }

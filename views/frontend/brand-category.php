@@ -10,10 +10,10 @@ $offset = Pagination::pageOffset($current, $limit);
 $slug = $_REQUEST['cat'];
 $brand = Brand::where([['status', '=', 1], ['slug', '=', $slug]])->select('id', 'name')->first();
 $list_product = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])
-   ->orderBy('created_at', 'DESC')
-   ->skip($offset)
-   ->limit($limit)
-   ->get();
+    ->orderBy('created_at', 'DESC')
+    ->skip($offset)
+    ->limit($limit)
+    ->get();
 $total = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->count();
 ?>
 <?php require_once "views/frontend/header.php"; ?>
@@ -46,13 +46,13 @@ $total = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->co
                 <div class="product-category mt-3">
                     <div class="row product-list">
                         <?php foreach ($list_product as $product) : ?>
-                        <div class="col-6 col-md-3 mb-4">
-                            <?php require 'views\frontend\product-item.php'; ?>
-                        </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <?php require 'views\frontend\product-item.php'; ?>
+                            </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <?= Pagination::pageLinks($total, $current, $limit, 'index.php?option=brand&cat=' . $slug); ?>
+                <?= Pagination::pageLink($total, $current, $limit, 'index.php?option=brand&cat=' . $slug); ?>
             </div>
         </div>
     </div>

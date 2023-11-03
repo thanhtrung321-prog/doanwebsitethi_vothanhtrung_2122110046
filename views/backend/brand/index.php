@@ -34,6 +34,8 @@ require_once "../views/backend/header.php";
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
+                            <div class="col-md-2">
+                            </div>
                             <div class="mb-3">
                                 <label>Tên thương hiệu (*)</label>
                                 <input type="text" name="name" class="form-control">
@@ -78,26 +80,33 @@ require_once "../views/backend/header.php";
                                                     <input type="checkbox">
                                                 </td>
                                                 <td>
-                                                    <img src="<?= $item->image ?>" alt="brand.jpg">
+                                                    <img style="width: 5rem; height:5rem;object-fit:cover;" src="../public/images/product/<?= $item->image ?>" alt="brand.jpg">
                                                 </td>
                                                 <td>
                                                     <div class="name">
                                                         <?= $item->name; ?>
                                                     </div>
                                                     <div class="function_style">
-                                                        <a class="btn btn-success btn-xs" name='show' href="index.php?option=brand_show">
-                                                            Hiện
-                                                            <i class="fa-solid fa-toggle-on"></i>
-                                                        </a>
-                                                        <a href="index.php?option=brand_edit">
+                                                        <?php if ($item->status == 1) : ?>
+                                                            <a class="btn btn-success btn-xs" name='show' href="index.php?option=brand&cat=status&id=<?= $item->id ?>">
+                                                                Hiện
+                                                                <i class="fa-solid fa-toggle-on"></i>
+                                                            </a>
+                                                        <?php else : ?>
+                                                            <a class="btn btn-danger btn-xs" name='show' href="index.php?option=brand&cat=status&id=<?= $item->id ?>">
+                                                                ẨN
+                                                                <i class="fa-solid fa-toggle-off"></i>
+                                                            </a>
+                                                        <?php endif; ?>
+                                                        <a href="index.php?option=brand&cat=edit&id=<?= $item->id ?>">
                                                             Chỉnh sửa
                                                             <i class="fa-solid fa-pen"></i>
                                                         </a>
-                                                        <a href="index.php?option=brand_destroy">
+                                                        <a href="index.php?option=brand&cat=show&id=<?= $item->id ?>">
                                                             Chi tiết
                                                             <i class="fa-solid fa-circle-info"></i>
                                                         </a>
-                                                        <a href="index.php?option=brand_delete">
+                                                        <a href="index.php?option=brand&cat=delete&id=<?= $item->id ?>">
                                                             Xoá
                                                             <i class="fa-solid fa-trash"></i>
                                                         </a>

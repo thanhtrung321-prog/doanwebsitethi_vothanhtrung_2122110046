@@ -1,4 +1,5 @@
 <?php
+
 use App\Libraries\Cart;
 
 $listcart = Cart::cartContent();
@@ -33,48 +34,63 @@ $listcart = Cart::cartContent();
                 </tr>
             </thead>
             <tbody>
-                <?php if (count($listcart) > 0): ?>
-                <?php $stt = 1; ?>
-                <?php foreach ($listcart as $cart): ?>
-                <?php $money_item = $cart['qty'] * ($cart['price'] ?? 0); // Sử dụng toán tử ?? để kiểm tra 'price' có tồn tại không ?>
-                <tr>
-                    <td class="text-center align-middle"><?= $stt; ?></td>
-                    <td>
-                        <img class="img-fluid" src="public/images/product/<?= $cart['image']; ?>"
-                            alt="<?= $cart['image']; ?>">
-                    </td>
-                    <td class="align-middle"><?= $cart['name']; ?></td>
-                    <td class="text-center align-middle"><?= number_format($cart['price']); ?></td>
-                    <td class="text-center align-middle">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="sub" onclick="changenumber(id)">-</span>
-                            <input type="text" value="<?= $cart['qty']; ?>" id="qty" class="form-control text-center">
-                            <span class="input-group-text" id="add" onclick="changenumber(id)">+</span>
-                        </div>
-                    </td>
-                    <td class="text-center align-middle">
-                        <?= number_format($money_item); ?>
-                    </td>
-                    <td class="text-center align-middle">
-                        <button class="btn btn-sm btn-main">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </td>
-                </tr>
-                <?php $stt++; ?>
-                <?php endforeach; ?>
-                <?php else: ?>
-                <tr>
-                    <td colspan="7" class="text-center">Chưa có sản phẩm trong giỏ hàng</td>
-                </tr>
-                <?php endif; ?>
+                <?php if (count($listcart) > 0) : ?>
+                    <?php $stt = 1; ?>
+                    <?php foreach ($listcart as $cart) : ?>
+                        <?php $money_item = $cart['qty'] * ($cart['price'] ?? 0); // Sử dụng toán tử ?? để kiểm tra 'price' có tồn tại không 
+                        ?>
+                        <tr>
+                            <td class="text-center align-middle">
+                                <?= $stt; ?>
+                            </td>
+                            <td>
+                                <?php if (isset($cart['image'])) : ?>
+                                    <img class="img-fluid" src="public/images/product/<?= $cart['image']; ?>" alt="<?= $cart['image']; ?>">
+                                <?php endif; ?>
+                            </td>
+                            <td class="align-middle">
+                                <?php if (isset($cart['name'])) : ?>
+                                    <?= $cart['name']; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td class="text-center align-middle">
+                                <?php if (isset($cart['price'])) : ?>
+                                    <?= number_format($cart['price']); ?>
+                                <?php else : ?>
+                                    Không có giá
+                                <?php endif; ?>
+                            </td>
 
+                            <td class="text-center align-middle">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="sub" onclick="changenumber(id)">-</span>
+                                    <input type="text" value="<?= $cart['qty']; ?>" id="qty" class="form-control text-center">
+                                    <span class="input-group-text" id="add" onclick="changenumber(id)">+</span>
+                                </div>
+                            </td>
+                            <td class="text-center align-middle">
+                                <?= number_format($money_item); ?>
+                            </td>
+                            <td class="text-center align-middle">
+                                <button class="btn btn-sm btn-main">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php $stt++; ?>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="7" class="text-center">Chưa có sản phẩm trong giỏ hàng</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
+
             <tfoot>
                 <tr>
                     <td colspan="5">
-                        <button class="btn btn-main">Cập nhật</button>
-                        <a href="checkout.html" class="btn btn-main">Thanh toán</a>
+                        <button type="submit" class="btn btn-main">Cập nhật</button>
+                        <a href="index.php?option=checkout" class="btn btn-main">Thanh toán</a>
                     </td>
                     <td colspan="2" class="text-end">
                         <strong>Tổng tiền:
@@ -86,17 +102,17 @@ $listcart = Cart::cartContent();
         </table>
     </div>
     <script>
-    function changenumber(id) {
-        var qty = parseInt(document.getElementById("qty").value);
-        if (id == 'sub') {
-            if (qty > 0) {
-                qty = qty - 1;
+        function changenumber(id) {
+            var qty = parseInt(document.getElementById("qty").value);
+            if (id == 'sub') {
+                if (qty > 0) {
+                    qty = qty - 1;
+                }
+            } else {
+                qty = qty + 1;
             }
-        } else {
-            qty = qty + 1;
+            document.getElementById("qty").value = qty.toString();
         }
-        document.getElementById("qty").value = qty.toString();
-    }
     </script>
 </section>
 <?php require_once 'views/frontend/footer.php'; ?>

@@ -21,8 +21,8 @@ class Cart
         $carts = $_SESSION['cart'] ?? [];
         if (count($carts) > 0) {
             foreach ($carts as $pos => $item) {
-                if ($item['id'] == $id) {
-                    return true;
+                if (isset($item['id']) && $item['id'] == $id) {
+                    return $pos;
                 }
             }
         }
@@ -32,8 +32,8 @@ class Cart
     {
         $carts = $_SESSION['cart'] ?? [];
         if (count($carts) > 0) {
-            if (self::checkCart($cart_item['id']) == true) {
-                $pos = self::posCart($cart_item['id']);
+            $pos = self::posCart($cart_item['id']);
+            if ($pos !== -1) {
                 $carts[$pos]['qty'] += $cart_item['qty'];
             } else {
                 $carts[] = $cart_item;
@@ -51,8 +51,8 @@ class Cart
     {
         $total = 0;
         $carts = $_SESSION['cart'] ?? [];
-        if (count($carts) > 0) {
-            foreach ($carts as $pos => $item) {
+        foreach ($carts as $item) {
+            if (isset($item['price'])) {
                 $total += $item['qty'] * $item['price'];
             }
         }

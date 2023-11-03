@@ -23,8 +23,7 @@
                 </div>
                 <div class="col-12 col-sm-9 d-none d-md-block col-md-5 py-3">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm"
-                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text bg-main" id="basic-addon2">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </span>
@@ -34,19 +33,19 @@
                     <div class="call-login--register border-bottom">
                         <ul class="nav nav-fills py-0 my-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="login.html">
+                                <a class="nav-link" href="https://zalo.me/0828255501">
                                     <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                    0987654321
+                                    0334713016
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.html">Đăng nhập</a>
+                                <a class="nav-link" href="index.php?option=login">Đăng nhập</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="register.html">Đăng ký</a>
+                                <a class="nav-link" href="index.php?option=register">Đăng ký</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="profile.html">Hồ Diên Lợi</a>
+                                <a class="nav-link" href="#">thành Trung</a>
                             </li>
                         </ul>
                     </div>
