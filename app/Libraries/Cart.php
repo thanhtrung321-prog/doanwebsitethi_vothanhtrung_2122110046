@@ -51,11 +51,29 @@ class Cart
     {
         $total = 0;
         $carts = $_SESSION['cart'] ?? [];
-        foreach ($carts as $item) {
-            if (isset($item['price'])) {
-                $total += $item['qty'] * $item['price'];
+        if (count($carts) > 0) {
+            foreach ($carts as $item) {
+                if (isset($item['price'])) {
+                    $total += $item['qty'] * $item['price'];
+                }
             }
         }
+
         return $total;
+    }
+    public static function updateCart($id, $qty)
+    {
+        $carts = $_SESSION['cart'] ?? [];
+        if (count($carts) > 0) {
+            foreach ($carts as $pos => $item)
+                if ($item['id'] == $id) {
+                    if ($qty == 0) {
+                        unset($carts[$pos]);
+                    } else {
+                        $carts[$pos]['qty'] = $qty;
+                    }
+                }
+        }
+        $_SESSION['cart'] = $carts;
     }
 }
