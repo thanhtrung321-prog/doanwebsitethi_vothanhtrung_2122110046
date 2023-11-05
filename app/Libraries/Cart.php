@@ -76,4 +76,16 @@ class Cart
         }
         $_SESSION['cart'] = $carts;
     }
+    public static function deletecart($id)
+    {
+        $carts = $_SESSION['cart'] ?? [];
+        if (count($carts) > 0) {
+            foreach ($carts as $pos => $item) {
+                if ($item['id'] == $id) {
+                    unset($carts[$pos]);
+                }
+            }
+        }
+        $_SESSION['cart'] = $carts;
+    }
 }

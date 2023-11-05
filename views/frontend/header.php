@@ -35,18 +35,26 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="https://zalo.me/0828255501">
                                     <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                    0334713016
+                                    0379263053
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?option=login">Đăng nhập</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?option=register">Đăng ký</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">thành Trung</a>
-                            </li>
+                            <?php if (isset($_SESSION['iscustom'])) : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Tên khách hàng:<?= $_SESSION['name']; ?>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php?option=customer&logout=true">Đăng xuất</a>
+                                </li>
+                            <?php else : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php?option=customer&login=true">Đăng nhập</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.php?option=customer&register=true">Đăng ký</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                     <div class="fs-6 py-2">
