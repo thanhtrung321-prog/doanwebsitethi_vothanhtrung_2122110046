@@ -1,5 +1,5 @@
 <?php require_once "views/frontend/header.php" ?>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
         <div class="row">
             <div class="col-md-3 order-2 order-md-1">
@@ -40,7 +40,8 @@
                     </tr>
                     <tr>
                         <td style="width:20%;">Địa chỉ</td>
-                        <td>Số 20 - Tăng Nhơn Phú - Phước Long B - Quận 9 <a href="profile_edit.php">Đổi địa chỉ</a>
+                        <td>Số 20 - Tăng Nhơn Phú - Phước Long B - Quận 9 <a href="index.php?option=profile-edit">Đổi
+                                địa chỉ</a>
                         </td>
                     </tr>
                 </table>

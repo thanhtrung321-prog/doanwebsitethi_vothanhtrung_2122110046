@@ -49,33 +49,38 @@ $list_order = Product::where([['status', '=', 1], ['id', '!=', $pro->id]])
         </nav>
     </div>
 </section>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="image">
-                    <img id="productimage" class="img-fluid w-100" src="public/images/product/<?= $pro->image; ?>" alt="">
+                    <img id="productimage" class="img-fluid w-100" src="public/images/product/<?= $pro->image; ?>"
+                        alt="">
                 </div>
                 <div class="list-image mt-3">
                     <div class="row">
                         <div class="col-3">
-                            <img class="img-fluid w-100" src="../public/images/product/<?= $pro->image; ?>" alt="" onclick="changeimage(src)">
+                            <img class="img-fluid w-100" src="../public/images/product/<?= $pro->image; ?>" alt=""
+                                onclick="changeimage(src)">
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt="" onclick="changeimage(src)">
+                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt=""
+                                onclick="changeimage(src)">
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt="" onclick="changeimage(src)">
+                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt=""
+                                onclick="changeimage(src)">
                         </div>
                         <div class="col-3">
-                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt="" onclick="changeimage(src)">
+                            <img class="img-fluid" src="public/images/product/<?= $pro->image; ?>" alt=""
+                                onclick="changeimage(src)">
                         </div>
                     </div>
                 </div>
                 <script>
-                    function changeimage(src) {
-                        document.getElementById("productimage").src = src;
-                    }
+                function changeimage(src) {
+                    document.getElementById("productimage").src = src;
+                }
                 </script>
             </div>
             <div class="col-md-6">
@@ -100,33 +105,33 @@ $list_order = Product::where([['status', '=', 1], ['id', '!=', $pro->id]])
             <p><?= $pro->detail; ?></p>
         </div>
         <?php if (count($list_order) > 0) : ?>
-            <div class="row">
-                <h2 class="text-main fs-4 pt-4">Sản phẩm khác</h2>
-                <div class="product-category mt-3">
-                    <div class="row product-list">
-                        <?php foreach ($list_order as $product) : ?>
-                            <?php require 'views/frontend/product-item.php'; ?>
-                        <?php endforeach; ?>
-                    </div>
+        <div class="row">
+            <h2 class="text-main fs-4 pt-4">Sản phẩm khác</h2>
+            <div class="product-category mt-3">
+                <div class="row product-list">
+                    <?php foreach ($list_order as $product) : ?>
+                    <?php require 'views/frontend/product-item.php'; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
+        </div>
         <?php endif; ?>
     </div>
 </section>
 <script>
-    function addcart(id) {
-        const qty = document.getElementById("qty").value;
-        $.ajax({
-            url: "index.php?option=cart&addcart=true",
-            type: "GET",
-            data: {
-                id: id,
-                qty: qty
-            },
-            success: function(result) {
-                $("#showcart").html(result);
-            }
-        });
-    }
+function addcart(id) {
+    const qty = document.getElementById("qty").value;
+    $.ajax({
+        url: "index.php?option=cart&addcart=true",
+        type: "GET",
+        data: {
+            id: id,
+            qty: qty
+        },
+        success: function(result) {
+            $("#showcart").html(result);
+        }
+    });
+}
 </script>
 <?php require_once "views/frontend/footer.php"; ?>

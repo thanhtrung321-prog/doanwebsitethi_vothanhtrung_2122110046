@@ -42,43 +42,50 @@ if (isset($_POST['XACNHAN'])) {
 ?>
 
 <?php require_once "views/frontend/header.php" ?>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
-        <div class="row ">
-            <form action="index.php?option=checkout" method="post">
-                <div class="col-md-6">
-                    <h2 class="fs-5 text-main">Thông tin giao hàng</h2>
-                    <p>Bạn có tài khoản chưa? <a href="index.php?option=customer&login=true">Đăng nhập</a></p>
-                    <?php
-                    if (isset($_SESSION['iscustom'])) :
-                    ?>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="index.php?option=checkout" method="post">
+                    <div class="col-md-6">
+                        <h2 class="fs-5 text-main">Thông tin giao hàng</h2>
+                        <p>Bạn có tài khoản chưa? <a href="index.php?option=customer&login=true">Đăng nhập</a></p>
+                        <?php
+                        if (isset($_SESSION['iscustom'])) :
+                        ?>
                         <?php $customer = User::where([['status', '=', 1], ['id', '=', $_SESSION['user_id']]])->first(); ?>
                         <div class="mb-3">
                             <label for="name">Họ tên</label>
-                            <input readonly type="text" name="name" value="<?= $customer->name ?>" id="name" class="form-control" placeholder="Nhập họ tên">
+                            <input readonly type="text" name="name" value="<?= $customer->name ?>" id="name"
+                                class="form-control" placeholder="Nhập họ tên">
                         </div>
                         <div class="mb-3">
                             <label for="phone">Điện thoại</label>
-                            <input readonly type="text" value="<?= $customer->phone ?>" name="phone" id="phone" class="form-control" placeholder="Nhập điện thoại">
+                            <input readonly type="text" value="<?= $customer->phone ?>" name="phone" id="phone"
+                                class="form-control" placeholder="Nhập điện thoại">
                         </div>
                         <div class="mb-3">
                             <label for="email">Email</label>
-                            <input readonly type="email" value="<?= $customer->email ?>" name="address" id="address" class="form-control" placeholder="Nhập địa chỉ">
+                            <input readonly type="email" value="<?= $customer->email ?>" name="address" id="address"
+                                class="form-control" placeholder="Nhập địa chỉ">
                         </div>
 
                         <div class="mb-3">
                             <label for="address">Địa chỉ</label>
-                            <input readonly type="text" value="<?= $customer->address ?>" name="address" id="address" class="form-control" placeholder="Nhập địa chỉ">
+                            <input readonly type="text" value="<?= $customer->address ?>" name="address" id="address"
+                                class="form-control" placeholder="Nhập địa chỉ">
                         </div>
 
                         <h4 class="fs-6 text-main mt-4">Phương thức thanh toán</h4>
                         <div class="thanhtoan mb-4">
                             <div class="p-4 border">
-                                <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="1" id="check1" />
+                                <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="1"
+                                    id="check1" />
                                 <label for="check1">Thanh toán khi giao hàng</label>
                             </div>
                             <div class="p-4 border">
-                                <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="2" id="check2" />
+                                <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="2"
+                                    id="check2" />
                                 <label for="check2">Chuyển khoản qua ngân hàng</label>
                             </div>
                             <div class="p-4 border bankinfo">
@@ -90,10 +97,10 @@ if (isset($_POST['XACNHAN'])) {
                         <div class="text-end">
                             <button type="submit" name="XACNHAN" class="btn btn-main px-4">XÁC NHẬN</button>
                         </div>
-                    <?php endif; ?>
-                </div>
+                        <?php endif; ?>
+                    </div>
 
-                <script>
+                    <script>
                     function showbankinfo(value) {
                         var elementbank = document.querySelector(".bankinfo");
                         if (value == 1) {
@@ -102,31 +109,34 @@ if (isset($_POST['XACNHAN'])) {
                             elementbank.style.display = "block";
                         }
                     }
-                </script>
-            </form>
+                    </script>
+                </form>
+            </div>
             <div class="col-md-6">
-                <h2 class="fs-5 text-main">Thông tin đơn hàng</h2>
-                <table class="table table-borderless">
-                    <thead>
-                        <tr class="bg-dark">
-                            <th style="width:30px;" class="text-center">STT</th>
-                            <th style="width:100px;">Hình</th>
-                            <th>Tên sản phẩm</th>
-                            <th class="text-center">Giá</th>
-                            <th style="width:130px" class='text-center'>Số lượng</th>
-                            <th class="text-center">Thành tiền</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $stt = 1; ?>
-                        <?php foreach ($listcart as $item) : ?>
+                <div class="col-md-5">
+                    <h2 class="fs-5 text-main">Thông tin đơn hàng</h2>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr class="bg-dark">
+                                <th style="width:30px;" class="text-center">STT</th>
+                                <th style="width:100px;">Hình</th>
+                                <th>Tên sản phẩm</th>
+                                <th class="text-center">Giá</th>
+                                <th style="width:130px" class='text-center'>Số lượng</th>
+                                <th class="text-center">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $stt = 1; ?>
+                            <?php foreach ($listcart as $item) : ?>
                             <?php
-                            $money = $item['price'] * $item['qty'];
-                            ?>
+                                $money = $item['price'] * $item['qty'];
+                                ?>
                             <tr>
                                 <td class="text-center align-middle"><?= $stt ?></td>
                                 <td>
-                                    <img class="img-fluid" src="public/images/product/<?= $item['image']; ?>" alt="<?= $item['image']; ?>">
+                                    <img class="img-fluid" src="public/images/product/<?= $item['image']; ?>"
+                                        alt="<?= $item['image']; ?>">
                                 </td>
                                 <td class="align-middle"><?= $item['name']; ?></td>
                                 <td class="text-center align-middle"><?= number_format($item['price']); ?></td>
@@ -138,40 +148,42 @@ if (isset($_POST['XACNHAN'])) {
                                 </td>
                             </tr>
                             <? $stt++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6" class="text-end">
-                                <strong> <?= number_format(Cart::cartTotal()); ?></strong>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Mã giảm giá" aria-describedby="basic-addon2">
-                        <span class="input-group-text" id="basic-addon2">Sử dụng</span>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="text-end">
+                                    <strong> <?= number_format(Cart::cartTotal()); ?></strong>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Mã giảm giá"
+                                aria-describedby="basic-addon2">
+                            <span class="input-group-text" id="basic-addon2">Sử dụng</span>
+                        </div>
                     </div>
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>Tạm tính</th>
+                            <td class="text-end"> <?= number_format(Cart::cartTotal()); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Phí vận chuyển</th>
+                            <td class="text-end">0</td>
+                        </tr>
+                        <tr>
+                            <th>Giảm giá</th>
+                            <td class="text-end">0</td>
+                        </tr>
+                        <tr>
+                            <th>Tổng cộng</th>
+                            <td class="text-end"> <?= number_format(Cart::cartTotal()); ?></td>
+                        </tr>
+                    </table>
                 </div>
-                <table class="table table-borderless">
-                    <tr>
-                        <th>Tạm tính</th>
-                        <td class="text-end"> <?= number_format(Cart::cartTotal()); ?></td>
-                    </tr>
-                    <tr>
-                        <th>Phí vận chuyển</th>
-                        <td class="text-end">0</td>
-                    </tr>
-                    <tr>
-                        <th>Giảm giá</th>
-                        <td class="text-end">0</td>
-                    </tr>
-                    <tr>
-                        <th>Tổng cộng</th>
-                        <td class="text-end"> <?= number_format(Cart::cartTotal()); ?></td>
-                    </tr>
-                </table>
             </div>
         </div>
     </div>

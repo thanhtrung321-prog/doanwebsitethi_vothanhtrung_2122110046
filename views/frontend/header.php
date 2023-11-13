@@ -11,9 +11,21 @@
     <script src="public/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="public/jquery/jquery-3.7.0.min.js"></script>
 </head>
+<style>
+    .tuychinh {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSo_-uSDeOG-HhCgel-7V2B-WFlA3aCsUe_ZhFr0ac&s');
+        /* Thay đổi 'duong-dan-den-hinh-anh.jpg' thành đường dẫn thực sự đến hình ảnh của bạn */
+        background-size: cover;
+        /* Tùy chọn: cân chỉnh kích thước hình ảnh nền */
+        background-position: center center;
+        /* Tùy chọn: cân chỉnh vị trí của hình ảnh nền */
+        background-repeat: no-repeat;
+        /* Tùy chọn: ngăn lặp lại hình ảnh nền */
+    }
+</style>
 
 <body>
-    <section class="hdl-header">
+    <section class="hdl-header tuychinh">
         <div class="container">
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-2 py-1">
@@ -52,13 +64,14 @@
                                     <a class="nav-link" href="index.php?option=customer&login=true">Đăng nhập</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.php?option=customer&register=true">Đăng ký</a>
+                                    <a class="nav-link" href="index.php?option=register">Đăng ký</a>
                                 </li>
                             <?php endif; ?>
                         </ul>
                     </div>
                     <div class="fs-6 py-2">
-                        ĐỔI TRẢ HÀNG HOẶC HOÀN TIỀN <span class="text-main">TRONG 3 NGÀY</span>
+                        ĐỔI TRẢ HÀNG HOẶC HOÀN TIỀN <span class="text-
+                        ">TRONG 3 NGÀY</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-1 text-end py-4 py-md-2">
@@ -74,7 +87,7 @@
             </div>
         </div>
     </section>
-    <section class="hdl-mainmenu bg-main">
+    <section class="hdl-mainmenu bg-main bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-12 d-none d-md-block col-md-2 d-none d-md-block">

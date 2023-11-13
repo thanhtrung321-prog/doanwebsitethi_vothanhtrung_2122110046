@@ -5,7 +5,7 @@ namespace App\Models;
 namespace App\Libraries;
 
 ?>
-<section class="hdl-footer pb-4">
+<section class="hdl-footer pb-4  ">
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-4">
@@ -58,7 +58,7 @@ namespace App\Libraries;
 </section>
 
 
-<section class="dhl-copyright bg-dark py-3">
+<section class="dhl-copyright  py-3">
     <div class="container text-center text-white">
         Thiết kế bởi: Thành Trung
     </div>

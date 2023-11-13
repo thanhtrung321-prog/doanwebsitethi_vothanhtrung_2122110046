@@ -54,7 +54,7 @@ $total = Product::where('status', '=', 1)
         </nav>
     </div>
 </section>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
         <div class="row">
             <div class="col-md-3 order-2 order-md-1">
@@ -69,7 +69,7 @@ $total = Product::where('status', '=', 1)
                 <div class="product-category mt-3">
                     <div class="row product-list">
                         <?php foreach ($list_product as $product) : ?>
-                            <?php require 'views\frontend\product-item.php'; ?>
+                        <?php require 'views\frontend\product-item.php'; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>

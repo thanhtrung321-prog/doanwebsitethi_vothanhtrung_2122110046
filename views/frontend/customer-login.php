@@ -8,7 +8,7 @@ $success = "";
 $local = false;
 if (isset($_POST['LOGIN'])) {
     $username = $_POST['username'];
-    $password = sha1($_POST['password']);
+    $password = sha1($_POST['password']); // Sử dụng sha1 để mã hóa mật khẩu
 
     $args = [
         ['password', '=', $password],
@@ -18,15 +18,11 @@ if (isset($_POST['LOGIN'])) {
     if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
         $args[] = ['email', '=', $username];
     } else {
-
         $args[] = ['username', '=', $username];
     }
 
-
     $user = User::where($args)->first();
-
     if ($user !== null && $user->password === $password) {
-
         $_SESSION['iscustom'] = $username;
         $_SESSION['user_id'] = $user->id;
         $_SESSION['name'] = $user->name;
@@ -60,7 +56,7 @@ if ($local == true) {
 </script>';
 }
 ?>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <form action="index.php?option=customer&login=true" method="post">
         <div class="container">
 

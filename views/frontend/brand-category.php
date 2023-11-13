@@ -31,7 +31,7 @@ $total = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->co
         </nav>
     </div>
 </section>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
         <div class="row">
             <div class="col-md-3 order-2 order-md-1">
@@ -46,9 +46,9 @@ $total = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->co
                 <div class="product-category mt-3">
                     <div class="row product-list">
                         <?php foreach ($list_product as $product) : ?>
-                            <div class="col-6 col-md-3 mb-4">
-                                <?php require 'views\frontend\product-item.php'; ?>
-                            </div>
+                        <div class="col-6 col-md-3 mb-4">
+                            <?php require 'views\frontend\product-item.php'; ?>
+                        </div>
                         <?php endforeach; ?>
                     </div>
                 </div>

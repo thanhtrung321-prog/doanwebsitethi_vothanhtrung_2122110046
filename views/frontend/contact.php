@@ -1,5 +1,5 @@
 <?php require_once "views/views/frontend/header.php" ?>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
         <div class="row">
             <div class="col-md-6">

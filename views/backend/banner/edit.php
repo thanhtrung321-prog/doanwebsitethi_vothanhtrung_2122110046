@@ -1,14 +1,19 @@
 <?php
 
 use App\Models\Banner;
+use App\Libraries\MyClass;
 
-$list = Banner::where('status', '!=', 0)
-    ->orderBy('created_at', 'DESC')
-    ->get();
+$id = $_REQUEST['id'];
+$banner =  Banner::find($id);
+if ($banner == null) {
+    MyClass::set_flash('message', ['msg' => 'Lỗi trang 404', 'type' => 'danger']);
+    header("location:index.php?option=banner");
+}
+
 ?>
-
-<?php require_once '../views/backend/header.php'; ?>
+<?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
+
 <form action="index.php?option=banner&cat=process" method="post" enctype="multipart/form-data">
 
     <div class="content-wrapper">
@@ -16,59 +21,56 @@ $list = Banner::where('status', '!=', 0)
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1 class="d-inline">Thêm mới banner</h1>
+                        <h1 class="d-inline">Cập nhật banner</h1>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Main content= -->
         <section class="content">
             <div class="card">
                 <div class="card-header text-right">
+
+                    <button class="btn btn-sm btn-success" type="subumit" name="CAPNHAT">
+                        <i class="fa fa-save" aria-hidden="true"></i>
+                        Lưu
+                    </button>
                     <a href="index.php?option=banner" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                        Về danh sách
+                        Về banner
                     </a>
-                    <button class="btn btn-sm btn-success" type="subumit" name="THEM">
-                        <i class="fa fa-save" aria-hidden="true"></i>
-                        Thêm banner
-                    </button>
+
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-12">
                             <div class="mb-3">
+                                <input type="hidden" name="id" value="<?= $banner->id; ?>" />
                                 <label>Tên banner (*)</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" value="<?= $banner->name; ?>" name="name" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Liên kết</label>
-                                <input type="text" name="link" class="form-control">
+                                <label>Link liên kết</label>
+                                <input type="link" value="<?= $banner->link; ?>" name="link" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Mô tả (*)</label>
-                                <textarea name="detail" rows="5" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label>Vị trí (*)</label>
-                                <select name="position" class="form-control">
-                                    <option value="">None</option>
-                                    <option value="1">Tên danh mục</option>
-                                </select>
+                                <label>Vị trí</label>
+                                <textarea name="position" class="form-control"><?= $banner->position; ?></textarea>
                             </div>
                             <div class="mb-3">
-                                <label>Hình (*)</label>
+                                <label>Hình ảnh</label>
                                 <input type="file" name="image" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label>Trạng thái</label>
                                 <select name="status" class="form-control">
-                                    <option value="1">Xuất bản</option>
-                                    <option value="2">Chưa xuất bản</option>
+                                    <option value="1" <?= ($banner->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
+                                    <option value="2" <?= ($banner->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản
+                                    </option>
                                 </select>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -76,4 +78,4 @@ $list = Banner::where('status', '!=', 0)
     </div>
 </form>
 <!-- END CONTENT-->
-<?php require_once '../views/backend/header.php'; ?>
+<?php require_once "../views/backend/footer.php"; ?>

@@ -6,7 +6,7 @@ $mod_list_category = Category::where([['parent_id', '=', 0], ['status', '=', 1]]
     ->select('name', 'slug')->get();
 ?>
 
-<ul class="list-group mb-3 list-category">
+<ul class="list-group mb-3 list-category ">
     <li class="list-group-item bg-main py-3">Danh mục sản phẩm</li>
     <?php foreach ($mod_list_category as $mod_row_cat) : ?>
         <li class="list-group-item">

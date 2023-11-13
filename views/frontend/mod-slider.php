@@ -8,7 +8,7 @@ $mod_slider = Banner::where([['position', '=', 'slideshow'], ['status', '=', 1]]
 ?>
 <section class="hdl-slideshow">
     <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
+        <div style="width: 100%; height: 700px;" class="carousel-inner">
             <?php $index = 1; ?>
             <?php foreach ($mod_slider as $slider) : ?>
                 <?php if ($index == 1) : ?>
@@ -33,3 +33,19 @@ $mod_slider = Banner::where([['position', '=', 'slideshow'], ['status', '=', 1]]
         </button>
     </div>
 </section>
+<script>
+    //mã js giúp tăng index biến i để thay ảnh auto
+    $(document).ready(function() {
+        var currentIndex = 0;
+        var slides = $('.carousel-item');
+
+        function nextSlide() {
+            slides.eq(currentIndex).removeClass('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides.eq(currentIndex).addClass('active');
+        }
+
+        // Thực hiện chuyển đổi mỗi 3 giây
+        setInterval(nextSlide, 3000);
+    });
+</script>

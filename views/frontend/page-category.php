@@ -7,7 +7,7 @@ use App\Models\Post;
 $slug = $_REQUEST['cat'];
 $page = Post::where([['slug', $slug], ['type', 'page'], ['status', 1]])->first();
 ?>
-<section class="bg-light">
+<section class=" bg-info">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
             <ol class="breadcrumb py-2 my-0">
@@ -21,12 +21,14 @@ $page = Post::where([['slug', $slug], ['type', 'page'], ['status', 1]])->first()
         </nav>
     </div>
 </section>
-<section class="hdl-maincontent py-2">
+<section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
+        <style>
+        </style>
         <div class="row">
-            <div class="col-md-3 order-2 order-md-1">
-                <ul class="list-group mb-3 list-page">
-                    <li class="list-group-item bg-main py-3">Các trang khác</li>
+            <div class="col-md-3 order-2 order-md-1  ">
+                <ul class=" list-group mb-3 list-page">
+                    <li class="list-group-item bg-main py-3 bg-dark ">Các trang khác</li>
                     <li class="list-group-item">
                         <a href="post_page.html">Chính sách mua hàng</a>
                     </li>
@@ -42,9 +44,10 @@ $page = Post::where([['slug', $slug], ['type', 'page'], ['status', 1]])->first()
                 </ul>
             </div>
             <div class="col-md-9 order-1 order-md-2">
-                <h1 class="fs-2 text-main"><?= (!isset($page)) ? 'chưa có dữ liệu' : $page->title; ?>
+                <h1 style="color: red;" class="fs-2 text-main ">
+                    <?= (!isset($page)) ? 'chưa có dữ liệu' : $page->title; ?>
                 </h1>
-                <p>
+                <p style="color: red;">
                     <?= (!isset($page)) ? 'chưa có dữ liệu' : $page->detail; ?>
                 </p>
             </div>

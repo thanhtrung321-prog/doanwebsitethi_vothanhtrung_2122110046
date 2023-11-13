@@ -100,21 +100,21 @@ $slug = str_replace(array(
 ), array(
 'dong', 'Dong', 'uon', 'ien', 'yen', 'don', '-', ''
 ), $slug);
-$slug = preg_replace('/(\-)$/', '', $slug);
-$slug = preg_replace('/^(\-)/', '', $slug);
+$slug = preg_replace('/(\-)$/', ' ', $slug);
+$slug = preg_replace('/^(\-)/', ' ', $slug);
 return strtolower($slug);
 }
 public static function word_limit($str, $limit = 10)
 {
 $str = strip_tags($str);
-while (strpos($str, ' ')) {
-$str = str_replace(' ', ' ', $str);
-}
+// Sử dụng preg_replace để thay thế tất cả khoảng trắng liên tiếp bằng một khoảng trắng duy nhất.
+$str = preg_replace('/\s+/', ' ', $str);
 $array = explode(' ', $str);
 $limit = ($limit <= 0) ? count($array) : $limit; $limit=($limit>= count($array)) ? count($array) : $limit;
     $a = array_slice($array, 0, $limit);
     return implode(' ', $a);
     }
+
     public static function set_flash($name, $arr)
     {
     $_SESSION[$name] = ['msg' => $arr['msg'], 'type' => $arr['type']];

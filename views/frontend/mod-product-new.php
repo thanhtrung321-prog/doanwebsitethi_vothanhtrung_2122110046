@@ -6,7 +6,7 @@ $mod_list_product = Product::where('status', '=', 1)->orderBy('created_at', 'DES
     ->select('name', 'slug', 'image', 'price', 'pricesale')->limit(3)->get();
 ?>
 
-<ul class="list-group mb-3 list-product-new">
+<ul class="list-group mb-3 list-product-new ">
     <li class="list-group-item bg-main py-3">Sản phẩm mới</li>
     <?php foreach ($mod_list_product as $pro) : ?>
         <li class="list-group-item">

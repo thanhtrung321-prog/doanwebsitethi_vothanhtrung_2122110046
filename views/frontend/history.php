@@ -1,5 +1,6 @@
 <?php require_once "views/frontend/header.php" ?>
-<section class="hdl-maincontent py-2">
+
+<section class="hdl-maincontent py-2 tuychinh ">
     <div class="container">
         <div class="row">
             <h1 class="fs-2 text-main">Đơn hàng đã mua</h1>
