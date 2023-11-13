@@ -106,18 +106,28 @@ return strtolower($slug);
 }
 public static function word_limit($str, $limit = 10)
 {
-// Loại bỏ các thẻ HTML và các khoảng trắng không cần thiết
-$str = preg_replace('/\s+/', ' ', strip_tags($str));
-
-// Chia chuỗi thành mảng từ dựa trên khoảng trắng
-$words = explode(' ', $str);
-
-// Giới hạn số từ
-$limitedWords = array_slice($words, 0, $limit);
-
-// Kết hợp lại các từ thành chuỗi mới
-$result = implode(' ', $limitedWords);
-
-return $result;
+$str = strip_tags($str);
+while (strpos($str, ' ')) {
+$str = str_replace(' ', ' ', $str);
 }
-}
+$array = explode(' ', $str);
+$limit = ($limit <= 0) ? count($array) : $limit; $limit=($limit>= count($array)) ? count($array) : $limit;
+    $a = array_slice($array, 0, $limit);
+    return implode(' ', $a);
+    }
+    public static function set_flash($name, $arr)
+    {
+    $_SESSION[$name] = ['msg' => $arr['msg'], 'type' => $arr['type']];
+    }
+
+    public static function get_flash($name)
+    {
+    $arr = $_SESSION[$name];
+    unset($_SESSION[$name]);
+    return $arr;
+    }
+    public static function has_flash($name)
+    {
+    return isset($_SESSION[$name]);
+    }
+    }

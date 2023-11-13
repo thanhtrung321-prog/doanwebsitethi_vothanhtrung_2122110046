@@ -71,11 +71,13 @@ if ($local == true) {
                 <div class="col-md-8">
                     <div class="mb-3">
                         <label for="username" class="text-main">Tên tài khoản (*)</label>
-                        <input type="text" name="username" value="" id="username" class="form-control" placeholder="Nhập tài khoản đăng nhập" required>
+                        <input type="text" name="username" value="" id="username" class="form-control"
+                            placeholder="Nhập tài khoản đăng nhập" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="text-main">Mật khẩu (*)</label>
-                        <input type="password" value="" name="password" id="password" class="form-control" placeholder="Mật khẩu" required>
+                        <input type="password" value="" name="password" id="password" class="form-control"
+                            placeholder="Mật khẩu" required>
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-main" id="loginButton" name="LOGIN">Đăng nhập</button>
@@ -83,11 +85,11 @@ if ($local == true) {
                     <p><u class="text-main">Chú ý</u>: (*) Thông tin bắt buộc phải nhập</p>
                     <div>
                         <?php if (!$local) : ?>
-                            <div class="text-danger"><?= $success; ?></div>
+                        <div class="text-danger"><?= $success; ?></div>
                     </div>
-                <?php else : ?>
+                    <?php else : ?>
                     <div style="color:green;"><?= $success; ?></div>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

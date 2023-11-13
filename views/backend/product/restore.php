@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Brand;
+use App\Models\Product;
 
 $id = $_REQUEST['id'];
-$brand = Brand::find($id);
+$brand = Product::find($id);
 if ($brand == null) {
     header("location:index.php?option=brand&cat=brand_trash");
 }
