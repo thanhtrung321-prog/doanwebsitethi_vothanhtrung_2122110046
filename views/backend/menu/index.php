@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Topic;
 use App\Models\Post;
+use App\Libraries\MessageArt;
 
 $list = Menu::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
 $list_category = Category::where('status', '!=', 0)->get();
