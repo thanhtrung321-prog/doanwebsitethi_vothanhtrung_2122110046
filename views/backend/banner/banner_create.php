@@ -23,7 +23,7 @@ $list = Banner::where('status', '!=', 0)
         </section>
         <section class="content">
             <div class="card">
-                <div class="card-header text-right">
+                <div class="card-header text-right  ">
                     <a href="index.php?option=banner" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Về danh sách
@@ -33,7 +33,7 @@ $list = Banner::where('status', '!=', 0)
                         Thêm banner
                     </button>
                 </div>
-                <div class="card-body">
+                <div class="card-body ">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="mb-3">

@@ -9,7 +9,7 @@ $list = Post::where('status', '!=', 0)
 
 <?php require_once '../views/backend/header.php'; ?>
 <!-- CONTENT -->
-<div class="content-wrapper">
+<div class="content-wrapper thanhtrung">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -44,44 +44,47 @@ $list = Post::where('status', '!=', 0)
                     </thead>
                     <tbody>
                         <?php if (count($list) > 0) : ?>
-                            <?php foreach ($list as $item) : ?>
-                                <tr class="datarow">
-                                    <td>
-                                        <input type="checkbox">
-                                    </td>
-                                    <td>
-                                        <img src="../public/images/<?= $item->image; ?>" alt="<?= $item->image; ?>">
-                                    </td>
-                                    <td>
-                                        <div class="name">
-                                            <?= $item->name; ?>
-                                        </div>
-                                        <div class="function_style">
-                                            <?php if ($item->status == 1) : ?>
-                                                <a href="index.php?option=page&cat=status&id=<?= $item->id; ?>" class="btn 
+                        <?php foreach ($list as $item) : ?>
+                        <tr class="datarow">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>
+                                <img src="../public/images/<?= $item->image; ?>" alt="<?= $item->image; ?>">
+                            </td>
+                            <td>
+                                <div class="name">
+                                    <?= $item->name; ?>
+                                </div>
+                                <div class="function_style">
+                                    <?php if ($item->status == 1) : ?>
+                                    <a href="index.php?option=page&cat=status&id=<?= $item->id; ?>" class="btn 
                                        btn-success btn-xs">
-                                                    <i class="fas fa-toggle-on"></i> Hiện
-                                                </a>
-                                            <?php else : ?>
-                                                <a href="index.php?option=page&cat=status&id=<?= $item->id; ?>" class="btn 
+                                        <i class="fas fa-toggle-on"></i> Hiện
+                                    </a>
+                                    <?php else : ?>
+                                    <a href="index.php?option=page&cat=status&id=<?= $item->id; ?>" class="btn 
                                        btn-danger btn-xs">
-                                                    <i class="fas fa-toggle-off"></i> Ẩn
-                                                </a>
-                                            <?php endif; ?>
-                                            <a href="index.php?option=page&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary btn-xs">
-                                                <i class="fas fa-edit"></i> Chỉnh sửa
-                                            </a>
-                                            <a href="index.php?option=page&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
-                                                <i class="fas fa-eye"></i> Chi tiết
-                                            </a>
-                                            <a href="index.php?option=page&cat=delete&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
-                                                <i class="fas fa-trash"></i> Xoá
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td><?= $item->slug; ?></td>
-                                </tr>
-                            <?php endforeach; ?>
+                                        <i class="fas fa-toggle-off"></i> Ẩn
+                                    </a>
+                                    <?php endif; ?>
+                                    <a href="index.php?option=page&cat=edit&id=<?= $item->id; ?>"
+                                        class="btn btn-primary btn-xs">
+                                        <i class="fas fa-edit"></i> Chỉnh sửa
+                                    </a>
+                                    <a href="index.php?option=page&cat=show&id=<?= $item->id; ?>"
+                                        class="btn btn-info btn-xs">
+                                        <i class="fas fa-eye"></i> Chi tiết
+                                    </a>
+                                    <a href="index.php?option=page&cat=delete&id=<?= $item->id; ?>"
+                                        class="btn btn-danger btn-xs">
+                                        <i class="fas fa-trash"></i> Xoá
+                                    </a>
+                                </div>
+                            </td>
+                            <td><?= $item->slug; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
                 </table>

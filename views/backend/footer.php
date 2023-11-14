@@ -1,5 +1,5 @@
   <!-- END CONTENT-->
-  <footer class="main-footer">
+  <footer class="main-footer thanhtrung">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0
     </div>
@@ -16,6 +16,22 @@
       $('#mytable').DataTable();
     });
   </script>
+  <script>
+    document.getElementById('recordsPerPage').addEventListener('change', function() {
+      var recordsPerPage = this.value;
+      // Gửi yêu cầu Ajax để tải lại dữ liệu với số lượng bản ghi mới
+      // Bạn có thể sử dụng thư viện JavaScript như Axios hoặc Fetch API để thực hiện yêu cầu Ajax
+      // Ví dụ sử dụng Fetch API:
+      fetch('load_data.php?records=' + recordsPerPage)
+        .then(response => response.text())
+        .then(data => {
+          // Cập nhật nội dung bảng dữ liệu
+          document.getElementById('mytable').innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+
   </body>
 
   </html>

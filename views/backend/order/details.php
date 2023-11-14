@@ -1,9 +1,25 @@
 <?php require_once '../views/backend/header.php'; ?>
-?>
 <div class="content-wrapper">
+
     <section class="content-header">
         <h1>Thêm Mới Giao Hàng</h1>
     </section>
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="index.php?option=order" class="btn btn-sm btn-info">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Về danh sách
+                </a>
+                <a href="index.php?option=category&cat=trash" class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash"></i>Thùng rác
+                </a>
+            </div>
+        </div>
+    </div>
     <section class="content">
         <form method="POST" action="index.php?option=addorder">
             <div class="form-group">

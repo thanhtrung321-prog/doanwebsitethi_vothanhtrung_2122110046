@@ -15,7 +15,7 @@ $list_page = Post::where([['status', '!=', 0], ['type', '!=', 'page']])->get();
 ?>
 <?php require_once '../views/backend/header.php'; ?>
 <form action="index.php?option=menu&cat=process" method="post">
-    <div class="content-wrapper">
+    <div class="content-wrapper thanhtrung">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">

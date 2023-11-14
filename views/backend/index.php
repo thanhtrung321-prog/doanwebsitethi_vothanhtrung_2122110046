@@ -11,7 +11,7 @@
             </div>
         </div>
     </section>
-    <section class="content">
+    <section class="content ">
         <div class="card">
             <div class="card-header p-2">
                 Noi dung

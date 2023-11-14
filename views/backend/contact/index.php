@@ -9,7 +9,7 @@ $list = Contact::where('status', '!=', 0)
 <?php require_once '../views/backend/header.php'; ?>
 <!-- CONTENT -->
 <form action="index.php?option=contact&cat=process" method="post" enctype="multipart/form-data">
-    <div class="content-wrapper">
+    <div class="content-wrapper thanhtrung">
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">

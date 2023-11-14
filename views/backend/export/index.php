@@ -1,5 +1,5 @@
 <?php require_once "../views/backend/header.php"; ?>
-<div class="content-wrapper">
+<div class="content-wrapper thanhtrung">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
