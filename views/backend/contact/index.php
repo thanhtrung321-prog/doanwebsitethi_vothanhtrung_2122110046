@@ -30,7 +30,7 @@ $list = Contact::where('status', '!=', 0)
 
                         </div>
                         <div class="col-md-6 text-right">
-                            <button class="btn btn-sm btn-success" type="subumit" name="THEM">
+                            <button class="btn btn-sm btn-success" type="submit" name="THEM">
                                 <i class="fa fa-save" aria-hidden="true"></i>
                                 Lưu
                             </button>

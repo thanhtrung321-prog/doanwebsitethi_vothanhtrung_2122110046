@@ -27,7 +27,8 @@ $list = Brand::where('status', '=', 0)
         <div class="card">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="index.php?option=brand&cat=brand_trash" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i> Thùng rác</a>
+                    <a href="index.php?option=brand&cat=trash" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i>
+                        Thùng rác</a>
                 </div>
                 <div class="col-md-6 text-right">
                     <a href="index.php?option=brand" class="btn btn-sm btn-info">
@@ -65,10 +66,10 @@ $list = Brand::where('status', '=', 0)
                                                     <?= $item->name; ?>
                                                 </div>
                                                 <div class="function_style">
-                                                    <a href="index.php?option=brand&cat=brand_restore&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                                    <a href="index.php?option=brand&cat=restore&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
                                                         <i class="fas fa-undo"></i></i>Khôi phục
                                                     </a> |
-                                                    <a href="index.php?option=brand&cat=brand_destroy&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                                    <a href="index.php?option=brand&cat=destroy&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
                                                         <i class="far fa-trash-alt"></i></i>Xoá vv
                                                     </a>
                                                 </div>

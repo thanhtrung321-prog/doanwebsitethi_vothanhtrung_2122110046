@@ -9,12 +9,38 @@ if ($contact == null) {
    MyClass::set_flash('message', ['msg' => 'Lỗi trang 404', 'type' => 'danger']);
    header("location:index.php?option=contact");
 }
+if (isset($_POST['CAPNHAT'])) {
+   $id = $_POST['id'];
+   $contact = Contact::find($id);
+
+   if ($contact == null) {
+      MyClass::set_flash('message', ['msg' => 'Lỗi trang 404', 'type' => 'danger']);
+      header("location:index.php?option=contact");
+   }
+
+   // Get data from the form
+   $contact->name = $_POST['name'];
+   $contact->phone = (strlen($_POST['phone']) > 0) ? $_POST['phone'] : MyClass::str_slug($_POST['phone']);
+   $contact->title = $_POST['title'];
+   $contact->status = $_POST['status'];
+
+   // Save the updated contact information
+   $result = $contact->save();
+
+   if ($result) {
+      MyClass::set_flash('message', ['msg' => 'Cập nhật thông tin thành công', 'type' => 'success']);
+      header("location:index.php?option=contact");
+   } else {
+      MyClass::set_flash('message', ['msg' => 'Có lỗi xảy ra. Vui lòng thử lại.', 'type' => 'danger']);
+      header("location:index.php?option=contact&edit");
+   }
+}
 
 ?>
 <?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
 
-<form action="index.php?option=contact&cat=process" method="post" enctype="multipart/form-data">
+<form action="index.php?option=contact&cat=edit" method="post" enctype="multipart/form-data">
 
    <div class="content-wrapper">
       <section class="content-header">
@@ -31,7 +57,7 @@ if ($contact == null) {
          <div class="card">
             <div class="card-header text-right">
 
-               <button class="btn btn-sm btn-success" type="subumit" name="CAPNHAT">
+               <button class="btn btn-sm btn-success" type="submit" name="CAPNHAT">
                   <i class="fa fa-save" aria-hidden="true"></i>
                   Lưu
                </button>
@@ -64,8 +90,10 @@ if ($contact == null) {
                      <div class="mb-3">
                         <label>Trạng thái</label>
                         <select name="status" class="form-control">
-                           <option value="1" <?= ($contact->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
-                           <option value="2" <?= ($contact->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản</option>
+                           <option value="1" <?= ($contact->status == 1) ? 'selected' : ''; ?>>Xuất bản
+                           </option>
+                           <option value="2" <?= ($contact->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản
+                           </option>
                         </select>
                      </div>
                   </div>
