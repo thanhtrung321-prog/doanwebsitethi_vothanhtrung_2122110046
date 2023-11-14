@@ -62,7 +62,9 @@ $brand = Product::find($id);
                                 <tr>
                                     <td>IMAGE</td>
                                     <td style="width:5rem; height:5rem;">
-                                        <img src="../public/images/product/<?= $brand->image; ?>" alt="<?= $brand->image; ?>" style="width:100%; height:100%; object-fit: cover;">
+                                        <img src="../public/images/product/<?= $brand->image; ?>"
+                                            alt="<?= $brand->image; ?>"
+                                            style="width:100%; height:100%; object-fit: cover;">
                                     </td>
 
                                 </tr>
@@ -100,15 +102,15 @@ $brand = Product::find($id);
 </div>
 <!-- END CONTENT-->
 <script>
-    const thongbao = 'chờ 1s trở về danh sách sản phẩm ->';
-    document.getElementById('vedanhsach').addEventListener('click', function(event) {
-        // Ngăn chặn hành động mặc định của liên kết (để chuyển hướng sau khi thêm sản phẩm)
-        event.preventDefault();
-        document.getElementById('thongbao').innerHTML = thongbao;
-        // Sau khi ngăn chặn hành động mặc định, bạn có thể thực hiện chuyển hướng
-        setTimeout(function() {
-            window.location.href = "index.php?option=product";
-        }, 1000);
-    });
+const thongbao = 'chờ 1s trở về danh sách sản phẩm ->';
+document.getElementById('vedanhsach').addEventListener('click', function(event) {
+    // Ngăn chặn hành động mặc định của liên kết (để chuyển hướng sau khi thêm sản phẩm)
+    event.preventDefault();
+    document.getElementById('thongbao').innerHTML = thongbao;
+    // Sau khi ngăn chặn hành động mặc định, bạn có thể thực hiện chuyển hướng
+    setTimeout(function() {
+        window.location.href = "index.php?option=product";
+    }, 1000);
+});
 </script>
 <?php require_once '../views/backend/footer.php' ?>

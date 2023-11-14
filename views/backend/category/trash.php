@@ -27,10 +27,10 @@ $list = Category::where('status', '=', 0)
         <div class="card">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="index.php?option=brand&cat=brand_trash" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i> Thùng rác</a>
+                    <a href="index.php?option=category&cat=trash" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i> Thùng rác</a>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="index.php?option=brand" class="btn btn-sm btn-info">
+                    <a href="index.php?option=category" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Về danh sách
                     </a>
@@ -46,7 +46,7 @@ $list = Category::where('status', '=', 0)
                                         <input type="checkbox">
                                     </th>
                                     <th class="text-center" style="width:130px;">Hình ảnh</th>
-                                    <th>Tên thương hiệu</th>
+                                    <th>Tên sản phẩm</th>
                                     <th>Tên slug</th>
                                 </tr>
                             </thead>
@@ -58,17 +58,17 @@ $list = Category::where('status', '=', 0)
                                                 <input type="checkbox">
                                             </td>
                                             <td>
-                                                <img src="../public/images/brand/<?= $item->image; ?>" alt="<?= $item->image; ?>">
+                                                <img src="../public/images/category/<?= $item->image; ?>" alt="<?= $item->image; ?>">
                                             </td>
                                             <td>
                                                 <div class="name">
                                                     <?= $item->name; ?>
                                                 </div>
                                                 <div class="function_style">
-                                                    <a href="index.php?option=brand&cat=brand_restore&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                                    <a href="index.php?option=category&cat=restore&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
                                                         <i class="fas fa-undo"></i></i>Khôi phục
                                                     </a> |
-                                                    <a href="index.php?option=brand&cat=brand_destroy&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                                    <a href="index.php?option=category&cat=destroy&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
                                                         <i class="far fa-trash-alt"></i></i>Xoá vv
                                                     </a>
                                                 </div>

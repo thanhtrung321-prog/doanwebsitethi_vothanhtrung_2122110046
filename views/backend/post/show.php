@@ -1,23 +1,22 @@
 <?php
+use App\Models\Post;
+use App\Libraries\MyClass;
 
-use App\Models\Category;
-
-$dk = [
-    ['status', '!=', 0],
-    ['status', '!=', 0]
-];
 $id = $_REQUEST['id'];
-$brand = Category::find($id);
-
+$post =  Post::find($id);
+if($post==null){
+   MyClass::set_flash('message',['msg'=>'Lỗi trang 404','type'=>'danger']);
+    header("location:index.php?option=post");
+}
 ?>
-<?php require_once "../views/backend/header.php"; ?>
+<?php require_once '../views/backend/header.php';?>
 <!-- CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="d-inline">Chi tiết sản phẩm</h1>
+                    <h1 class="d-inline">Chi tiết bài viết</h1>
                 </div>
             </div>
         </div>
@@ -25,12 +24,14 @@ $brand = Category::find($id);
     <!-- Main content -->
     <section class="content">
         <div class="card">
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <a href="index.php?option=category" class="btn btn-sm btn-info">
-                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                        Về danh sách
-                    </a>
+            <div class="card-header ">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <a href="index.php?option=post" class="btn btn-sm btn-info">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            Về danh sách
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -44,50 +45,58 @@ $brand = Category::find($id);
                                 </tr>
                             </thead>
                             <tbody>
-
-
                                 <tr>
                                     <td>ID</td>
-                                    <td><?= $brand->id; ?></td>
+                                    <td><?=$post->id;?></td>
                                 </tr>
                                 <tr>
-                                    <td>NAME</td>
-                                    <td><?= $brand->name; ?></td>
+                                    <td>TOPIC_ID</td>
+                                    <td><?=$post->topic_id;?></td>
+                                </tr>
+                                <tr>
+                                    <td>TITLE</td>
+                                    <td><?=$post->titLe;?></td>
                                 </tr>
                                 <tr>
                                     <td>SLUG</td>
-                                    <td><?= $brand->slug; ?></td>
+                                    <td><?=$post->slug;?></td>
+                                </tr>
+                                <tr>
+                                    <td>DETAIL</td>
+                                    <td><?=$post->detail;?></td>
                                 </tr>
                                 <tr>
                                     <td>IMAGE</td>
-                                    <td style="width:5rem; height:5rem;">
-                                        <img src="../public/images/product/<?= $brand->image; ?>" alt="<?= $brand->image; ?>" style="width:100%; height:100%; object-fit: cover;">
-                                    </td>
-
+                                    <td><img style="width:100px;" src="../public/images/post<?=$post->image;?>"
+                                            alt="<?=$post->image;?>"></td>
                                 </tr>
                                 <tr>
-                                    <td>SORT_ORDER</td>
-                                    <td><?= $brand->sort_order; ?></td>
+                                    <td>TYPE</td>
+                                    <td><?=$post->type;?></td>
                                 </tr>
                                 <tr>
                                     <td>DESCRIPTION</td>
-                                    <td><?= $brand->description; ?></td>
+                                    <td><?=$post->description;?></td>
+                                </tr>
+                                <tr>
+                                    <td>CREATED_AT</td>
+                                    <td><?=$post->created_at;?></td>
                                 </tr>
                                 <tr>
                                     <td>CREATED_BY</td>
-                                    <td><?= $brand->created_by; ?></td>
+                                    <td><?=$post->created_by;?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_AT</td>
-                                    <td><?= $brand->updated_at; ?></td>
+                                    <td><?=$post->updated_at;?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_BY</td>
-                                    <td><?= $brand->updated_by; ?></td>
+                                    <td><?=$post->update_by;?></td>
                                 </tr>
                                 <tr>
                                     <td>STATUS</td>
-                                    <td><?= $brand->status; ?></td>
+                                    <td><?=$post->status;?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -98,4 +107,4 @@ $brand = Category::find($id);
     </section>
 </div>
 <!-- END CONTENT-->
-<?php require_once '../views/backend/footer.php' ?>
+<?php require_once '../views/backend/footer.php';?>

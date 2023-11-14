@@ -2,8 +2,10 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Brand;
 
 $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+
 ?>
 <!-- CONTENT -->
 <form action="" method="post">
@@ -13,7 +15,7 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h1 class="d-inline">Tất cả sản phẩm</h1>
-                        <a href="index.php?option=product_create" class="btn btn-sm btn-primary">Thêm sản
+                        <a href="index.php?option=product&cat=create" class="btn btn-sm btn-primary">Thêm sản
                             phẩm</a>
                     </div>
                 </div>
@@ -21,6 +23,23 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
         </section>
         <!-- Main content -->
         <section class="content">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-sm btn-danger">
+                            <a class="btn-danger" href="index.php?option=product&cat=trash"><i class="fas fa-trash"></i></a>
+                        </button>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="index.php?option=product&cat=create" class="btn btn-sm btn-success">
+                            <i class="fas fa-plus"></i>Thêm
+                        </a>
+                        <a href="index.php?option=product&cat=trash" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i>Thùng rác
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <select name="" id="" class="form-control d-inline" style="width:100px;">
@@ -82,7 +101,7 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                             </div>
                                         </td>
                                         <td><?= $item->slug ?></td>
-                                        <td> <?= $item->description ?></td>
+                                        <td style="font-size: 1rem;"><?= $item->detail ?></td>
                                     </tr>
                                 <?php endforeach ?>
                             <?php endif ?>

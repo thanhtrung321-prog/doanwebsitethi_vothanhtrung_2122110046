@@ -126,7 +126,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="index.php?option=product" class="nav-link">
+                                    <a href="index.php?option=page" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Trang đơn</p>
                                     </a>

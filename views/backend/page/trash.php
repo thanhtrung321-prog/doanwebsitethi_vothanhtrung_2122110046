@@ -1,12 +1,12 @@
 <?php
 
-use App\Models\Menu;
+use App\Models\Post;
 
 $dk = [
     ['status', '!=', 0],
     ['status', '!=', 0]
 ];
-$list = Menu::where('status', '=', 0)
+$list = Post::where('status', '=', 0)
     ->orderBy('created_at', 'DESC')
     ->get()
 ?>
@@ -27,11 +27,12 @@ $list = Menu::where('status', '=', 0)
         <div class="card">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="index.php?option=menu&cat=trash" class="btn btn-danger btn-xs"><i
-                            class="fas fa-trash-alt"></i> Thùng rác</a>
+                    <a href="index.php?option=page&cat=trash" class="btn btn-danger btn-xs"><i
+                            class="fas fa-trash-alt"></i>
+                        Thùng rác</a>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="index.php?option=menu" class="btn btn-sm btn-info">
+                    <a href="index.php?option=page" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Về danh sách
                     </a>
@@ -46,8 +47,9 @@ $list = Menu::where('status', '=', 0)
                                     <th class="text-center" style="width:30px;">
                                         <input type="checkbox">
                                     </th>
-                                    <th>tên menu</th>
-                                    <th>link sản phẩm</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên Trang đơn</th>
+                                    <th>Slug</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,19 +59,20 @@ $list = Menu::where('status', '=', 0)
                                     <td>
                                         <input type="checkbox">
                                     </td>
-
                                     <td>
+                                        <img src="../public/images/page/<?= htmlspecialchars($item->image) ?>"
+                                            alt="<?= htmlspecialchars($item->image) ?>">
                                         <div class="name">
                                             <?= $item->name; ?>
                                         </div>
                                         <div class="function_style">
-                                            <a href="index.php?option=menu&cat=restore&id=<?= $item->id; ?>"
+                                            <a href="index.php?option=page&cat=restore&id=<?= $item->id; ?>"
                                                 class="btn btn-info btn-xs">
-                                                <i class="fas fa-undo"></i></i>Khôi phục
+                                                <i class="fas fa-undo"></i> Khôi phục
                                             </a> |
-                                            <a href="index.php?option=menu&cat=destroy&id=<?= $item->id; ?>"
+                                            <a href="index.php?option=page&cat=destroy&id=<?= $item->id; ?>"
                                                 class="btn btn-danger btn-xs">
-                                                <i class="far fa-trash-alt"></i></i>Xoá vv
+                                                <i class="far fa-trash-alt"></i> Xoá vv
                                             </a>
                                         </div>
                                     </td>
@@ -77,6 +80,7 @@ $list = Menu::where('status', '=', 0)
                                 </tr>
                                 <?php endforeach; ?>
                                 <?php endif; ?>
+
                             </tbody>
                         </table>
                     </div>

@@ -27,11 +27,10 @@ $list = Product::where('status', '=', 0)
         <div class="card">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="index.php?option=brand&cat=brand_trash" class="btn btn-danger btn-xs"><i
-                            class="fas fa-trash-alt"></i> Thùng rác</a>
+                    <a href="index.php?option=product&cat=trash" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i> Thùng rác</a>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="index.php?option=brand" class="btn btn-sm btn-info">
+                    <a href="index.php?option=product" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Về danh sách
                     </a>
@@ -53,33 +52,30 @@ $list = Product::where('status', '=', 0)
                             </thead>
                             <tbody>
                                 <?php if (count($list) > 0) : ?>
-                                <?php foreach ($list as $item) : ?>
-                                <tr class="datarow">
-                                    <td>
-                                        <input type="checkbox">
-                                    </td>
-                                    <td>
-                                        <img src="../public/images/brand/<?= $item->image; ?>"
-                                            alt="<?= $item->image; ?>">
-                                    </td>
-                                    <td>
-                                        <div class="name">
-                                            <?= $item->name; ?>
-                                        </div>
-                                        <div class="function_style">
-                                            <a href="index.php?option=brand&cat=brand_restore&id=<?= $item->id; ?>"
-                                                class="btn btn-info btn-xs">
-                                                <i class="fas fa-undo"></i></i>Khôi phục
-                                            </a> |
-                                            <a href="index.php?option=brand&cat=brand_destroy&id=<?= $item->id; ?>"
-                                                class="btn btn-danger btn-xs">
-                                                <i class="far fa-trash-alt"></i></i>Xoá vv
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td><?= $item->slug; ?></td>
-                                </tr>
-                                <?php endforeach; ?>
+                                    <?php foreach ($list as $item) : ?>
+                                        <tr class="datarow">
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <img src="../public/images/brand/<?= $item->image; ?>" alt="<?= $item->image; ?>">
+                                            </td>
+                                            <td>
+                                                <div class="name">
+                                                    <?= $item->name; ?>
+                                                </div>
+                                                <div class="function_style">
+                                                    <a href="index.php?option=product&cat=restore&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                                        <i class="fas fa-undo"></i></i>Khôi phục
+                                                    </a> |
+                                                    <a href="index.php?option=product&cat=destroy&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                                        <i class="far fa-trash-alt"></i></i>Xoá vv
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td><?= $item->slug; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 <?php endif; ?>
                             </tbody>
                         </table>
