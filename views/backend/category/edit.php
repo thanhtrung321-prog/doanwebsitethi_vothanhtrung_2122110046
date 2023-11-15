@@ -8,9 +8,9 @@ if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
 
     // Lấy thương hiệu từ cơ sở dữ liệu bằng ID
-    $brand = Category::find($id);
+    $category = Category::find($id);
 
-    if ($brand) {
+    if ($category) {
         $error = ""; // Thiết lập biến lỗi ban đầu
 
         // Kiểm tra nếu nút "Cập nhật" được bấm
@@ -21,13 +21,13 @@ if (isset($_REQUEST['id'])) {
             $description = $_POST['description'];
 
             // Cập nhật các trường dữ liệu của thương hiệu
-            $brand->name = $name;
-            $brand->slug = $slug;
-            $brand->description = $description;
-            $brand->status = 1;
+            $category->name = $name;
+            $category->slug = $slug;
+            $category->description = $description;
+            $category->status = 1;
 
             // Lưu các thay đổi vào cơ sở dữ liệu
-            $brand->save();
+            $category->save();
             $error = 'Cập nhật thành công !!!';
             header("location:index.php?option=category");
         } else {
@@ -52,7 +52,7 @@ if (isset($_REQUEST['id'])) {
     <section class="content">
         <div class="card">
             <div class="card-header text-right">
-                <form action="index.php?option=category&cat=edit&id=<?= $brand->id ?>" method="post">
+                <form action="index.php?option=category&cat=edit&id=<?= $category->id ?>" method="post">
                     <button class="btn btn-sm btn-success" type="submit" name="CAPNHAT">
                         <i class="fa fa-save" aria-hidden="true"></i>
                         Lưu
@@ -71,15 +71,15 @@ if (isset($_REQUEST['id'])) {
                         </div>
                         <div class="mb-3">
                             <label>Tên thương hiệu (*)</label>
-                            <input type="text" value="<?= $brand->name; ?>" name="name" class="form-control">
+                            <input type="text" value="<?= $category->name; ?>" name="name" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label>Slug</label>
-                            <input type="text" value="<?= $brand->slug; ?>" name="slug" class="form-control">
+                            <input type="text" value="<?= $category->slug; ?>" name="slug" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label>Mô tả</label>
-                            <textarea name="description" class="form-control"><?= $brand->description; ?></textarea>
+                            <textarea name="description" class="form-control"><?= $category->description; ?></textarea>
                         </div>
                         <div class="mb-3">
                             <label>Hình đại diện</label>
@@ -88,8 +88,9 @@ if (isset($_REQUEST['id'])) {
                         <div class="mb-3">
                             <label>Trạng thái</label>
                             <select name="status" class="form-control">
-                                <option value="1" <?= ($brand->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
-                                <option value="2" <?= ($brand->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản</option>
+                                <option value="1" <?= ($category->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
+                                <option value="2" <?= ($category->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản
+                                </option>
                             </select>
                         </div>
                     </div>

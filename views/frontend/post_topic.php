@@ -1,3 +1,23 @@
+<?php
+
+use App\Models\Topic;
+use App\Models\Post;
+
+$topicId = 1;
+
+$topic = Topic::find($topicId);
+
+if ($topic) {
+    $posts = $topic->posts()
+        ->where('status', '!=', 0)
+        ->orderBy('created_at', 'DESC')
+        ->get();
+} else {
+}
+
+?>
+
+
 <?php require_once "views/frontend/header.php" ?>
 <section class="hdl-maincontent py-2 tuychinh">
     <div class="container">
@@ -310,8 +330,15 @@
                         </div>
                         <div class="col-8 col-md-8">
                             <h2 class="post-item-title text-main fs-5 py-1">
-                                <a href="post_detail.html">
-                                    Video provides a powerful way to help you prove your point 3
+                                <a href="index.php?option=post_detail">
+                                    <?php if (count($posts) > 0) : ?>
+                                    <?php foreach ($posts as $item) : ?>
+                                    <?= $item->detail; ?>
+                                    <?php endforeach; ?>
+                                    <?php else: ?>
+                                    <p>chưa có dữ liệu post</p>
+                                    <?php endif; ?>
+
                                 </a>
                             </h2>
                             <p>Video provides a powerful way to help you prove your point. When you click Online Video,
@@ -332,16 +359,16 @@
                             </a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link text-main" href="product_category.html">1</a>
+                            <a class="page-link text-main" href="index.php?option=product_category">1</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link text-main" href="product_category.html">2</a>
+                            <a class="page-link text-main" href="index.php?option=product_category">2</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link text-main" href="product_category.html">3</a>
+                            <a class="page-link text-main" href="index.php?option=product_category">3</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link text-main" href="product_category.html" aria-label="Next">
+                            <a class="page-link text-main" href="index.php?option=product_category" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

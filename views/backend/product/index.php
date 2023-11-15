@@ -4,11 +4,13 @@
 use App\Models\Product;
 use App\Models\Brand;
 
-$list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+$listbrand = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+foreach ($listbrand as $brand)
+    $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
 
 ?>
 <!-- CONTENT -->
-<form action="" method="post">
+<form action="index.php?option=product&cat=create" method="post">
     <div class="content-wrapper thanhtrung">
         <section class="content-header">
             <div class="container-fluid">
@@ -105,7 +107,11 @@ $list = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                     </div>
                                 </td>
                                 <td><?= $item->slug ?></td>
-                                <td style="font-size: 1rem;"><?= $item->detail ?></td>
+                                <?php if ($item->brand_id === $brand->sort_order) : ?>
+                                <td> <?= $brand->name ?></td>
+                                <?php else : ?>
+                                <td>sản phẩm này không có thương hiệu </td>
+                                <?php endif; ?>
                             </tr>
                             <?php endforeach ?>
                             <?php endif ?>

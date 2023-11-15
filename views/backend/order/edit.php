@@ -1,27 +1,27 @@
 <?php
 
-use App\Models\Banner;
+use App\Models\Order;
 use App\Libraries\MyClass;
 
 $id = $_REQUEST['id'];
-$banner =  Banner::find($id);
-if ($banner == null) {
+$order =  Order::find($id);
+if ($order == null) {
     MyClass::set_flash('message', ['msg' => 'Lỗi trang 404', 'type' => 'danger']);
-    header("location:index.php?option=banner");
+    header("location:index.php?option=order");
 }
 
 ?>
 <?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
 
-<form action="index.php?option=banner&cat=process" method="post" enctype="multipart/form-data">
+<form action="index.php?option=order&cat=process" method="post" enctype="multipart/form-data">
 
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1 class="d-inline">Cập nhật banner</h1>
+                        <h1 class="d-inline">Cập nhật người giao hàng (ORDER)</h1>
                     </div>
                 </div>
             </div>
@@ -35,9 +35,9 @@ if ($banner == null) {
                         <i class="fa fa-save" aria-hidden="true"></i>
                         Lưu
                     </button>
-                    <a href="index.php?option=banner" class="btn btn-sm btn-info">
+                    <a href="index.php?option=order" class="btn btn-sm btn-info">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                        Về banner
+                        Về order
                     </a>
 
                 </div>
@@ -45,27 +45,31 @@ if ($banner == null) {
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <input type="hidden" name="id" value="<?= $banner->id; ?>" />
-                                <label>Tên banner (*)</label>
-                                <input type="text" value="<?= $banner->name; ?>" name="name" class="form-control">
+                                <input type="hidden" name="id" value="<?= $order->id; ?>" />
+                                <label>Tên người giao hàng (*)</label>
+                                <input type="text" value="<?= $order->deliveryname; ?>" name="name" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Link liên kết</label>
-                                <input type="link" value="<?= $banner->link; ?>" name="link" class="form-control">
+                                <label>số điện thoại người nhận</label>
+                                <input type="text" value="<?= $order->deliveryphone; ?>" name="phone" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Vị trí</label>
-                                <textarea name="position" class="form-control"><?= $banner->position; ?></textarea>
+                                <label>email</label>
+                                <input type="email" value="<?= $order->deliveryemail; ?>" name="email" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Hình ảnh</label>
-                                <input type="file" name="image" class="form-control">
+                                <label>Địa chỉ</label>
+                                <input value="<?= $order->deliveryaddress; ?>" type="text" name="address" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>ghi chú</label>
+                                <input value="<?= $order->note; ?>" type="text" name="note" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label>Trạng thái</label>
                                 <select name="status" class="form-control">
-                                    <option value="1" <?= ($banner->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
-                                    <option value="2" <?= ($banner->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản
+                                    <option value="1" <?= ($order->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
+                                    <option value="2" <?= ($order->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản
                                     </option>
                                 </select>
                             </div>

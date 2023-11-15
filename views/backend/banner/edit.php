@@ -31,7 +31,7 @@ if ($banner == null) {
             <div class="card">
                 <div class="card-header text-right ">
 
-                    <button class="btn btn-sm btn-success" type="subumit" name="CAPNHAT">
+                    <button class="btn btn-sm btn-success" type="submit" name="CAPNHAT">
                         <i class="fa fa-save" aria-hidden="true"></i>
                         Lưu
                     </button>

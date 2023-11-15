@@ -65,7 +65,7 @@ $list = User::where('status', '!=', 0)
                                         <input type="checkbox">
                                     </td>
                                     <td>
-                                        <img src="../public/images/product/<?= $item->image; ?>" alt="<?= $item->image; ?>">
+                                        <img src="../public/images/customer/<?= $item->image; ?>" alt="<?= $item->image; ?>">
                                     </td>
                                     <td>
                                         <div class="name">
@@ -73,20 +73,20 @@ $list = User::where('status', '!=', 0)
                                         </div>
                                         <div class="function_style">
                                             <?php if ($item->status == 1) : ?>
-                                                <a href="index.php?option=user&cat=status&id=<?= $item->id; ?>" class="btn 
+                                                <a href="index.php?option=customer&cat=status&id=<?= $item->id; ?>" class="btn 
                                        btn-success btn-xs">
                                                     <i class="fas fa-toggle-on"></i> Hiện
                                                 </a>
                                             <?php else : ?>
-                                                <a href="index.php?option=user&cat=status&id=<?= $item->id; ?>" class="btn 
+                                                <a href="index.php?option=customer&cat=status&id=<?= $item->id; ?>" class="btn 
                                        btn-danger btn-xs">
                                                     <i class="fas fa-toggle-off"></i> Ẩn
                                                 </a>
                                             <?php endif; ?>
-                                            <a href="index.php?option=user&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary btn-xs">
+                                            <a href="index.php?option=customer&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary btn-xs">
                                                 <i class="fas fa-edit"></i> Chỉnh sửa
                                             </a>
-                                            <a href="index.php?option=user&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                            <a href="index.php?option=customer&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
                                                 <i class="fas fa-eye"></i> Chi tiết
                                             </a>
                                             <a href="index.php?option=customer&cat=delete&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">

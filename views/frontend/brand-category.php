@@ -22,7 +22,7 @@ $total = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->co
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb py-2 my-0">
                 <li class="breadcrumb-item">
-                    <a class="text-main" href="index.html">Trang chủ</a>
+                    <a class="text-main" href="index.php">Trang chủ</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <?= $brand->name; ?>
@@ -46,9 +46,9 @@ $total = Product::where([['status', '=', 1], ['brand_id', '=', $brand->id]])->co
                 <div class="product-category mt-3">
                     <div class="row product-list">
                         <?php foreach ($list_product as $product) : ?>
-                        <div class="col-6 col-md-3 mb-4">
-                            <?php require 'views\frontend\product-item.php'; ?>
-                        </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <?php require 'views\frontend\product-item.php'; ?>
+                            </div>
                         <?php endforeach; ?>
                     </div>
                 </div>

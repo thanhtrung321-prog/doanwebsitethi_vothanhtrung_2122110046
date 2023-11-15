@@ -4,7 +4,6 @@ use App\Models\Product;
 use App\Models\Brand;
 
 $listbrand = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
-
 $list = Product::where('status', '!=', 0)
     ->orderBy('created_at', 'DESC')
     ->get();
@@ -30,7 +29,7 @@ $list = Product::where('status', '!=', 0)
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Về danh sách
                     </a>
-                    <button class="btn btn-sm btn-success" type="subumit" name="THEM">
+                    <button class="btn btn-sm btn-success" type="submit" name="THEM">
                         <i class="fa fa-save" aria-hidden="true"></i>
                         Thêm sản phẩm
                     </button>
@@ -52,13 +51,13 @@ $list = Product::where('status', '!=', 0)
                                         <label>Danh mục (*)</label>
                                         <select name="category_id" class="form-control">
                                             <?php if (count($list) > 0) : ?>
-                                                <?php $i = 0; ?>
-                                                <?php foreach ($list as $item) : ?>
-                                                    <option value="<?= $i ?>"><?= $item->detail ?></option>
-                                                    <?php $i++; ?>
-                                                <?php endforeach; ?>
+                                            <?php ?>
+                                            <?php foreach ($list as $item) : ?>
+                                            <option value="<?= $item->categoty_id ?>"><?= $item->name; ?></option>
+                                            _ <?php ?>
+                                            <?php endforeach; ?>
                                             <?php else : ?>
-                                                <option value="0">không có danh mục</option>
+                                            <option value="0">không có danh mục</option>
                                             <?php endif; ?>
                                         </select>
                                     </div>
@@ -67,14 +66,16 @@ $list = Product::where('status', '!=', 0)
                                     <div class="mb-3">
                                         <label>Thương hiệu (*)</label>
                                         <select name="brand_id" class="form-control">
-                                            <?php if (count($list) > 0) : ?>
-                                                <?php $i = 0; ?>
-                                                <?php foreach ($list as $item) : ?>
-                                                    <option value="<?= $i++ ?>"><?= $item->description ?></option>
-                                                    <?php $i++; ?>
-                                                <?php endforeach; ?>
+                                            <?php if (count($listbrand) > 0) : ?>
+                                            <?php ?>
+                                            <?php foreach ($listbrand as $brand) : ?>
+                                            <option value="<?= $item->brand_id ?>">
+                                                <?= $brand->name; ?>
+                                            </option>
+                                            <?php ?>
+                                            <?php endforeach; ?>
                                             <?php else : ?>
-                                                <option value="">không có thương hiệu</option>
+                                            <option value="0">không có thương hiệu</option>
                                             <?php endif; ?>
                                         </select>
                                     </div>
@@ -82,13 +83,18 @@ $list = Product::where('status', '!=', 0)
                             </div>
                             <div class="mb-3">
                                 <label>Chi tiết (*)</label>
-                                <textarea name="detail" placeholder="Nhập chi tiết sản phẩm" rows="5" class="form-control"></textarea>
+                                <textarea name="detail" placeholder="Nhập chi tiết sản phẩm" rows="5"
+                                    class="form-control"></textarea>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label>Giá bán (*)</label>
                                 <input type="number" value="10000" min="10000" name="price" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Giá giảm (*)</label>
+                                <input type="number" value="10000" min="10000" name="pricesale" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label>Hình đại diện</label>

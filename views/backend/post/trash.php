@@ -58,7 +58,7 @@ $list = Post::where('status','=',0)
                                         <input type="checkbox">
                                     </td>
                                     <td>
-                                        <img src="../public/images/<?=$item->image;?>" alt="<?=$item->image;?>">
+                                        <img src="../public/images/post/<?=$item->image;?>" alt="<?=$item->image;?>">
                                     </td>
                                     <td>
                                         <div class="title">

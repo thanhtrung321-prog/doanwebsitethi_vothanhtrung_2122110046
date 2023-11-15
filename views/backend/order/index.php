@@ -66,23 +66,23 @@ $list = Order::where('status', '!=', 0)->get();
                                         </div>
                                         <div class="function_style">
                                             <?php if ($item->status == 1) : ?>
-                                                <a href="index.php?option=user&cat=status&id=<?= $item->id; ?>" class="btn 
+                                                <a href="index.php?option=order&cat=status&id=<?= $item->id; ?>" class="btn 
                                        btn-success btn-xs">
                                                     <i class="fas fa-toggle-on"></i> Hiện
                                                 </a>
                                             <?php else : ?>
-                                                <a href="index.php?option=user&cat=status&id=<?= $item->id; ?>" class="btn 
+                                                <a href="index.php?option=order&cat=status&id=<?= $item->id; ?>" class="btn 
                                        btn-danger btn-xs">
                                                     <i class="fas fa-toggle-off"></i> Ẩn
                                                 </a>
                                             <?php endif; ?>
-                                            <a href="index.php?option=user&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary btn-xs">
+                                            <a href="index.php?option=order&cat=edit&id=<?= $item->id; ?>" class="btn btn-primary btn-xs">
                                                 <i class="fas fa-edit"></i> Chỉnh sửa
                                             </a>
-                                            <a href="index.php?option=user&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                            <a href="index.php?option=order&cat=show&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
                                                 <i class="fas fa-eye"></i> Chi tiết
                                             </a>
-                                            <a href="index.php?option=user&cat=delete&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                            <a href="index.php?option=order&cat=delete&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
                                                 <i class="fas fa-trash"></i> Xoá
                                             </a>
                                         </div>

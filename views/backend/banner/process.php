@@ -7,7 +7,7 @@ if (isset($_POST['THEM'])) {
     $banner = new Banner();
     //lay tu form
     $banner->name = $_POST['name'];
-    $banner->link = $_POST['name'];
+    $banner->link = $_POST['link'];
     // $banner->link = (strlen($_POST['link'])>0)? $_POST['link']:MyClass :: str_slug($_POST['name']);
     $banner->position = $_POST['position'];
     $banner->status = $_POST['status'];
@@ -27,8 +27,6 @@ if (isset($_POST['THEM'])) {
 
     $banner->created_at = date('Y-m-d h:i:s');
     $banner->created_by = (isset($_SESSION['user_id'])) ? $_SESSION['user_id'] : 1;
-
-    var_dump($banner);
     $banner->save();
 
     MyClass::set_flash('message', ['msg' => 'Thêm thành công', 'type' => 'success']);
@@ -45,7 +43,7 @@ if (isset($_POST['CAPNHAT'])) {
     }
     //lấy từ form
     $banner->name = $_POST['name'];
-    $banner->link = $_POST['name'];
+    $banner->link = $_POST['link'];
     // $banner->link = (strlen($_POST['link'])>0)? $_POST['link']:MyClass :: str_slug($_POST['name']);
     $banner->position = $_POST['position'];
     $banner->status = $_POST['status'];

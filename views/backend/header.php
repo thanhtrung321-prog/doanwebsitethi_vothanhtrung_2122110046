@@ -25,6 +25,11 @@
     .nenhongnhat {
         background-image: url('https://th.bing.com/th/id/OIP.q91EyHk8c74T-7Tkehd_ZAHaE8?pid=ImgDet&w=825&h=550&rs=1');
     }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
 </style>
 
 <body class="hold-transition sidebar-mini thanhtrung">

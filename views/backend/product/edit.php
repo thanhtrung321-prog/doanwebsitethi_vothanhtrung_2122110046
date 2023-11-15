@@ -1,40 +1,45 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Brand;
 
+$listproduct = Product::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+$listbrand = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+foreach ($listbrand as $brand)
+    foreach ($listproduct as $item)
+        // Kiểm tra xem 'id' đã được truyền vào từ yêu cầu
+        if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
 
-// Kiểm tra xem 'id' đã được truyền vào từ yêu cầu
-if (isset($_REQUEST['id'])) {
-    $id = $_REQUEST['id'];
+            // Lấy sản phẩm từ cơ sở dữ liệu bằng ID
+            $product = Product::find($id);
 
-    // Lấy sản phẩm từ cơ sở dữ liệu bằng ID
-    $product = Product::find($id);
+            if ($product) {
+                $error = ""; // Thiết lập biến lỗi ban đầu
+                $i = 0;
+                // Kiểm tra nếu nút "Cập nhật" được bấm
+                if (isset($_POST['CAPNHAT'])) {
+                    // Lấy các giá trị từ biểu mẫu
+                    $name = $_POST['name'];
+                    $slug = $_POST['slug'];
 
-    if ($product) {
-        $error = ""; // Thiết lập biến lỗi ban đầu
+                    $brand_id = $_POST['brand_id'];
+                    $status = $_POST['status'];
 
-        // Kiểm tra nếu nút "Cập nhật" được bấm
-        if (isset($_POST['CAPNHAT'])) {
-            // Lấy các giá trị từ biểu mẫu
-            $name = $_POST['name'];
-            $slug = $_POST['slug'];
-            $description = $_POST['description'];
-            $status = $_POST['status'];
-
-            // Cập nhật các trường dữ liệu của sản phẩm
-            $product->name = $name;
-            $product->slug = $slug;
-            $product->description = $description;
-            $product->status = $status;
-
-            // Lưu các thay đổi vào cơ sở dữ liệu
-            $product->save();
-            $error = 'Cập nhật thành công !!!';
-            echo '<script>setTimeout(function() { window.location.href = "index.php?option=product"; },1000);</script>';
-            exit;
+                    // Cập nhật các trường dữ liệu của sản phẩm
+                    $product->name = $name;
+                    $product->slug = $slug;
+                    $product->description = $brand_id;
+                    $product->status = $status;
+                    $product->description = $i++;
+                    // Lưu các thay đổi vào cơ sở dữ liệu
+                    $product->save();
+                    $error = 'Cập nhật thành công !!!';
+                    echo '<script>setTimeout(function() { window.location.href = "index.php?option=product"; },1000);</script>';
+                    exit;
+                }
+            }
         }
-    }
-}
 ?>
 
 <?php require_once "../views/backend/header.php"; ?>
@@ -78,8 +83,20 @@ if (isset($_REQUEST['id'])) {
                             <input type="text" value="<?= $product->slug; ?>" name="slug" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label>tên thuong hiệu</label>
-                            <textarea name="description" class="form-control"><?= $product->description; ?></textarea>
+                            <label>Thương hiệu (*)</label>
+                            <select name="brand_id" class="form-control">
+                                <?php if (count($listbrand) > 0) : ?>
+                                    <?php ?>
+                                    <?php foreach ($listbrand as $brand) : ?>
+                                        <option value="<?= $brand->brand_id; ?>">
+                                            <?= $brand->name; ?>
+                                        </option>
+                                        <?php ?>
+                                    <?php endforeach; ?>
+                                <?php else : ?>
+                                    <option value="0">không có thương hiệu</option>
+                                <?php endif; ?>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label>Hình đại diện</label>
@@ -89,7 +106,8 @@ if (isset($_REQUEST['id'])) {
                             <label>Trạng thái</label>
                             <select name="status" class="form-control">
                                 <option value="1" <?= ($product->status == 1) ? 'selected' : ''; ?>>Xuất bản</option>
-                                <option value="2" <?= ($product->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản</option>
+                                <option value="2" <?= ($product->status == 2) ? 'selected' : ''; ?>>Chưa xuất bản
+                                </option>
                             </select>
                         </div>
                     </div>

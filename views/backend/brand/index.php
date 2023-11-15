@@ -100,7 +100,7 @@ require_once "../views/backend/header.php";
                                                     <input type="checkbox">
                                                 </td>
                                                 <td>
-                                                    <img style="width: 5rem; height:5rem;object-fit:cover;" src="../public/images/product/<?= $item->image ?>" alt="brand.jpg">
+                                                    <img style="width: 5rem; height:5rem;object-fit:cover;" src="../public/images/brand/<?= $item->image ?>" alt="brand.jpg">
                                                 </td>
                                                 <td>
                                                     <div class="name">

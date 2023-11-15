@@ -53,62 +53,56 @@ if (isset($_POST['XACNHAN'])) {
                         <?php
                         if (isset($_SESSION['iscustom'])) :
                         ?>
-                        <?php $customer = User::where([['status', '=', 1], ['id', '=', $_SESSION['user_id']]])->first(); ?>
-                        <div class="mb-3">
-                            <label for="name">Họ tên</label>
-                            <input readonly type="text" name="name" value="<?= $customer->name ?>" id="name"
-                                class="form-control" placeholder="Nhập họ tên">
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone">Điện thoại</label>
-                            <input readonly type="text" value="<?= $customer->phone ?>" name="phone" id="phone"
-                                class="form-control" placeholder="Nhập điện thoại">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email">Email</label>
-                            <input readonly type="email" value="<?= $customer->email ?>" name="address" id="address"
-                                class="form-control" placeholder="Nhập địa chỉ">
-                        </div>
+                            <?php $customer = User::where([['status', '=', 1], ['id', '=', $_SESSION['user_id']]])->first(); ?>
+                            <div class="mb-3">
+                                <label for="name">Họ tên</label>
+                                <input readonly type="text" name="name" value="<?= $customer->name ?>" id="name" class="form-control" placeholder="Nhập họ tên">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone">Điện thoại</label>
+                                <input readonly type="text" value="<?= $customer->phone ?>" name="phone" id="phone" class="form-control" placeholder="Nhập điện thoại">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input readonly type="email" value="<?= $customer->email ?>" name="address" id="address" class="form-control" placeholder="Nhập địa chỉ">
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="address">Địa chỉ</label>
-                            <input readonly type="text" value="<?= $customer->address ?>" name="address" id="address"
-                                class="form-control" placeholder="Nhập địa chỉ">
-                        </div>
+                            <div class="mb-3">
+                                <label for="address">Địa chỉ</label>
+                                <input readonly type="text" value="<?= $customer->address ?>" name="address" id="address" class="form-control" placeholder="Nhập địa chỉ">
+                            </div>
 
-                        <h4 class="fs-6 text-main mt-4">Phương thức thanh toán</h4>
-                        <div class="thanhtoan mb-4">
-                            <div class="p-4 border">
-                                <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="1"
-                                    id="check1" />
-                                <label for="check1">Thanh toán khi giao hàng</label>
+                            <h4 class="fs-6 text-main mt-4">Phương thức thanh toán</h4>
+                            <div class="thanhtoan mb-4">
+                                <div class="p-4 border">
+                                    <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="1" id="check1" />
+                                    <label for="check1">Thanh toán khi giao hàng</label>
+                                </div>
+                                <div class="p-4 border">
+                                    <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="2" id="check2" />
+                                    <label for="check2">Chuyển khoản qua ngân hàng</label>
+                                </div>
+                                <div class="p-4 border bankinfo">
+                                    <p>Ngân Hàng Vietcombank </p>
+                                    <p>STK: 99999999999999</p>
+                                    <p>Chủ tài khoản: Hồ Diên Lợi</p>
+                                </div>
                             </div>
-                            <div class="p-4 border">
-                                <input name="typecheckout" onchange="showbankinfo(this.value)" type="radio" value="2"
-                                    id="check2" />
-                                <label for="check2">Chuyển khoản qua ngân hàng</label>
+                            <div class="text-end">
+                                <button type="submit" name="XACNHAN" class="btn btn-main px-4">XÁC NHẬN</button>
                             </div>
-                            <div class="p-4 border bankinfo">
-                                <p>Ngân Hàng Vietcombank </p>
-                                <p>STK: 99999999999999</p>
-                                <p>Chủ tài khoản: Hồ Diên Lợi</p>
-                            </div>
-                        </div>
-                        <div class="text-end">
-                            <button type="submit" name="XACNHAN" class="btn btn-main px-4">XÁC NHẬN</button>
-                        </div>
                         <?php endif; ?>
                     </div>
 
                     <script>
-                    function showbankinfo(value) {
-                        var elementbank = document.querySelector(".bankinfo");
-                        if (value == 1) {
-                            elementbank.style.display = "none";
-                        } else {
-                            elementbank.style.display = "block";
+                        function showbankinfo(value) {
+                            var elementbank = document.querySelector(".bankinfo");
+                            if (value == 1) {
+                                elementbank.style.display = "none";
+                            } else {
+                                elementbank.style.display = "block";
+                            }
                         }
-                    }
                     </script>
                 </form>
             </div>
@@ -129,25 +123,24 @@ if (isset($_POST['XACNHAN'])) {
                         <tbody>
                             <?php $stt = 1; ?>
                             <?php foreach ($listcart as $item) : ?>
-                            <?php
+                                <?php
                                 $money = $item['price'] * $item['qty'];
                                 ?>
-                            <tr>
-                                <td class="text-center align-middle"><?= $stt ?></td>
-                                <td>
-                                    <img class="img-fluid" src="public/images/product/<?= $item['image']; ?>"
-                                        alt="<?= $item['image']; ?>">
-                                </td>
-                                <td class="align-middle"><?= $item['name']; ?></td>
-                                <td class="text-center align-middle"><?= number_format($item['price']); ?></td>
-                                <td class="text-center align-middle">
-                                    <?= $item['qty']; ?>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <?= number_format($money); ?>
-                                </td>
-                            </tr>
-                            <? $stt++; ?>
+                                <tr>
+                                    <td class="text-center align-middle"><?= $stt ?></td>
+                                    <td>
+                                        <img class="img-fluid" src="public/images/product/<?= $item['image']; ?>" alt="<?= $item['image']; ?>">
+                                    </td>
+                                    <td class="align-middle"><?= $item['name']; ?></td>
+                                    <td class="text-center align-middle"><?= number_format($item['price']); ?></td>
+                                    <td class="text-center align-middle">
+                                        <?= $item['qty']; ?>
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        <?= number_format($money); ?>
+                                    </td>
+                                </tr>
+                                <? $stt++; ?>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
@@ -160,8 +153,7 @@ if (isset($_POST['XACNHAN'])) {
                     </table>
                     <div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Mã giảm giá"
-                                aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" placeholder="Mã giảm giá" aria-describedby="basic-addon2">
                             <span class="input-group-text" id="basic-addon2">Sử dụng</span>
                         </div>
                     </div>

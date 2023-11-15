@@ -2,7 +2,7 @@
 
 use App\Models\Category;
 
-$list = Category::where('status', '!=', 0)->select('status', 'id', 'image', 'name', 'slug')->orderBy('created_at', 'DESC')->get(); //! Serious Eroors
+$list = Category::where('status', '!=', 0)->select('status', 'id', 'image', 'name', 'slug', 'parent_id')->orderBy('created_at', 'DESC')->get(); //! Serious Eroors
 ?>
 <?php
 require_once "../views/backend/header.php";
@@ -28,7 +28,7 @@ require_once "../views/backend/header.php";
                     </button>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="index.php?option=category" class="btn btn-sm btn-success">
+                    <a href="index.php?option=category&cat=addcategory" class="btn btn-sm btn-success">
                         <i class="fas fa-plus"></i>Thêm
                     </a>
                     <a href="index.php?option=category&cat=trash" class="btn btn-sm btn-danger">
@@ -37,10 +37,10 @@ require_once "../views/backend/header.php";
                 </div>
             </div>
         </div>
-        <form action="index.php?option=addcategory" method="post">
+        <form action="index.php?option=category&cat=addcategory" method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header text-right">
-                    <button name="luu" class="btn btn-sm btn-success">
+                    <button type="submit" name="luu" class="btn btn-sm btn-success">
                         <i class="fa fa-save" aria-hidden="true"></i>
                         Lưu
                     </button>
@@ -59,8 +59,13 @@ require_once "../views/backend/header.php";
                             <div class="mb-3">
                                 <label>Danh mục cha (*)</label>
                                 <select name="parent_id" class="form-control">
-                                    <option value="">None</option>
-                                    <option value="1">Tên danh mục</option>
+                                    <?php if (count($list) > 0) : ?>
+                                        <?php foreach ($list as $item) : ?>
+                                            <option value="<?= $item->parent_id ?>"><?= $item->name ?></option>
+                                        <?php endforeach ?>
+                                    <?php else : ?>
+                                        <option value="0">chưa có danh mục</option>
+                                    <?php endif; ?>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -110,7 +115,7 @@ require_once "../views/backend/header.php";
                                                     <i class="fa-solid fa-toggle-on"></i>
                                                 </a>
                                             <?php else : ?>
-                                                <a class="btn btn-danger btn-xs" name='show' href="index.php?option=categoryt&cat=status&id=<?= $item->id ?>">
+                                                <a class="btn btn-danger btn-xs" name='show' href="index.php?option=category&cat=status&id=<?= $item->id ?>">
                                                     ẨN
                                                     <i class="fa-solid fa-toggle-off"></i>
                                                 </a>
@@ -137,7 +142,6 @@ require_once "../views/backend/header.php";
                         <?php endforeach ?>
                     <?php endif ?>
                 </tbody>
-
                 </tbody>
             </table>
         </div>

@@ -1,22 +1,23 @@
 <?php
-use App\Models\Banner;
+
+use App\Models\Order;
 use App\Libraries\MyClass;
 
 $id = $_REQUEST['id'];
-$banner =  Banner::find($id);
-if($banner==null){
-   MyClass::set_flash('message',['msg'=>'Lỗi trang 404','type'=>'danger']);
-    header("location:index.php?option=banner");
+$order =  Order::find($id);
+if ($order == null) {
+    MyClass::set_flash('message', ['msg' => 'Lỗi trang 404', 'type' => 'danger']);
+    header("location:index.php?option=order");
 }
 ?>
-<?php require_once '../views/backend/header.php';?>
+<?php require_once '../views/backend/header.php'; ?>
 <!-- CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="d-inline">Chi tiết banner</h1>
+                    <h1 class="d-inline">Chi tiết order</h1>
                 </div>
             </div>
         </div>
@@ -27,7 +28,7 @@ if($banner==null){
             <div class="card-header ">
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <a href="index.php?option=banner" class="btn btn-sm btn-info">
+                        <a href="index.php?option=order" class="btn btn-sm btn-info">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                             Về danh sách
                         </a>
@@ -47,48 +48,43 @@ if($banner==null){
                             <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td><?=$banner->id;?></td>
+                                    <td><?= $order->id; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>NAME</td>
-                                    <td><?=$banner->name;?></td>
+                                    <td>USER ID</td>
+                                    <td><?= $order->user_id; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>LINK</td>
-                                    <td><?=$banner->link;?></td>
+                                    <td>Địa chỉ người nhận</td>
+                                    <td><?= $order->deliveryaddress; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>POSITION</td>
-                                    <td><?=$banner->position;?></td>
+                                    <td>Tên người nhận</td>
+                                    <td><?= $order->deliveryname; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>IMAGE</td>
-                                    <td><img style="width:100px;" src="../public/images/banner<?=$banner->image;?>"
-                                            alt="<?=$banner->image;?>"></td>
+                                    <td>email người nhận</td>
+                                    <td><?= $order->deliveryemail; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>SORT_ORDER</td>
-                                    <td><?=$banner->sort_order;?></td>
+                                    <td>chú thích đơn hàng</td>
+                                    <td><?= $order->note; ?></td>
                                 </tr>
                                 <tr>
                                     <td>CREATED_AT</td>
-                                    <td><?=$banner->created_at;?></td>
+                                    <td><?= $order->created_at; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>CREATED_BY</td>
-                                    <td><?=$banner->created_by;?></td>
-                                </tr>
-                                <tr>
-                                    <td>UPDATED_AT</td>
-                                    <td><?=$banner->updated_at;?></td>
+                                    <td> cập nhật hiện tại </td>
+                                    <td><?= $order->created_at; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_BY</td>
-                                    <td><?=$banner->update_by;?></td>
+                                    <td><?= $order->updated_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>STATUS</td>
-                                    <td><?=$banner->status;?></td>
+                                    <td><?= $order->status; ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -99,4 +95,4 @@ if($banner==null){
     </section>
 </div>
 <!-- END CONTENT-->
-<?php require_once '../views/backend/footer.php';?>
+<?php require_once '../views/backend/footer.php'; ?>

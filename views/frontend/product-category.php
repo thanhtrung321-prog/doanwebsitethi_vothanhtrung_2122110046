@@ -45,7 +45,7 @@ $total = Product::where('status', '=', 1)
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb py-2 my-0">
                 <li class="breadcrumb-item">
-                    <a class="text-main" href="index.html">Trang chủ</a>
+                    <a class="text-main" href="index.php">Trang chủ</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <?= $cat->name; ?>
@@ -69,7 +69,7 @@ $total = Product::where('status', '=', 1)
                 <div class="product-category mt-3">
                     <div class="row product-list">
                         <?php foreach ($list_product as $product) : ?>
-                        <?php require 'views\frontend\product-item.php'; ?>
+                            <?php require 'views\frontend\product-item.php'; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>

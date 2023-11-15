@@ -61,7 +61,7 @@ $brand = Menu::find($id);
                                 <tr>
                                     <td>IMAGE</td>
                                     <td style="width:5rem; height:5rem;">
-                                        <img src="../public/images/product/<?= $brand->image; ?>"
+                                        <img src="../public/images/page/<?= $brand->image; ?>"
                                             alt="<?= $brand->image; ?>"
                                             style="width:100%; height:100%; object-fit: cover;">
                                     </td>

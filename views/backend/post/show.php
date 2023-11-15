@@ -1,15 +1,16 @@
 <?php
+
 use App\Models\Post;
 use App\Libraries\MyClass;
 
 $id = $_REQUEST['id'];
 $post =  Post::find($id);
-if($post==null){
-   MyClass::set_flash('message',['msg'=>'Lỗi trang 404','type'=>'danger']);
+if ($post == null) {
+    MyClass::set_flash('message', ['msg' => 'Lỗi trang 404', 'type' => 'danger']);
     header("location:index.php?option=post");
 }
 ?>
-<?php require_once '../views/backend/header.php';?>
+<?php require_once '../views/backend/header.php'; ?>
 <!-- CONTENT -->
 <div class="content-wrapper">
     <section class="content-header">
@@ -47,56 +48,55 @@ if($post==null){
                             <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td><?=$post->id;?></td>
+                                    <td><?= $post->id; ?></td>
                                 </tr>
                                 <tr>
                                     <td>TOPIC_ID</td>
-                                    <td><?=$post->topic_id;?></td>
+                                    <td><?= $post->topic_id; ?></td>
                                 </tr>
                                 <tr>
                                     <td>TITLE</td>
-                                    <td><?=$post->titLe;?></td>
+                                    <td><?= $post->titLe; ?></td>
                                 </tr>
                                 <tr>
                                     <td>SLUG</td>
-                                    <td><?=$post->slug;?></td>
+                                    <td><?= $post->slug; ?></td>
                                 </tr>
                                 <tr>
                                     <td>DETAIL</td>
-                                    <td><?=$post->detail;?></td>
+                                    <td><?= $post->detail; ?></td>
                                 </tr>
                                 <tr>
                                     <td>IMAGE</td>
-                                    <td><img style="width:100px;" src="../public/images/post<?=$post->image;?>"
-                                            alt="<?=$post->image;?>"></td>
+                                    <td><img style="width:100px;" src="../public/images/post/<?= $post->image; ?>" alt="<?= $post->image; ?>"></td>
                                 </tr>
                                 <tr>
                                     <td>TYPE</td>
-                                    <td><?=$post->type;?></td>
+                                    <td><?= $post->type; ?></td>
                                 </tr>
                                 <tr>
                                     <td>DESCRIPTION</td>
-                                    <td><?=$post->description;?></td>
+                                    <td><?= $post->description; ?></td>
                                 </tr>
                                 <tr>
                                     <td>CREATED_AT</td>
-                                    <td><?=$post->created_at;?></td>
+                                    <td><?= $post->created_at; ?></td>
                                 </tr>
                                 <tr>
                                     <td>CREATED_BY</td>
-                                    <td><?=$post->created_by;?></td>
+                                    <td><?= $post->created_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_AT</td>
-                                    <td><?=$post->updated_at;?></td>
+                                    <td><?= $post->updated_at; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_BY</td>
-                                    <td><?=$post->update_by;?></td>
+                                    <td><?= $post->update_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>STATUS</td>
-                                    <td><?=$post->status;?></td>
+                                    <td><?= $post->status; ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -107,4 +107,4 @@ if($post==null){
     </section>
 </div>
 <!-- END CONTENT-->
-<?php require_once '../views/backend/footer.php';?>
+<?php require_once '../views/backend/footer.php'; ?>

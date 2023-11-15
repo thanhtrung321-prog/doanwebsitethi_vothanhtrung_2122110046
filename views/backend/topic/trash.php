@@ -47,39 +47,33 @@ $list = Topic::where('status', '=', 0)
                                     <th class="text-center" style="width:30px;">
                                         <input type="checkbox">
                                     </th>
-                                    <th class="text-center" style="width:130px;">Hình ảnh</th>
                                     <th>Tên chủ đề</th>
                                     <th>Tên slug</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php if (count($list) > 0) : ?>
-                                <?php foreach ($list as $item) : ?>
-                                <tr class="datarow">
-                                    <td>
-                                        <input type="checkbox">
-                                    </td>
-                                    <td>
-                                        <img src="../public/images/<?= $item->image; ?>" alt="<?= $item->image; ?>">
-                                    </td>
-                                    <td>
-                                        <div class="name">
-                                            <?= $item->name; ?>
-                                        </div>
-                                        <div class="function_style">
-                                            <a href="index.php?option=topic&cat=restore&id=<?= $item->id; ?>"
-                                                class="btn btn-info btn-xs">
-                                                <i class="fas fa-undo"></i> Khôi phục
-                                            </a>
-                                            <a href="index.php?option=topic&cat=destroy&id=<?= $item->id; ?>"
-                                                class="btn btn-danger btn-xs">
-                                                <i class="fas fa-trash"></i> Xoá vv
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td><?= $item->slug; ?></td>
-                                </tr>
-                                <?php endforeach; ?>
+                                    <?php foreach ($list as $item) : ?>
+                                        <tr class="datarow">
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <div class="name">
+                                                    <?= $item->name; ?>
+                                                </div>
+                                                <div class="function_style">
+                                                    <a href="index.php?option=topic&cat=restore&id=<?= $item->id; ?>" class="btn btn-info btn-xs">
+                                                        <i class="fas fa-undo"></i> Khôi phục
+                                                    </a>
+                                                    <a href="index.php?option=topic&cat=destroy&id=<?= $item->id; ?>" class="btn btn-danger btn-xs">
+                                                        <i class="fas fa-trash"></i> Xoá vv
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td><?= $item->slug; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 <?php endif; ?>
                             </tbody>
                         </table>

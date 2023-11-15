@@ -2,12 +2,9 @@
 
 use App\Models\Product;
 
-$dk = [
-    ['status', '!=', 0],
-    ['status', '!=', 0]
-];
+
 $id = $_REQUEST['id'];
-$brand = Product::find($id);
+$product = Product::find($id);
 
 ?>
 <?php require_once "../views/backend/header.php"; ?>
@@ -17,7 +14,7 @@ $brand = Product::find($id);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="d-inline">Chi tiết thương hiệu</h1>
+                    <h1 class="d-inline">Chi tiết sản phẩm</h1>
                 </div>
             </div>
         </div>
@@ -49,48 +46,42 @@ $brand = Product::find($id);
 
                                 <tr>
                                     <td>ID</td>
-                                    <td><?= $brand->id; ?></td>
+                                    <td><?= $product->id; ?></td>
                                 </tr>
                                 <tr>
                                     <td>NAME</td>
-                                    <td><?= $brand->name; ?></td>
+                                    <td><?= $product->name; ?></td>
                                 </tr>
                                 <tr>
                                     <td>SLUG</td>
-                                    <td><?= $brand->slug; ?></td>
+                                    <td><?= $product->slug; ?></td>
                                 </tr>
                                 <tr>
                                     <td>IMAGE</td>
                                     <td style="width:5rem; height:5rem;">
-                                        <img src="../public/images/product/<?= $brand->image; ?>"
-                                            alt="<?= $brand->image; ?>"
-                                            style="width:100%; height:100%; object-fit: cover;">
+                                        <img src="../public/images/product/<?= $product->image; ?>" alt="<?= $product->image; ?>" style="width:100%; height:100%; object-fit: cover;">
                                     </td>
 
                                 </tr>
                                 <tr>
-                                    <td>SORT_ORDER</td>
-                                    <td><?= $brand->sort_order; ?></td>
-                                </tr>
-                                <tr>
                                     <td>DESCRIPTION</td>
-                                    <td><?= $brand->description; ?></td>
+                                    <td><?= $product->description; ?></td>
                                 </tr>
                                 <tr>
                                     <td>CREATED_BY</td>
-                                    <td><?= $brand->created_by; ?></td>
+                                    <td><?= $product->created_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_AT</td>
-                                    <td><?= $brand->updated_at; ?></td>
+                                    <td><?= $product->updated_at; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_BY</td>
-                                    <td><?= $brand->updated_by; ?></td>
+                                    <td><?= $product->updated_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>STATUS</td>
-                                    <td><?= $brand->status; ?></td>
+                                    <td><?= $product->status; ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -102,15 +93,15 @@ $brand = Product::find($id);
 </div>
 <!-- END CONTENT-->
 <script>
-const thongbao = 'chờ 1s trở về danh sách sản phẩm ->';
-document.getElementById('vedanhsach').addEventListener('click', function(event) {
-    // Ngăn chặn hành động mặc định của liên kết (để chuyển hướng sau khi thêm sản phẩm)
-    event.preventDefault();
-    document.getElementById('thongbao').innerHTML = thongbao;
-    // Sau khi ngăn chặn hành động mặc định, bạn có thể thực hiện chuyển hướng
-    setTimeout(function() {
-        window.location.href = "index.php?option=product";
-    }, 1000);
-});
+    const thongbao = 'chờ 1s trở về danh sách sản phẩm ->';
+    document.getElementById('vedanhsach').addEventListener('click', function(event) {
+        // Ngăn chặn hành động mặc định của liên kết (để chuyển hướng sau khi thêm sản phẩm)
+        event.preventDefault();
+        document.getElementById('thongbao').innerHTML = thongbao;
+        // Sau khi ngăn chặn hành động mặc định, bạn có thể thực hiện chuyển hướng
+        setTimeout(function() {
+            window.location.href = "index.php?option=product";
+        }, 1000);
+    });
 </script>
 <?php require_once '../views/backend/footer.php' ?>

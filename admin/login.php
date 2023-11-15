@@ -71,7 +71,7 @@
 
     if (isset($_POST['dangnhap'])) {
         $username = $_POST['username'];
-        $password = ($_POST['password']);
+        $password = sha1($_POST['password']);
 
         $args = [
             ['roles', '=', 1],

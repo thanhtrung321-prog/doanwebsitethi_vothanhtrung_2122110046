@@ -7,7 +7,7 @@ $dk = [
     ['status', '!=', 0]
 ];
 $id = $_REQUEST['id'];
-$brand = Category::find($id);
+$category = Category::find($id);
 
 ?>
 <?php require_once "../views/backend/header.php"; ?>
@@ -48,46 +48,48 @@ $brand = Category::find($id);
 
                                 <tr>
                                     <td>ID</td>
-                                    <td><?= $brand->id; ?></td>
+                                    <td><?= $category->id; ?></td>
                                 </tr>
                                 <tr>
                                     <td>NAME</td>
-                                    <td><?= $brand->name; ?></td>
+                                    <td><?= $category->name; ?></td>
                                 </tr>
                                 <tr>
                                     <td>SLUG</td>
-                                    <td><?= $brand->slug; ?></td>
+                                    <td><?= $category->slug; ?></td>
                                 </tr>
                                 <tr>
                                     <td>IMAGE</td>
                                     <td style="width:5rem; height:5rem;">
-                                        <img src="../public/images/product/<?= $brand->image; ?>" alt="<?= $brand->image; ?>" style="width:100%; height:100%; object-fit: cover;">
+                                        <img src="../public/images/category/<?= $category->image; ?>"
+                                            alt="<?= $category->image; ?>"
+                                            style="width:100%; height:100%; object-fit: cover;">
                                     </td>
 
                                 </tr>
                                 <tr>
                                     <td>SORT_ORDER</td>
-                                    <td><?= $brand->sort_order; ?></td>
+                                    <td><?= $category->sort_order; ?></td>
                                 </tr>
                                 <tr>
                                     <td>DESCRIPTION</td>
-                                    <td><?= $brand->description; ?></td>
+                                    <td><?= $category->description; ?></td>
                                 </tr>
                                 <tr>
                                     <td>CREATED_BY</td>
-                                    <td><?= $brand->created_by; ?></td>
+                                    <td><?= $category->created_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_AT</td>
-                                    <td><?= $brand->updated_at; ?></td>
+                                    <td><?= $category->updated_at; ?></td>
                                 </tr>
                                 <tr>
                                     <td>UPDATED_BY</td>
-                                    <td><?= $brand->updated_by; ?></td>
+                                    <td><?= $category->updated_by; ?></td>
                                 </tr>
                                 <tr>
                                     <td>STATUS</td>
-                                    <td><?= $brand->status; ?></td>
+                                    <td><?= $category->status; ?></td>
                                 </tr>
                             </tbody>
                         </table>

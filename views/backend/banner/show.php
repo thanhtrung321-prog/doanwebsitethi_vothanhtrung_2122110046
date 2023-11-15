@@ -63,7 +63,7 @@ if($banner==null){
                                 </tr>
                                 <tr>
                                     <td>IMAGE</td>
-                                    <td><img style="width:100px;" src="../public/images/banner<?=$banner->image;?>"
+                                    <td><img style="width:100px;" src="../public/images/banner/<?=$banner->image;?>"
                                             alt="<?=$banner->image;?>"></td>
                                 </tr>
                                 <tr>
