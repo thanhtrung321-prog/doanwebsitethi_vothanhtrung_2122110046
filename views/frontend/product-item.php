@@ -1,12 +1,9 @@
-<div class="col-6 col-md-3 mb-4">
+<div class="col-12 mb-4">
     <div class="product-item border">
         <div class="product-item-image ">
             <a href="index.php?option=product&slug=<?= $product->slug; ?>">
-                <img style="width: 400px;height:300px;object-fit:cover;"
-                    src="public/images/product/<?= $product->image; ?>" class="img-fluid" alt="<?= $product->image; ?>"
-                    id="img1">
-                <img style="width: 400px;height:300px;object-fit:cover;" class="img-fluid"
-                    src="public/images/product/<?= $product->image; ?>" alt="<?= $product->image; ?>" id="img2">
+                <img style="width: 100%;height:300px;object-fit:cover;" src="public/images/product/<?= $product->image; ?>" class="img-fluid" alt="<?= $product->image; ?>" id="img1">
+                <img style="width: 100%;height:300px;object-fit:cover;" class="img-fluid" src="public/images/product/<?= $product->image; ?>" alt="<?= $product->image; ?>" id="img2">
             </a>
         </div>
         <h2 class="product-item-name text-main text-center fs-5 py-1">

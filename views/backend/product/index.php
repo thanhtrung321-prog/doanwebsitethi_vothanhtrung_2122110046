@@ -61,6 +61,7 @@ foreach ($listbrand as $brand)
                                 <th>Tên sản phẩm</th>
                                 <th>Tên danh mục</th>
                                 <th>Tên thương hiệu</th>
+                                <th>chi tiết sản phẩm</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,9 +113,10 @@ foreach ($listbrand as $brand)
                                 <?php else : ?>
                                 <td>sản phẩm này không có thương hiệu </td>
                                 <?php endif; ?>
+                                <td style="font-size:1em;text-transform:lowercase;"><?= $item->detail; ?></td>
+                                <?php endforeach ?>
+                                <?php endif ?>
                             </tr>
-                            <?php endforeach ?>
-                            <?php endif ?>
                         </tbody>
                     </table>
                 </div>

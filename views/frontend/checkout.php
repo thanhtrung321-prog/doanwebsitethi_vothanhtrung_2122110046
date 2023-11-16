@@ -9,6 +9,7 @@ $listcart = Cart::cartContent();
 if (isset($_POST['XACNHAN'])) {
     $order = new Order();
     $order->user_id = $_SESSION['user_id'];
+    $order->deliveryaddress = $_POST['deliveryaddress'];
 
     // Đảm bảo có thông tin của khách hàng (chú ý: bạn cần kiểm tra $_SESSION['user_id'] trước khi sử dụng nó)
     $customer = User::where([['status', '=', 1], ['id', '=', $_SESSION['user_id']]])->first();
@@ -18,14 +19,12 @@ if (isset($_POST['XACNHAN'])) {
         $order->deliveryemail = $customer->email;
         $order->deliveryaddress = $customer->address;
     } else {
-        // Xử lý khi không tìm thấy thông tin của khách hàng
-        // Ví dụ: $order->deliveryname = 'Tên mặc định';
+        $order->deliveryaddress = 'Default Address';
     }
 
     $order->note = 'không chú ý';
     $order->created_at = date('Y-m-d H:i:s');
     $order->status = 1;
-
     if ($order->save()) {
         foreach ($listcart as $cart) {
             $orderdetail = new Orderdetail();
@@ -68,8 +67,42 @@ if (isset($_POST['XACNHAN'])) {
                             </div>
 
                             <div class="mb-3">
-                                <label for="address">Địa chỉ</label>
-                                <input readonly type="text" value="<?= $customer->address ?>" name="address" id="address" class="form-control" placeholder="Nhập địa chỉ">
+                                <label for="address">Địa chỉ lúc ban đầu:</label>
+                                <input name="address" readonly type="text" value="<?= $customer->address ?>" id="address" class="form-control" placeholder="Nhập địa chỉ">
+                                <div class="card">
+                                    <div class="card-header text-main">
+                                        Địa chỉ bạn muốn thay đổi
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <input type="text" name="deliveryaddress" id="deliveryaddress" class="form-control" placeholder="Nhập địa chỉ">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <select id="city" class="form-control">
+                                                            <option value="">Chọn tỉnh/thành phố</option>
+                                                            <!-- Thêm các option cho tỉnh/thành phố -->
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <select id="district" class="form-control">
+                                                            <option value="">Chọn quận/huyện</option>
+                                                            <!-- Thêm các option cho quận/huyện -->
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <select id="ward" class="form-control">
+                                                            <option value="">Chọn xã/phường</option>
+                                                            <!-- Thêm các option cho xã/phường -->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <h4 class="fs-6 text-main mt-4">Phương thức thanh toán</h4>
@@ -83,9 +116,13 @@ if (isset($_POST['XACNHAN'])) {
                                     <label for="check2">Chuyển khoản qua ngân hàng</label>
                                 </div>
                                 <div class="p-4 border bankinfo">
-                                    <p>Ngân Hàng Vietcombank </p>
-                                    <p>STK: 99999999999999</p>
-                                    <p>Chủ tài khoản: Hồ Diên Lợi</p>
+                                    <p>Ngân Hàng Mbank </p>
+                                    <p>STK:
+                                        <?= isset($_SESSION['phone']) && $_SESSION['phone'] ? $_SESSION['phone'] : "0379263053;" ?>
+                                    </p>
+
+                                    <p>Chủ tài khoản: <?= $_SESSION['name'] ?></p>
+                                    </p>
                                 </div>
                             </div>
                             <div class="text-end">
@@ -180,4 +217,90 @@ if (isset($_POST['XACNHAN'])) {
         </div>
     </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var wards = document.getElementById("ward");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+    };
+    var promise = axios(Parameter);
+    promise.then(function(result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+            var opt = document.createElement('option');
+            opt.value = x.Name;
+            opt.text = x.Name;
+            opt.setAttribute('data-id', x.Id);
+            citis.options.add(opt);
+        }
+        citis.onchange = function() {
+            district.length = 1;
+            ward.length = 1;
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const result = data.filter(n => n.Id === this.options[this.selectedIndex].dataset.id);
+
+                for (const k of result[0].Districts) {
+                    var opt = document.createElement('option');
+                    opt.value = k.Name;
+                    opt.text = k.Name;
+                    opt.setAttribute('data-id', k.Id);
+                    district.options.add(opt);
+                }
+            }
+        };
+        district.onchange = function() {
+            ward.length = 1;
+            const dataCity = data.filter((n) => n.Id === citis.options[citis.selectedIndex].dataset.id);
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const dataWards = dataCity[0].Districts.filter(n => n.Id === this.options[this.selectedIndex].dataset
+                    .id)[0].Wards;
+
+                for (const w of dataWards) {
+                    var opt = document.createElement('option');
+                    opt.value = w.Name;
+                    opt.text = w.Name;
+                    opt.setAttribute('data-id', w.Id);
+                    wards.options.add(opt);
+                }
+            }
+        };
+    }
+</script>
+<script>
+    // Assuming that the 'city', 'district', and 'ward' dropdowns are present in your HTML.
+    // You can customize this script based on your actual dropdown IDs.
+
+    // This function will be called whenever there's a change in any of the dropdowns.
+    function updateDeliveryAddress() {
+        var city = document.getElementById("city").value;
+        var district = document.getElementById("district").value;
+        var ward = document.getElementById("ward").value;
+
+        var deliveryAddress = '';
+
+        if (ward) {
+            deliveryAddress += ward + ', ';
+        }
+        if (district) {
+            deliveryAddress += district + ', ';
+        }
+        if (city) {
+            deliveryAddress += city;
+        }
+
+        document.getElementById("deliveryaddress").value = deliveryAddress;
+    }
+
+    // Adding the 'onchange' attribute to each dropdown to call the updateDeliveryAddress function.
+    document.getElementById("city").onchange = updateDeliveryAddress;
+    document.getElementById("district").onchange = updateDeliveryAddress;
+    document.getElementById("ward").onchange = updateDeliveryAddress;
+</script>
 <?php require_once "views/frontend/footer.php" ?>

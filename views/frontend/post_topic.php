@@ -59,8 +59,7 @@ if ($topic) {
                         <div class="product-item border">
                             <div class="product-item-image">
                                 <a href="product_detail.html">
-                                    <img src="../public/images/product/thoi-trang-the-thao-1.webp" class="img-fluid"
-                                        alt="">
+                                    <img src="../public/images/product/thoi-trang-the-thao-1.webp" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <h2 class="product-item-name text-main text-center fs-5 py-1">
@@ -76,8 +75,7 @@ if ($topic) {
                         <div class="product-item border">
                             <div class="product-item-image">
                                 <a href="product_detail.html">
-                                    <img src="../public/images/product/thoi-trang-the-thao-2.webp" class="img-fluid"
-                                        alt="">
+                                    <img src="../public/images/product/thoi-trang-the-thao-2.webp" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <h2 class="product-item-name text-main text-center fs-5 py-1">
@@ -93,8 +91,7 @@ if ($topic) {
                         <div class="product-item border">
                             <div class="product-item-image">
                                 <a href="product_detail.html">
-                                    <img src="../public/images/product/thoi-trang-the-thao-1.webp" class="img-fluid"
-                                        alt="">
+                                    <img src="../public/images/product/thoi-trang-the-thao-1.webp" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <h2 class="product-item-name text-main text-center fs-5 py-1">
@@ -332,11 +329,11 @@ if ($topic) {
                             <h2 class="post-item-title text-main fs-5 py-1">
                                 <a href="index.php?option=post_detail">
                                     <?php if (count($posts) > 0) : ?>
-                                    <?php foreach ($posts as $item) : ?>
-                                    <?= $item->detail; ?>
-                                    <?php endforeach; ?>
-                                    <?php else: ?>
-                                    <p>chưa có dữ liệu post</p>
+                                        <?php foreach ($posts as $item) : ?>
+                                            <?= $item->detail; ?>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <p>chưa có dữ liệu post</p>
                                     <?php endif; ?>
 
                                 </a>
